@@ -23,13 +23,23 @@
             --white: #ffffff;
         }
         
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        /* सिक्योरिटी: कोई भी टेक्स्ट सेलेक्ट या कॉपी नहीं कर पाएगा */
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+            background-color: var(--bg-light); 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+            user-select: none; 
+        }
         
         /* Navbar */
         .navbar { background-color: var(--brand-blue); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
         
         .logo-container { display: flex; align-items: center; gap: 12px; }
-        /* लोगो भी रिस्पॉन्सिव: कंप्यूटर पर 75px, मोबाइल पर अपने आप छोटा होगा */
+        /* लोगो स्क्रीन के हिसाब से अपने आप बड़ा-छोटा होगा */
         .logo-container img { height: clamp(50px, 8vw, 75px); width: auto; object-fit: contain; }
         .logo-text { color: var(--brand-yellow); font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         
@@ -60,15 +70,14 @@
         .wa-btn { background-color: #25d366; color: white; padding: 14px 30px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: 0.3s; }
         .wa-btn:hover { background-color: #1ebe57; transform: scale(1.05); }
 
-        /* Footer & Smart Responsive Social Icons */
+        /* Footer & Official Colored Social Icons */
         footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 40px 20px 25px; border-top: 5px solid var(--brand-red); margin-top: 40px; }
         
         .footer-social { 
             display: flex; 
             justify-content: center; 
             align-items: center;
-            /* gap मोबाइल पर छोटा और कंप्यूटर पर बड़ा हो जाएगा */
-            gap: clamp(8px, 2vw, 15px); 
+            gap: clamp(10px, 2.5vw, 20px); 
             margin-bottom: 30px; 
             width: 100%;
         }
@@ -77,25 +86,27 @@
             display: inline-flex; 
             align-items: center; 
             justify-content: center; 
-            /* width और height स्क्रीन के हिसाब से अपने आप एडजस्ट होंगे */
-            width: clamp(35px, 9vw, 50px); 
-            height: clamp(35px, 9vw, 50px); 
-            background: rgba(255, 255, 255, 0.1); 
+            width: clamp(40px, 10vw, 55px); 
+            height: clamp(40px, 10vw, 55px); 
             color: var(--white); 
-            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-size: clamp(1.2rem, 4.5vw, 1.7rem); 
             border-radius: 50%; 
             text-decoration: none; 
             transition: all 0.3s ease; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         
-        /* होवर करने पर आइकॉन अपने असली रंग में चमकेंगे */
-        .footer-social a.fb:hover { background: #1877f2; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(24,119,242,0.4); }
-        .footer-social a.tw:hover { background: #000000; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
-        .footer-social a.in:hover { background: #0077b5; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,119,181,0.4); }
-        .footer-social a.ig:hover { background: #e4405f; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(228,64,95,0.4); }
-        .footer-social a.yt:hover { background: #ff0000; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(255,0,0,0.4); }
-        .footer-social a.wa:hover { background: #25d366; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(37,211,102,0.4); }
-        .footer-social a.tg:hover { background: #0088cc; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,136,204,0.4); }
+        /* अब सभी आइकॉन अपने असली (ऑफिशियल) रंग में दिखेंगे */
+        .footer-social a.fb { background: #1877f2; }
+        .footer-social a.tw { background: #000000; border: 1px solid #333; }
+        .footer-social a.in { background: #0077b5; }
+        .footer-social a.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .footer-social a.yt { background: #ff0000; }
+        .footer-social a.wa { background: #25d366; }
+        .footer-social a.tg { background: #0088cc; }
+        
+        /* होवर करने पर हल्का सा उछलेंगे */
+        .footer-social a:hover { transform: scale(1.15) translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.5); }
         
         footer span { color: var(--brand-yellow); font-weight: 700; }
         
@@ -121,14 +132,13 @@
 </head>
 <body>
 
-    <!-- Header / Navbar (Hamburger Menu के साथ) -->
+    <!-- Header / Navbar -->
     <nav class="navbar">
         <div class="logo-container">
             <a href="index.html"><img src="logo.png" alt="Flair Foundation Logo"></a>
             <span class="logo-text">Flair Foundation</span>
         </div>
         
-        <!-- मोबाइल के लिए ☰ (Hamburger) बटन -->
         <div class="menu-toggle" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
@@ -205,7 +215,7 @@
 
     <!-- Footer -->
     <footer>
-        <!-- Social Media Icons (सिर्फ फुटर में और 100% रिस्पॉन्सिव) -->
+        <!-- Social Media Icons (अब फुल ऑफिशियल कलर के साथ) -->
         <div class="footer-social">
             <a href="#" class="fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="tw" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
@@ -220,12 +230,46 @@
         <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Director/Founder: Er. PK Singh | Kacchi Dargah, Banka Ghat, Patna</p>
     </footer>
 
-    <!-- यह छोटा सा जावास्क्रिप्ट मोबाइल में मेनू को खोलने/बंद करने के काम आएगा -->
+    <!-- Scripts (Menu & Security) -->
     <script>
+        // मोबाइल मेनू के लिए
         function toggleMenu() {
             var menu = document.getElementById("nav-menu");
             menu.classList.toggle("active");
         }
+
+        // ==========================================
+        // हाई-सिक्योरिटी कोड (एंटी-कॉपी & एंटी-स्क्रीनशॉट)
+        // ==========================================
+        
+        // 1. राइट-क्लिक (Right Click) बंद करना
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // 2. कीबोर्ड शॉर्टकट बंद करना (Ctrl+C, Ctrl+U, F12, आदि)
+        document.addEventListener('keydown', function(e) {
+            // F12 (Developer Tools)
+            if (e.key === 'F12' || e.keyCode === 123) {
+                e.preventDefault();
+            }
+            // Ctrl+C (Copy), Ctrl+U (View Source), Ctrl+S (Save)
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'c' || e.key === 'C' || e.key === 's' || e.key === 'S')) {
+                e.preventDefault();
+            }
+            // Ctrl+Shift+I (Inspect Element)
+            if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'c' || e.key === 'C' || e.key === 'j' || e.key === 'J')) {
+                e.preventDefault();
+            }
+        });
+
+        // 3. कंप्यूटर पर PrintScreen (स्क्रीनशॉट) बटन दबाने पर क्लिपबोर्ड खाली करना
+        document.addEventListener('keyup', function (e) {
+            if (e.key === 'PrintScreen' || e.keyCode === 44) {
+                navigator.clipboard.writeText(''); // कॉपी किया हुआ डाटा डिलीट
+                alert("सुरक्षा कारणों से इस वेबसाइट का स्क्रीनशॉट लेना सख्त मना है!");
+            }
+        });
     </script>
 
 </body>
