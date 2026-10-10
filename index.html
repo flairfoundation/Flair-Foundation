@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flair Foundation | Free Education Campaign</title>
     
-    <!-- Favicon (अब एकदम सही नाम के साथ) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Social Media Icons के लिए लेटेस्ट FontAwesome लिंक -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,11 +27,8 @@
         
         .navbar { background-color: var(--brand-blue); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
         
-        .logo-container { display: flex; align-items: center; gap: 15px; }
-        
-        /* लोगो को एकदम साफ, बड़ा और बिना किसी फालतू घेरे के सेट किया गया है */
-        .logo-container img { height: 75px; width: 75px; object-fit: contain; background-color: transparent; }
-        
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .logo-container img { height: 75px; width: auto; border: none; padding: 0; border-radius: 0; background-color: transparent; display: block; }
         .logo-text { color: var(--brand-yellow); font-size: 1.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         
         .nav-links { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; align-items: center; margin-top: 5px; }
@@ -53,8 +53,13 @@
         .wa-btn { background-color: #25d366; color: white; padding: 14px 30px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: 0.3s; }
         .wa-btn:hover { background-color: #1ebe57; transform: scale(1.05); }
 
-        footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 25px 20px; font-size: 0.95rem; border-top: 5px solid var(--brand-red); }
+        /* Footer और Social Icons की डिजाइन */
+        footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 35px 20px 25px; font-size: 0.95rem; border-top: 5px solid var(--brand-red); }
         footer span { color: var(--brand-yellow); font-weight: 700; }
+        
+        .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; }
+        .social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background-color: rgba(255, 255, 255, 0.1); color: var(--white); font-size: 1.3rem; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; }
+        .social-icons a:hover { background-color: var(--brand-yellow); color: var(--brand-blue); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(251, 192, 45, 0.4); }
         
         @media (max-width: 768px) {
             .navbar { flex-direction: column; text-align: center; }
@@ -69,7 +74,6 @@
     <!-- Header / Navbar -->
     <nav class="navbar">
         <div class="logo-container">
-            <!-- एकदम शुद्ध लोगो का लिंक -->
             <a href="index.html"><img src="logo.png" alt="Flair Foundation Logo"></a>
             <span class="logo-text">Flair Foundation</span>
         </div>
@@ -109,7 +113,7 @@
             </p>
         </div>
 
-        <!-- Cards Section (Responsive Grid) -->
+        <!-- Cards Section -->
         <div class="grid-container">
             
             <div class="card">
@@ -145,6 +149,17 @@
 
     <!-- Footer -->
     <footer>
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="mailto:your-email@gmail.com" title="Email Us"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/917050668855" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        
         <p>&copy; 2026 <span>Flair Foundation</span>. All Rights Reserved.</p>
         <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Director/Founder: Er. PK Singh | Kacchi Dargah, Banka Ghat, Patna</p>
     </footer>
