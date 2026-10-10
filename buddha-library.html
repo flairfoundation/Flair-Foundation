@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buddha Library - A Unit of Flair Foundation</title>
     
-    <!-- Favicon (आपका बुद्धा लाइब्रेरी वाला लोगो) -->
+    <!-- Favicon (आपका बुद्धा लाइब्रेरी वाला लोगो jpeg फॉर्मेट में) -->
     <link rel="icon" type="image/jpeg" href="buddha-logo.jpeg">
     
     <!-- Social Media Icons -->
@@ -39,7 +39,7 @@
         .navbar { background-color: var(--brand-blue); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
         
         .logo-container { display: flex; align-items: center; gap: 12px; }
-        .logo-container img { height: clamp(45px, 6vw, 65px); width: auto; object-fit: contain; } /* हेडर लोगो साइज */
+        .logo-container img { height: clamp(45px, 6vw, 65px); width: auto; object-fit: contain; }
         .logo-text { color: var(--brand-yellow); font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         
         /* Desktop Menu */
@@ -50,14 +50,14 @@
         /* Mobile Menu (Hamburger Icon) */
         .menu-toggle { display: none; color: var(--brand-yellow); font-size: 1.8rem; cursor: pointer; }
 
-        /* Library Hero Banner (आपके ओरिजिनल लोगो के साथ) */
+        /* Library Hero Banner */
         .lib-hero { background-color: var(--white); padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--brand-yellow); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         
         /* आपका बुद्धा लाइब्रेरी लोगो (बड़ा और बीच में) */
         .lib-logo { 
             width: clamp(120px, 20vw, 160px); 
             height: auto; 
-            border-radius: 50%; /* लोगो को गोल दिखाने के लिए */
+            border-radius: 50%; 
             margin-bottom: 15px; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
         }
@@ -68,7 +68,7 @@
 
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         
-        /* Rules Section - Professional Typography (हिंदी के फॉन्ट को सधा हुआ रखा गया है) */
+        /* Rules Section */
         .section-title { text-align: center; color: var(--brand-blue); font-size: 1.8rem; margin: 40px 0 25px; text-decoration: underline; text-decoration-color: var(--brand-yellow); text-decoration-thickness: 3px; text-transform: uppercase; }
         
         .rule-card { background: #fff; padding: 25px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 5px solid var(--brand-blue); }
@@ -76,7 +76,6 @@
         
         .rule-card h3 { font-size: 1.25rem; color: var(--brand-blue); margin-bottom: 12px; font-weight: 700; }
         .rule-card ul { list-style: none; margin-left: 0; }
-        /* हिंदी फॉन्ट को 1rem (स्टैंडर्ड) पर फिक्स किया गया है ताकि भद्दा न लगे */
         .rule-card ul li { margin-bottom: 10px; font-size: 1rem; color: #444; position: relative; padding-left: 20px; line-height: 1.5; }
         .rule-card ul li::before { content: "▪"; position: absolute; left: 0; color: var(--brand-yellow); font-size: 1.2rem; line-height: 1.2; }
         
@@ -159,8 +158,8 @@
 
     <!-- Buddha Library Hero Section -->
     <div class="lib-hero">
-        <!-- यहाँ बुद्धा लाइब्रेरी का ओरिजिनल गोल लोगो (buddha-logo.png) लगा है -->
-        <img src="buddha-logo.png" alt="Buddha Library Logo" class="lib-logo">
+        <!-- यहाँ बुद्धा लाइब्रेरी का लोगो jpeg फॉर्मेट में सेट कर दिया है -->
+        <img src="buddha-logo.jpeg" alt="Buddha Library Logo" class="lib-logo">
         <h1>बुद्धा लाइब्रेरी</h1>
         <p>एक शांत वातावरण, एक उज्ज्वल भविष्य। ✨</p>
         <p class="effective-date">(यह नियम 1 नवंबर 2025 से प्रभावी रूप से लागू हैं)</p>
@@ -171,7 +170,7 @@
         
         <h2 class="section-title">📜 लाइब्रेरी के नियम एवं शर्तें</h2>
 
-        <!-- Rules Section (प्रोफेशनल फॉन्ट साइज के साथ) -->
+        <!-- Rules Section -->
         <div class="rule-card">
             <h3>1. एकाग्रता और शांत वातावरण (सबसे महत्वपूर्ण)</h3>
             <ul>
@@ -291,7 +290,6 @@
             <h2>Admission Open - अभी नामांकन करें 🚩</h2>
             <p>📍 मेन रोड, कच्ची दरगाह, दुर्गा मंदिर के पास, पटना-803201</p>
             <br>
-            <!-- यहाँ WhatsApp लिंक में # की जगह अपना लिंक डालें -->
             <a href="https://wa.me/917050668855?text=नमस्ते%20पिंटू%20जी,%20मुझे%20बुद्धा%20लाइब्रेरी%20में%20एडमिशन%20लेना%20है।" target="_blank" class="wa-btn">
                💬 Chat on WhatsApp
             </a>
@@ -325,19 +323,14 @@
         // हाई-सिक्योरिटी कोड (एंटी-कॉपी & एंटी-स्क्रीनशॉट)
         // ==========================================
         
-        // 1. राइट-क्लिक (Right Click) बंद करना
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
 
-        // 2. कीबोर्ड शॉर्टकट बंद करना
         document.addEventListener('keydown', function(e) {
             if (e.key === 'F12' || e.keyCode === 123) e.preventDefault();
             if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'c' || e.key === 'C' || e.key === 's' || e.key === 'S')) e.preventDefault();
             if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'c' || e.key === 'C' || e.key === 'j' || e.key === 'J')) e.preventDefault();
         });
 
-        // 3. कंप्यूटर पर PrintScreen बटन बंद करना
         document.addEventListener('keyup', function (e) {
             if (e.key === 'PrintScreen' || e.keyCode === 44) {
                 navigator.clipboard.writeText(''); 
