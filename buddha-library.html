@@ -23,7 +23,7 @@
             --white: #ffffff;
         }
         
-        /* सिक्योरिटी: एंटी-कॉपी (स्क्रीन प्रोटेक्टर) */
+        /* सिक्योरिटी: एंटी-कॉपी */
         body { 
             font-family: system-ui, -apple-system, sans-serif; 
             background-color: var(--bg-light); 
@@ -37,16 +37,13 @@
         
         /* Navbar */
         .navbar { background-color: var(--brand-blue); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
-        
         .logo-container { display: flex; align-items: center; gap: 12px; }
         .logo-container img { height: clamp(45px, 6vw, 65px); width: auto; object-fit: contain; }
         .logo-text { color: var(--brand-yellow); font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* Desktop Menu */
         .nav-links { display: flex; gap: 8px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.95rem; padding: 6px 12px; border-radius: 4px; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
         .nav-links a:hover, .nav-links a.active { color: var(--brand-blue); background-color: var(--brand-yellow); }
-        
         .menu-toggle { display: none; color: var(--brand-yellow); font-size: 1.8rem; cursor: pointer; }
 
         /* Library Hero Banner */
@@ -83,16 +80,17 @@
 
         .special-msg { background: var(--brand-blue); color: white; padding: 20px; text-align: center; border-radius: 8px; margin-top: 35px; font-size: 1.05rem; font-weight: 600; line-height: 1.6; border-left: 5px solid var(--brand-yellow); }
 
-        /* 💳 Payment & QR Code Section */
-        .payment-box { background: #ffffff; border: 2px dashed var(--brand-yellow); border-radius: 12px; padding: 30px 20px; text-align: center; margin-top: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .payment-box h3 { color: var(--brand-blue); font-size: 1.5rem; margin-bottom: 10px; }
-        .payment-box p { color: #666; margin-bottom: 20px; font-size: 0.95rem; }
+        /* ✨ Smart & Clean Payment Section */
+        .payment-section { background: #ffffff; border-radius: 16px; padding: 40px 30px; margin-top: 40px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); border: 1px solid #e0e0e0; text-align: center; }
+        .payment-section h3 { color: var(--brand-blue); font-size: 1.8rem; margin-bottom: 12px; font-weight: 800; }
+        .payment-section p { color: #555; margin-bottom: 25px; font-size: 1.05rem; max-width: 600px; margin-left: auto; margin-right: auto; }
         
-        .upi-btn { background-color: #00897b; color: white; padding: 14px 30px; text-decoration: none; font-size: 1.1rem; font-weight: bold; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0, 137, 123, 0.3); transition: 0.3s; margin-bottom: 25px; }
-        .upi-btn:hover { background-color: #00695c; transform: scale(1.05); }
+        .upi-btn { background: linear-gradient(135deg, #00897b, #00695c); color: white; padding: 15px 35px; text-decoration: none; font-size: 1.15rem; font-weight: 700; border-radius: 50px; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 6px 20px rgba(0, 137, 123, 0.35); transition: 0.3s; margin-bottom: 30px; }
+        .upi-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 137, 123, 0.45); }
 
-        .qr-container { background: #f9f9f9; padding: 15px; border-radius: 10px; display: inline-block; border: 1px solid #ddd; margin-top: 10px; }
-        .qr-container img { width: 180px; height: 180px; object-fit: contain; border-radius: 6px; }
+        .qr-display-box { background: #f8f9fa; border: 2px solid var(--brand-yellow); padding: 25px; border-radius: 14px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.04); max-width: 320px; width: 100%; }
+        .qr-display-box img { width: 100%; height: auto; max-height: 280px; object-fit: contain; border-radius: 8px; display: block; margin: 0 auto; }
+        .qr-display-box p { margin-top: 12px; font-weight: 700; color: #333; font-size: 1rem; }
 
         /* Contact Details & Map Rating */
         .contact-box { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 12px; padding: 35px 20px; text-align: center; margin-top: 40px; box-shadow: inset 0 0 10px rgba(0,0,0,0.02); }
@@ -102,12 +100,12 @@
         .wa-btn { background-color: #25d366; color: white; padding: 12px 25px; text-decoration: none; font-size: 1.1rem; font-weight: bold; border-radius: 50px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: 0.3s; margin: 10px 5px; }
         .wa-btn:hover { background-color: #1ebe57; transform: scale(1.05); }
 
-        .map-rating-box { margin-top: 40px; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--brand-yellow); }
-        .map-responsive { overflow: hidden; padding-bottom: 50%; position: relative; height: 0; border-radius: 8px; margin-top: 20px; }
+        .map-rating-box { margin-top: 40px; background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); text-align: center; border-top: 5px solid var(--brand-yellow); }
+        .map-responsive { overflow: hidden; padding-bottom: 45%; position: relative; height: 0; border-radius: 10px; margin-top: 20px; border: 1px solid #ddd; }
         .map-responsive iframe { left: 0; top: 0; height: 100%; width: 100%; position: absolute; border: 0; }
         
-        .rating-btn { background-color: #fbc02d; color: #000; padding: 12px 25px; text-decoration: none; font-size: 1.1rem; font-weight: 800; border-radius: 50px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(251, 192, 45, 0.4); transition: 0.3s; margin-top: 15px; }
-        .rating-btn:hover { background-color: #f9a825; transform: scale(1.05); }
+        .rating-btn { background-color: var(--brand-yellow); color: #000; padding: 14px 30px; text-decoration: none; font-size: 1.15rem; font-weight: 800; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 6px 20px rgba(251, 192, 45, 0.4); transition: 0.3s; margin-top: 20px; }
+        .rating-btn:hover { background-color: #f9a825; transform: translateY(-3px); }
 
         /* Footer */
         footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 40px 20px 25px; border-top: 5px solid var(--brand-red); margin-top: 40px; }
@@ -129,6 +127,7 @@
             .nav-links.active { display: flex; } 
             .nav-links li { width: 100%; text-align: center; margin-bottom: 5px; }
             .nav-links a { display: block; padding: 12px; font-size: 1rem; }
+            .map-responsive { padding-bottom: 75%; }
         }
     </style>
 </head>
@@ -286,22 +285,20 @@
             🌟 विशेष संदेश: "अनुशासन ही वह पुल है जो आपके आज के संघर्ष को कल की सफलता से जोड़ता है। आपकी सुविधा के लिए बनाए गए इन नियमों में सहयोग करें। धन्यवाद!" 🎓
         </div>
 
-        <!-- 💳 Online Payment & QR Code Section -->
-        <div class="payment-box">
+        <!-- ✨ Professional & Clean Payment & QR Code Section -->
+        <div class="payment-section">
             <h3>💳 ऑनलाइन फीस भुगतान (Online Fee Payment)</h3>
-            <p>आप नीचे दिए गए बटन से सीधे UPI ऐप के जरिए भुगतान कर सकते हैं या QR कोड को स्कैन कर सकते हैं।</p>
+            <p>सीधे किसी भी यूपीआई ऐप से भुगतान करने के लिए नीचे दिए गए बटन पर क्लिक करें, या नीचे दिए गए क्यूआर कोड को स्कैन करें।</p>
             
-            <!-- Direct UPI App Link -->
             <a href="upi://pay?pa=7050668855@paytm&pn=Buddha%20Library&cu=INR" class="upi-btn">
                 <i class="fas fa-mobile-screen-button"></i> 📱 Pay via Any UPI App (GPay/PhonePe/Paytm)
             </a>
             
-            <br>
-            <p style="margin: 15px 0 5px; font-weight: bold; color: #444;">या QR कोड स्कैन करके भुगतान करें:</p>
-            
-            <div class="qr-container">
-                <!-- यहाँ qr-code.jpeg फॉर्मेट सेट कर दिया है -->
-                <img src="qr-code.jpeg" alt="Buddha Library UPI QR Code" onerror="this.src='https://via.placeholder.com/180?text=Upload+qr-code.jpeg';">
+            <div style="margin-top: 15px;">
+                <div class="qr-display-box">
+                    <img src="qr-code.jpeg" alt="Buddha Library UPI QR Code" onerror="this.src='https://via.placeholder.com/250?text=Upload+qr-code.jpeg';">
+                    <p>📷 स्कैन करके भुगतान करें</p>
+                </div>
             </div>
         </div>
 
@@ -318,16 +315,15 @@
             </a>
         </div>
 
-        <!-- 📍 Google Map & Rating Section -->
+        <!-- 📍 Professional Google Map & Rating Section -->
         <div class="map-rating-box">
-            <h2 style="color: var(--brand-blue); font-size: 1.5rem; text-transform: uppercase;">📍 हमारी लोकेशन और रेटिंग (Google Map)</h2>
-            <p style="color: #666; font-size: 0.95rem; margin-top: 5px;">नीचे दिए गए मैप पर हमारी लोकेशन देखें और अपना बहुमूल्य रिव्यू / रेटिंग दें!</p>
+            <h2 style="color: var(--brand-blue); font-size: 1.6rem; text-transform: uppercase; font-weight: 800;">📍 हमारी लोकेशन और रेटिंग (Google Map)</h2>
+            <p style="color: #666; font-size: 1rem; margin-top: 8px;">लाइब्रेरी की सटीक लोकेशन देखने और अपना बहुमूल्य रिव्यू/रेटिंग देने के लिए नीचे क्लिक करें!</p>
             
             <div class="map-responsive">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14392.204732441094!2d85.2259695!3d25.6032128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5844f0bb6903%3A0x2a9a4b8686d1b74c!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
-            <!-- Google Review / Rating Button -->
             <a href="https://maps.google.com/?q=Patna,+Bihar" target="_blank" class="rating-btn">
                 ⭐ Google पर रेटिंग / रिव्यू दें
             </a>
