@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flair Foundation | Free Education Campaign</title>
     
-    <!-- Favicon (आपका असली लोगो डायरेक्ट लिंक से) -->
-    <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/flairfoundation/Flair-Foundation/main/logo.png">
+    <!-- Favicon (अब एकदम सही नाम के साथ) -->
+    <link rel="icon" type="image/png" href="logo.png">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,9 +25,11 @@
         .navbar { background-color: var(--brand-blue); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
         
         .logo-container { display: flex; align-items: center; gap: 15px; }
-        /* यहाँ भी डायरेक्ट लिंक लगाया गया है */
-        .logo-container img { height: 60px; width: 60px; border-radius: 50%; border: 2px solid var(--brand-yellow); background: var(--white); padding: 2px; }
-        .logo-text { color: var(--brand-yellow); font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* लोगो को एकदम साफ, बड़ा और बिना किसी फालतू घेरे के सेट किया गया है */
+        .logo-container img { height: 75px; width: 75px; object-fit: contain; background-color: transparent; }
+        
+        .logo-text { color: var(--brand-yellow); font-size: 1.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         
         .nav-links { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; align-items: center; margin-top: 5px; }
         .nav-links a { text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.95rem; padding: 6px 12px; border-radius: 4px; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -64,11 +66,11 @@
 </head>
 <body>
 
-    <!-- Header / Navbar (English Menu) -->
+    <!-- Header / Navbar -->
     <nav class="navbar">
         <div class="logo-container">
-            <!-- यहाँ डायरेक्ट लिंक का इस्तेमाल किया गया है -->
-            <a href="index.html"><img src="https://raw.githubusercontent.com/flairfoundation/Flair-Foundation/main/logo.png" alt="Flair Foundation Logo" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/flairfoundation/Flair-Foundation/main/logo.png.png';"></a>
+            <!-- एकदम शुद्ध लोगो का लिंक -->
+            <a href="index.html"><img src="logo.png" alt="Flair Foundation Logo"></a>
             <span class="logo-text">Flair Foundation</span>
         </div>
         <ul class="nav-links">
