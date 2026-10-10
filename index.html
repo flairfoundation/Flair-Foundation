@@ -8,7 +8,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
     
-    <!-- Social Media Icons के लिए सबसे पक्का लिंक (इसे कॉपी करना जरूरी है) -->
+    <!-- Social Media Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
@@ -25,37 +25,29 @@
         
         body { font-family: system-ui, -apple-system, sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
         
+        /* Navbar */
         .navbar { background-color: var(--brand-blue); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
         
         .logo-container { display: flex; align-items: center; gap: 12px; }
-        .logo-container img { height: 75px; width: auto; border: none; padding: 0; border-radius: 0; background-color: transparent; display: block; }
-        .logo-text { color: var(--brand-yellow); font-size: 1.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .logo-container img { height: 65px; width: auto; object-fit: contain; }
+        .logo-text { color: var(--brand-yellow); font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         
-        .nav-links { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; align-items: center; margin-top: 5px; }
+        /* Desktop Menu */
+        .nav-links { display: flex; gap: 8px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.95rem; padding: 6px 12px; border-radius: 4px; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
         .nav-links a:hover, .nav-links a.active { color: var(--brand-blue); background-color: var(--brand-yellow); }
         
-        /* फ्लोटिंग सोशल मीडिया बार - अब पहले से रंगीन और 100% दिखने वाला */
-        .floating-social { position: fixed; top: 50%; left: 0; transform: translateY(-50%); display: flex; flex-direction: column; gap: 3px; z-index: 9999; }
-        .floating-social a { display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; color: var(--white); font-size: 1.4rem; text-decoration: none; box-shadow: 2px 2px 8px rgba(0,0,0,0.2); transition: all 0.3s; border-radius: 0 6px 6px 0; }
-        .floating-social a:hover { width: 55px; font-size: 1.6rem; }
-        
-        /* हर आइकॉन का अपना पक्का रंग (ताकि डिब्बा हमेशा दिखे) */
-        .floating-social a.fb { background: #1877f2; }
-        .floating-social a.tw { background: #000000; }
-        .floating-social a.in { background: #0077b5; }
-        .floating-social a.ig { background: #e4405f; }
-        .floating-social a.yt { background: #ff0000; }
-        .floating-social a.wa { background: #25d366; }
-        .floating-social a.tg { background: #0088cc; }
+        /* Mobile Menu (Hamburger Icon) - डेस्कटॉप पर छुपा रहेगा */
+        .menu-toggle { display: none; color: var(--brand-yellow); font-size: 2rem; cursor: pointer; }
 
         .ticker-wrap { background: var(--brand-yellow); color: var(--brand-blue); padding: 8px 20px; font-weight: 700; font-size: 1rem; border-bottom: 3px solid var(--brand-red); }
         
+        /* Hero Banner */
         .hero { background: linear-gradient(135deg, var(--brand-blue) 0%, #3949ab 100%); color: var(--white); text-align: center; padding: 70px 20px; border-bottom: 5px solid var(--brand-yellow); }
         .hero h1 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.95; }
         
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px 0 60px; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
         
@@ -67,40 +59,51 @@
         .wa-btn { background-color: #25d366; color: white; padding: 14px 30px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: 0.3s; }
         .wa-btn:hover { background-color: #1ebe57; transform: scale(1.05); }
 
-        footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 25px 20px; font-size: 0.95rem; border-top: 5px solid var(--brand-red); margin-top: 40px; }
+        /* Footer & Social Icons (अब सबसे नीचे सुरक्षित जगह पर) */
+        footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 40px 20px 25px; border-top: 5px solid var(--brand-red); margin-top: 40px; }
+        
+        .footer-social { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; }
+        .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: rgba(255, 255, 255, 0.1); color: var(--white); font-size: 1.3rem; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; }
+        .footer-social a:hover { background: var(--brand-yellow); color: var(--brand-blue); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(251, 192, 45, 0.4); }
+        
         footer span { color: var(--brand-yellow); font-weight: 700; }
         
-        @media (max-width: 768px) {
-            .navbar { flex-direction: column; text-align: center; }
-            .logo-container { margin-bottom: 15px; }
-            .nav-links { justify-content: center; }
+        /* 📱 Mobile Responsiveness & Hamburger Menu Setup */
+        @media (max-width: 900px) {
+            .menu-toggle { display: block; } /* मोबाइल में ☰ बटन दिखेगा */
+            
+            .nav-links { 
+                display: none; /* मोबाइल में मेनू शुरुआत में छुपा रहेगा */
+                width: 100%; 
+                flex-direction: column; 
+                background-color: var(--brand-blue); 
+                padding: 10px 0 20px 0; 
+            }
+            .nav-links.active { display: flex; } /* बटन दबाने पर मेनू दिखेगा */
+            
+            .nav-links li { width: 100%; text-align: center; margin-bottom: 5px; }
+            .nav-links a { display: block; padding: 12px; font-size: 1.1rem; }
+            
+            .logo-text { font-size: 1.3rem; }
             .hero h1 { font-size: 2.2rem; }
-            .container { padding-left: 20px; }
-            .floating-social a { width: 35px; height: 35px; font-size: 1.1rem; }
-            .floating-social a:hover { width: 45px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- फ्लोटिंग सोशल मीडिया बार (लेफ्ट साइड में) -->
-    <div class="floating-social">
-        <a href="#" class="fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="tw" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="#" class="in" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="ig" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="yt" title="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="https://wa.me/917050668855" class="wa" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" class="tg" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
-    </div>
-
-    <!-- Header / Navbar -->
+    <!-- Header / Navbar (Hamburger Menu के साथ) -->
     <nav class="navbar">
         <div class="logo-container">
             <a href="index.html"><img src="logo.png" alt="Flair Foundation Logo"></a>
             <span class="logo-text">Flair Foundation</span>
         </div>
-        <ul class="nav-links">
+        
+        <!-- मोबाइल के लिए ☰ (Hamburger) बटन -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="nav-menu">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="buddha-library.html">Buddha Library</a></li>
             <li><a href="pakka-traders.html">Pakka Traders</a></li>
@@ -172,9 +175,28 @@
 
     <!-- Footer -->
     <footer>
+        <!-- Social Media Icons (अब फुटर में) -->
+        <div class="footer-social">
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/917050668855" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+        
         <p>&copy; 2026 <span>Flair Foundation</span>. All Rights Reserved.</p>
         <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Director/Founder: Er. PK Singh | Kacchi Dargah, Banka Ghat, Patna</p>
     </footer>
+
+    <!-- यह छोटा सा जावास्क्रिप्ट मोबाइल में मेनू को खोलने/बंद करने के काम आएगा -->
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("nav-menu");
+            menu.classList.toggle("active");
+        }
+    </script>
 
 </body>
 </html>
