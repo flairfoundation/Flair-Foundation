@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>फ्लेयर फाउंडेशन | Flair Foundation - निःशुल्क शिक्षा प्रसार अभियान</title>
+    <title>Flair Foundation | Free Education Campaign</title>
+    
     <!-- Favicon (आपका लोगो) -->
     <link rel="icon" type="image/png" href="logo.png">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -26,10 +28,13 @@
         .navbar { background-color: var(--brand-blue); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
         
         /* लोगो को गोल और आकर्षक दिखाने की सेटिंग */
+        .logo-container { display: flex; align-items: center; gap: 15px; }
         .logo-container img { height: 60px; width: 60px; border-radius: 50%; border: 2px solid var(--brand-yellow); background: var(--white); padding: 2px; }
+        .logo-text { color: var(--brand-yellow); font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         
-        .nav-links { display: flex; gap: 10px; list-style: none; flex-wrap: wrap; align-items: center; margin-top: 5px; }
-        .nav-links a { text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.95rem; padding: 6px 12px; border-radius: 4px; transition: 0.3s; }
+        /* इंग्लिश मेनू लिंक्स */
+        .nav-links { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; align-items: center; margin-top: 5px; }
+        .nav-links a { text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.95rem; padding: 6px 12px; border-radius: 4px; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
         .nav-links a:hover, .nav-links a.active { color: var(--brand-blue); background-color: var(--brand-yellow); }
         
         /* चलता हुआ नोटिस बोर्ड */
@@ -48,7 +53,7 @@
         
         .card { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--brand-blue); transition: 0.3s; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-top: 4px solid var(--brand-red); }
-        .card h3 { color: var(--brand-blue); margin-bottom: 15px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+        .card h3 { color: var(--brand-blue); margin-bottom: 15px; font-size: 1.4rem; display: flex; align-items: center; gap: 10px; }
         
         /* WhatsApp Button */
         .wa-btn-container { text-align: center; margin: 50px 0 20px; }
@@ -58,25 +63,34 @@
         /* Footer */
         footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 25px 20px; font-size: 0.95rem; border-top: 5px solid var(--brand-red); }
         footer span { color: var(--brand-yellow); font-weight: 700; }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; text-align: center; }
+            .logo-container { margin-bottom: 15px; }
+            .nav-links { justify-content: center; }
+            .hero h1 { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
+    <!-- Header / Navbar (English Menu) -->
     <nav class="navbar">
         <div class="logo-container">
             <a href="index.html"><img src="logo.png" alt="Flair Foundation Logo"></a>
+            <span class="logo-text">Flair Foundation</span>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html" class="active">फ्लेयर फाउंडेशन</a></li>
-            <li><a href="buddha-library.html">बुद्धा लाइब्रेरी</a></li>
-            <li><a href="pakka-traders.html">पक्का ट्रेडर्स</a></li>
-            <li><a href="buddha-parking.html">बुद्धा पार्किंग</a></li>
-            <li><a href="hostel.html">हॉस्टल</a></li>
-            <li><a href="admission.html">एडमिशन</a></li>
-            <li><a href="notice.html">नोटिस</a></li>
-            <li><a href="about.html">हमारे बारे में</a></li>
-            <li><a href="contact.html">संपर्क करें</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="buddha-library.html">Buddha Library</a></li>
+            <li><a href="pakka-traders.html">Pakka Traders</a></li>
+            <li><a href="buddha-parking.html">Buddha Parking</a></li>
+            <li><a href="hostel.html">Hostel</a></li>
+            <li><a href="admission.html">Admission</a></li>
+            <li><a href="notice.html">Notice</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </nav>
 
@@ -89,7 +103,7 @@
 
     <!-- Hero Banner -->
     <div class="hero">
-        <h1>फ्लेयर फाउंडेशन</h1>
+        <h1>Flair Foundation</h1>
         <p>निःशुल्क शिक्षा से सशक्त समाज की ओर एक कदम (स्थापित 2017)</p>
     </div>
 
@@ -112,17 +126,17 @@
             </div>
 
             <div class="card">
-                <h3>🏛️ बुद्धा लाइब्रेरी</h3>
+                <h3>🏛️ Buddha Library</h3>
                 <p>पटना में 250 सीटों वाला एक अत्याधुनिक अध्ययन केंद्र, जहाँ विद्यार्थियों को मिलता है पूर्णतः शांत वातावरण, हाई-स्पीड वाई-फाई, और प्रतियोगी परीक्षाओं की तैयारी के लिए बेहतरीन माहौल।</p>
             </div>
 
             <div class="card">
-                <h3>🌾 पक्का ट्रेडर्स (फुलबासो मंडी)</h3>
-                <p>कृषि उत्पादों, ताजे फल, सब्जियों और खाद्यान्न के थोक एवं खुदरा व्यापार का विश्वस्त केंद्र। किसानों और उपभोक्ताओं के बीच एक मजबूत और पारदर्शी व्यावसायिक कड़ी।</p>
+                <h3>🌾 Pakka Traders</h3>
+                <p>कृषि उत्पादों, ताजे फल, सब्जियों और खाद्यान्न के थोक एवं खुदरा व्यापार का विश्वस्त केंद्र। फुलबासो मंडी - किसानों और उपभोक्ताओं के बीच एक मजबूत व्यावसायिक कड़ी।</p>
             </div>
 
             <div class="card">
-                <h3>⚡ बुद्धा पार्किंग व ईवी चार्जिंग</h3>
+                <h3>⚡ Buddha Parking & EV</h3>
                 <p>बांका घाट रेलवे स्टेशन रोड (काची दरगाह) पर स्थित सुरक्षित वाहन पार्किंग और आधुनिक इलेक्ट्रिक व्हीकल (EV) चार्जिंग स्टेशन की 24/7 सुविधा।</p>
             </div>
 
@@ -131,7 +145,7 @@
         <!-- WhatsApp Button -->
         <div class="wa-btn-container">
             <a href="https://wa.me/917050668855?text=नमस्ते%20पिंटू%20जी,%20मैं%20आपकी%20वेबसाइट%20से%20संपर्क%20कर%20रहा%20हूँ।" target="_blank" class="wa-btn">
-               💬 WhatsApp पर पिंटू जी से बात करें
+               💬 Chat on WhatsApp
             </a>
         </div>
 
@@ -139,8 +153,8 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 <span>फ्लेयर फाउंडेशन (Flair Foundation)</span>. सर्वाधिकार सुरक्षित।</p>
-        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Director/Founder: Er. PK Singh | काची दरगाह, बांका घाट, पटना</p>
+        <p>&copy; 2026 <span>Flair Foundation</span>. All Rights Reserved.</p>
+        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Director/Founder: Er. PK Singh | Kacchi Dargah, Banka Ghat, Patna</p>
     </footer>
 
 </body>
