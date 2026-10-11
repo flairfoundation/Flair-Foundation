@@ -1,1 +1,796 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pakka Traders - A Unit of Flair Foundation | Fulbaso Mandi Patna</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="पक्का ट्रेडर्स (Pakka Traders) - व्यापार की ताकत से समाज संवारने का संकल्प। फुलबासो मंडी, बुद्धा पार्किंग एवं ईवी चार्जिंग स्टेशन, तथा कॉर्पोरेट वेंडर सप्लाई सर्विसेज, पटना।">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="shortcut icon" type="image/png" href="/logo.png">
+    <link rel="apple-touch-icon" href="/logo.png">
+    
+    <!-- Social Media & UI Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root { 
+            --brand-blue: #1a237e;  
+            --brand-yellow: #fbc02d; 
+            --brand-red: #d32f2f;    
+            --pakka-green: #1b5e20;
+            --pakka-light-green: #e8f5e9;
+            --bg-light: #f4f6f9;
+            --text-dark: #2c3e50;
+            --white: #ffffff;
+        }
+        
+        /* सिक्योरिटी: एंटी-कॉपी */
+        body { 
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; 
+            background-color: var(--bg-light); 
+            color: var(--text-dark); 
+            line-height: 1.7; 
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+            user-select: none; 
+        }
+        
+        /* ==========================================
+           होम पेज और बुद्धा लाइब्रेरी जैसा 100% सेम हेडर
+           ========================================== */
+        .navbar { 
+            background-color: var(--brand-blue); 
+            padding: 10px 2%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 10px; 
+            box-shadow: 0 3px 10px rgba(0,0,0,0.18); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        
+        .estd-corner {
+            position: absolute;
+            top: 3px;
+            right: 2%;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--brand-yellow);
+            letter-spacing: 0.8px;
+            opacity: 0.95;
+        }
 
+        .logo-container { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            text-decoration: none; 
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .logo-container img { 
+            height: clamp(44px, 5vw, 56px); 
+            width: auto; 
+            object-fit: contain; 
+        }
+        
+        .logo-text-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .logo-text { 
+            color: var(--brand-yellow); 
+            font-size: clamp(1.05rem, 1.8vw, 1.35rem); 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 0.6px; 
+            line-height: 1.15;
+            white-space: nowrap;
+        }
+        
+        .logo-tagline {
+            color: #ff6b6b;
+            font-size: clamp(0.72rem, 1.1vw, 0.84rem);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+        
+        .nav-links { 
+            display: flex; 
+            gap: 5px; 
+            list-style: none; 
+            align-items: center; 
+            flex-wrap: nowrap;
+            margin-top: 6px;
+        }
+        
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--white); 
+            font-weight: 600; 
+            font-size: clamp(0.72rem, 0.95vw, 0.85rem); 
+            padding: 6px 9px; 
+            border-radius: 5px; 
+            transition: all 0.2s ease; 
+            text-transform: uppercase; 
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.08);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+        }
+        
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--brand-blue); 
+            background-color: var(--brand-yellow); 
+            font-weight: 700;
+            border-bottom: 2px solid #c79100;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+        
+        .menu-toggle { 
+            display: none; 
+            color: var(--brand-yellow); 
+            font-size: 1.6rem; 
+            cursor: pointer; 
+            padding: 4px 10px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ==========================================
+           Pakka Traders Hero Banner (लाइट और प्रोफेशनल)
+           ========================================== */
+        .pakka-hero { 
+            background: linear-gradient(180deg, #ffffff 0%, #f1f8e9 100%); 
+            padding: 45px 20px 35px; 
+            text-align: center; 
+            border-bottom: 5px solid var(--brand-yellow); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04); 
+        }
+        .pakka-logo { 
+            width: clamp(130px, 22vw, 175px); 
+            height: auto; 
+            border-radius: 50%; 
+            margin-bottom: 15px; 
+            box-shadow: 0 6px 18px rgba(27, 94, 32, 0.2); 
+            border: 3px solid var(--brand-yellow);
+            background: #fff;
+        }
+        .unit-badge {
+            display: inline-block;
+            background: var(--pakka-green);
+            color: var(--white);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 50px;
+            letter-spacing: 0.8px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .pakka-hero h1 { 
+            color: var(--brand-blue); 
+            font-size: clamp(1.9rem, 4.5vw, 2.7rem); 
+            font-weight: 900; 
+            margin-bottom: 8px; 
+            line-height: 1.2;
+        }
+        .pakka-hero .main-motto { 
+            color: var(--brand-red); 
+            font-size: clamp(1.05rem, 2.2vw, 1.35rem); 
+            font-weight: 700; 
+            max-width: 850px; 
+            margin: 0 auto 10px; 
+        }
+        .pakka-hero .sub-services { 
+            color: #444; 
+            font-size: clamp(0.92rem, 1.8vw, 1.08rem); 
+            font-weight: 600; 
+            background: rgba(251, 192, 45, 0.2);
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 8px;
+            border: 1px solid #fde08d;
+        }
+
+        /* Main Container (मोबाइल से लेकर टीवी स्क्रीन तक परफेक्ट) */
+        .container { 
+            max-width: 1150px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+        }
+
+        .section-title { 
+            text-align: center; 
+            color: var(--brand-blue); 
+            font-size: clamp(1.4rem, 3vw, 1.85rem); 
+            margin: 45px 0 25px; 
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--brand-yellow);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Story Section Cards */
+        .story-box {
+            background: var(--white);
+            padding: clamp(22px, 4vw, 35px);
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--brand-blue);
+            margin-bottom: 25px;
+        }
+        .story-box p {
+            font-size: 1.05rem;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .story-box p:last-child { margin-bottom: 0; }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .story-subcard {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--brand-red);
+        }
+        .story-subcard.green-border {
+            border-left-color: var(--pakka-green);
+        }
+        .story-subcard h3 {
+            color: var(--brand-blue);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            line-height: 1.35;
+        }
+        .story-subcard p {
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        .quote-highlight {
+            background: #f1f8e9;
+            border-left: 4px solid var(--pakka-green);
+            padding: 12px 15px;
+            font-weight: 600;
+            color: #1b5e20;
+            border-radius: 0 8px 8px 0;
+            margin: 12px 0;
+            font-style: italic;
+        }
+
+        /* Mission & Vision Grid */
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .vision-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--brand-yellow);
+            transition: transform 0.3s ease;
+        }
+        .vision-card:hover { transform: translateY(-4px); }
+        .vision-card h3 {
+            color: var(--pakka-green);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .vision-card p { color: #444; font-size: 0.98rem; }
+
+        /* Core Ventures & Services */
+        .venture-card {
+            background: var(--white);
+            border-radius: 14px;
+            padding: clamp(20px, 3.5vw, 30px);
+            margin-bottom: 22px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--brand-blue);
+            transition: 0.3s;
+        }
+        .venture-card:nth-child(2) { border-left-color: var(--pakka-green); }
+        .venture-card:nth-child(3) { border-left-color: var(--brand-red); }
+        .venture-card h3 {
+            color: var(--brand-blue);
+            font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .venture-card ul { list-style: none; }
+        .venture-card ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: #333;
+        }
+        .venture-card ul li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.95rem;
+        }
+
+        /* Why Choose Us (Features) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .feature-item {
+            background: #ffffff;
+            padding: 22px 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--pakka-green);
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .feature-item h4 {
+            color: var(--brand-blue);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Company Profile Table */
+        .table-wrapper {
+            background: var(--white);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #e0e0e0;
+        }
+        .profile-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .profile-table th {
+            background-color: var(--brand-blue);
+            color: var(--white);
+            padding: 15px 20px;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .profile-table td {
+            padding: 14px 20px;
+            border-bottom: 1px solid #eee;
+            font-size: 1rem;
+            color: #333;
+        }
+        .profile-table tr:nth-child(even) { background-color: #f8fafc; }
+        .profile-table tr:hover { background-color: #fffde7; }
+        .profile-table td:first-child {
+            font-weight: 700;
+            color: var(--brand-blue);
+            width: 38%;
+            border-right: 1px solid #eee;
+        }
+        .gst-badge {
+            background: #e8f5e9;
+            color: #1b5e20;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-weight: 800;
+            border: 1px solid #a5d6a7;
+            letter-spacing: 0.5px;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 2px solid var(--brand-yellow);
+            border-radius: 16px;
+            padding: clamp(25px, 4vw, 40px);
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            margin-top: 20px;
+        }
+        .contact-card h3 {
+            color: var(--brand-blue);
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+        .contact-info-list {
+            max-width: 750px;
+            margin: 0 auto 25px;
+            text-align: left;
+            background: #fff;
+            padding: 20px 25px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        .contact-info-list p {
+            margin-bottom: 12px;
+            font-size: 1.02rem;
+            color: #333;
+        }
+        .contact-info-list p:last-child { margin-bottom: 0; }
+        
+        .action-btns {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .btn-action {
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .btn-wa { background-color: #25d366; }
+        .btn-call { background-color: var(--brand-blue); }
+        .btn-landline { background-color: var(--pakka-green); }
+        .btn-mail { background-color: var(--brand-red); }
+        .btn-action:hover { transform: translateY(-3px); opacity: 0.95; }
+
+        /* ==========================================
+           होम पेज जैसा 100% सेम फुटर (Footer)
+           ========================================== */
+        footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 35px 20px 25px; border-top: 4px solid var(--brand-red); margin-top: 50px; }
+        .footer-social { display: flex; justify-content: center; align-items: center; gap: clamp(10px, 2.5vw, 18px); margin-bottom: 25px; width: 100%; }
+        .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: clamp(38px, 9vw, 48px); height: clamp(38px, 9vw, 48px); color: var(--white); font-size: clamp(1.1rem, 4vw, 1.4rem); border-radius: 50%; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .footer-social a.fb { background: #1877f2; }
+        .footer-social a.tw { background: #000000; border: 1px solid #333; }
+        .footer-social a.in { background: #0077b5; }
+        .footer-social a.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .footer-social a.yt { background: #ff0000; }
+        .footer-social a.wa { background: #25d366; }
+        .footer-social a.tg { background: #0088cc; }
+        .footer-social a:hover { transform: scale(1.15) translateY(-4px); box-shadow: 0 8px 15px rgba(0,0,0,0.5); }
+        footer span { color: var(--brand-yellow); font-weight: 700; }
+        
+        /* मोबाइल, टैबलेट और बड़ी टीवी स्क्रीन के लिए रिस्पॉन्सिव सेटिंग */
+        @media (max-width: 1024px) {
+            .navbar { flex-wrap: wrap; padding: 14px 4% 10px; }
+            .estd-corner { top: 3px; right: 4%; font-size: 0.62rem; }
+            .menu-toggle { display: block; } 
+            
+            .nav-links { 
+                display: none; 
+                width: 100%; 
+                flex-direction: column; 
+                background-color: #151d69; 
+                padding: 12px; 
+                margin-top: 10px;
+                border-radius: 8px;
+                gap: 8px;
+            }
+            .nav-links.active { display: flex; } 
+            .nav-links li { width: 100%; text-align: center; }
+            .nav-links a { display: block; padding: 10px; font-size: 0.95rem; width: 100%; }
+        }
+
+        @media (max-width: 650px) {
+            .profile-table th, .profile-table td { padding: 10px 12px; font-size: 0.9rem; }
+            .story-box p, .story-subcard p { text-align: left; }
+            .action-btns { flex-direction: column; }
+            .btn-action { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar (सभी पेजों पर 100% सेम) -->
+    <nav class="navbar">
+        <div class="estd-corner">ESTD : 2017</div>
+
+        <a href="/" class="logo-container">
+            <img src="/logo.png" alt="Flair Foundation Logo" onerror="this.onerror=null; this.src='../logo.png';">
+            <div class="logo-text-box">
+                <span class="logo-text">Flair Foundation</span>
+                <span class="logo-tagline">निःशुल्क शिक्षा प्रसार अभियान</span>
+            </div>
+        </a>
+        
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/buddha-library/">Buddha Library</a></li>
+            <li><a href="/pakka-traders.html" class="active">Pakka Traders</a></li>
+            <li><a href="/buddha-parking.html">Buddha Parking</a></li>
+            <li><a href="/hostel.html">Hostel</a></li>
+            <li><a href="/admission.html">Admission</a></li>
+            <li><a href="/notice.html">Notice</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Pakka Traders Hero Section -->
+    <div class="pakka-hero">
+        <img src="/pakka-logo.jpg" alt="Pakka Traders Logo" class="pakka-logo" onerror="this.onerror=null; this.src='../pakka-logo.jpg';">
+        <br>
+        <span class="unit-badge">⚖️ लागत मूल्य पर सेवा | A Unit of Flair Foundation (ESTD. 2026)</span>
+        <h1>पक्का ट्रेडर्स (PAKKA TRADERS)</h1>
+        <p class="main-motto">🌱 व्यापार की ताकत से समाज संवारने का संकल्प: हर थाली में पोषण, हर बच्चे का विकास</p>
+        <div class="sub-services">
+            🌾 कृषि उत्पाद मंडी &nbsp;|&nbsp; ⚡ ईवी चार्जिंग व पार्किंग &nbsp;|&nbsp; 📦 कॉर्पोरेट वेंडर एवं सप्लाई सर्विसेज
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container">
+
+        <!-- Section 1: Our Story -->
+        <h2 class="section-title">📖 हमारी कहानी: एक बिजनेसमैन की सामाजिक संवेदना (Our Story)</h2>
+        
+        <div class="story-box">
+            <p><strong>पक्का ट्रेडर्स</strong> की नींव एक ऐसे उद्यमी की सोच पर टिकी है, जिनका मानना है कि व्यापार का असली उद्देश्य केवल मुनाफा कमाना नहीं, बल्कि समाज को सशक्त बनाना भी है।</p>
+            <p>प्रतिष्ठान के संस्थापक एवं प्रोप्राइटर <strong>श्री पिंटू कुमार सिंह</strong> पेशे से एक बिजनेसमैन (उद्यमी) हैं। एक सफल व्यवसायी होने के साथ-साथ वे समाज की जमीनी हकीकत से गहराई से जुड़े हैं। इसी सामाजिक जिम्मेदारी को निभाते हुए वे अपने बिजनेस की कमाई से वर्ष 2017 से <strong>'फ्लेयर फाउंडेशन' (Flair Foundation)</strong> नामक स्वयंसेवी संस्था (NGO) का संचालन कर रहे हैं। इस संस्था के अंतर्गत <strong>राम जानकी प्लस टू हाई स्कूल</strong> के माध्यम से आर्थिक रूप से कमजोर और गरीब परिवारों के बच्चों को नर्सरी से लेकर 12वीं कक्षा तक <strong>निःशुल्क शिक्षा</strong> उपलब्ध कराई जाती है।</p>
+        </div>
+
+        <div class="story-grid">
+            <div class="story-subcard">
+                <h3>🍱 वह अनुभव जिसने एक नए मिशन को जन्म दिया</h3>
+                <p>जब पिंटू जी अपने एनजीओ के विद्यालय में बच्चों के बीच जाते थे, तो उन्होंने दोपहर के लंच (टिफिन) के समय एक गंभीर समस्या पर गौर किया। गरीब घरों से आने वाले बच्चों के टिफिन में पौष्टिक हरी सब्जियां और फल लगभग न के बराबर होते थे। बाजार में महंगाई और बिचौलियों के कारण फलों व सब्जियों के दाम इतने ऊंचे थे कि साधारण परिवार उन्हें रोज़ाना खरीदने में असमर्थ थे।</p>
+                <p>उन्होंने महसूस किया कि यदि बच्चों को पर्याप्त पौष्टिक आहार, फल और हरी सब्जियां नहीं मिलेंगी, तो निःशुल्क शिक्षा मिलने के बावजूद उनका मानसिक और शारीरिक विकास अधूरा रह जाएगा।</p>
+            </div>
+
+            <div class="story-subcard green-border">
+                <h3>🤝 व्यावसायिक अनुभव से सामाजिक समाधान: 'पक्का ट्रेडर्स' और 'फुलबासो मंडी'</h3>
+                <p>एक बिजनेसमैन होने के नाते उन्होंने इस समस्या का व्यावहारिक और स्थायी समाधान निकालने का निश्चय किया। उन्होंने सोचा—</p>
+                <div class="quote-highlight">
+                    "क्यों न अपने व्यापारिक अनुभव से एक ऐसी मंडी स्थापित की जाए, जहाँ किसानों से सीधा जुड़कर बेहद कम और वाजिब कीमत पर ताजे फल, सब्जियां और अनाज आम लोगों तक पहुंचाए जा सकें?"
+                </div>
+                <p>इसी दूरदर्शी सोच के साथ <strong>वर्ष 2026</strong> में <strong>पक्का ट्रेडर्स (Pakka Traders)</strong> और उसके अंतर्गत <strong>फुलबासो मंडी (Fulbaso Mandi)</strong> की शुरुआत हुई। हमारा विश्वास है कि जब सस्ती और सुलभ दरों पर हर घर तक फल और सब्जियां पहुंचेंगी, तभी हमारे विद्यार्थी मानसिक रूप से स्वस्थ बनेंगे, समाज सुधरेगा और देश आगे बढ़ेगा।</p>
+            </div>
+        </div>
+
+        <!-- Section 2: Our Mission & Vision -->
+        <h2 class="section-title">🎯 हमारा उद्देश्य और विज़न (Our Mission & Vision)</h2>
+        
+        <div class="vision-grid">
+            <div class="vision-card">
+                <h3>🍎 हर घर तक सस्ता और शुद्ध पोषण</h3>
+                <p>बाजार से कम कीमत पर ताजे फल, हरी सब्जियां और अनाज उपलब्ध कराना, ताकि किसी भी बच्चे के मानसिक विकास में पोषण की कमी आड़े न आए।</p>
+            </div>
+            <div class="vision-card">
+                <h3>🌾 किसानों और ग्राहकों को सीधा लाभ</h3>
+                <p>बिचौलियों को हटाकर किसानों को उनकी उपज का सही मूल्य और आम नागरिकों को किफायती दाम पर ताजा सामान देना।</p>
+            </div>
+            <div class="vision-card">
+                <h3>⚖️ व्यापार से समाज कल्याण</h3>
+                <p>एक पंजीकृत और पारदर्शी व्यावसायिक मॉडल के जरिए रोजगार सृजन करना और समाज के विकास में निरंतर योगदान देना।</p>
+            </div>
+        </div>
+
+        <!-- Section 3: Our Ventures & Core Services -->
+        <h2 class="section-title">🏢 पक्का ट्रेडर्स के प्रमुख उपक्रम एवं सेवाएं (Our Ventures & Core Services)</h2>
+
+        <div class="venture-card">
+            <h3>1. 🥬 फुलबासो मंडी (Fulbaso Mandi) – थोक एवं खुदरा मंडी</h3>
+            <ul>
+                <li><strong>ताजे फल एवं हरी सब्जियां:</strong> खेतों से सीधे लाए गए ताजे मौसमी फल और हरी सब्जियों की थोक एवं खुदरा बिक्री।</li>
+                <li><strong>अनाज एवं खाद्य पदार्थ:</strong> उच्च गुणवत्ता वाले अनाज, दलहन और रोज़मर्रा के खाद्य पदार्थों का वाजिब दाम पर वितरण।</li>
+                <li><strong>प्रमुख उद्देश्य:</strong> विद्यार्थियों और आम परिवारों के स्वास्थ्य को ध्यान में रखते हुए न्यूनतम मुनाफे पर शुद्ध खाद्य सामग्री उपलब्ध कराना।</li>
+            </ul>
+        </div>
+
+        <div class="venture-card">
+            <h3>2. ⚡ बुद्धा पार्किंग एवं ईवी चार्जिंग स्टेशन (Buddha Parking & EV Charging Hub)</h3>
+            <ul>
+                <li><strong>इलेक्ट्रिक वाहन (EV) चार्जिंग:</strong> हरित ऊर्जा और आधुनिक यातायात को बढ़ावा देने के लिए ई-रिक्शा, टू-व्हीलर और अन्य इलेक्ट्रिक वाहनों हेतु सुरक्षित एवं तेज़ चार्जिंग सुविधा।</li>
+                <li><strong>सुरक्षित वाहन पार्किंग:</strong> बांका घाट रेलवे स्टेशन रोड, कच्ची दरगाह के पास सीसीटीवी निगरानी और पुख्ता सुरक्षा व्यवस्था के साथ वाहनों की पार्किंग।</li>
+            </ul>
+        </div>
+
+        <div class="venture-card">
+            <h3>3. 📦 कॉर्पोरेट वेंडर सप्लाई एवं मेंटेनेंस सेवाएं (Corporate Supply & Maintenance)</h3>
+            <ul>
+                <li><strong>फूड एवं स्नैक्स बल्क सप्लाई:</strong> बड़ी ई-कॉमर्स और लॉजिस्टिक्स कंपनियों (जैसे Instakart / Flipkart आदि) के कार्यालयों व हब में बेकरी, केक, स्नैक्स और खाद्य सामग्री की समयबद्ध सप्लाई।</li>
+                <li><strong>कमर्शियल रिपेयरिंग एवं मेंटेनेंस कार्य:</strong> कॉर्पोरेट वेयरहाउस और व्यावसायिक परिसरों में सिविल रिपेयरिंग, स्टोर रूम मेंटेनेंस और इंफ्रास्ट्रक्चर सुधार के कार्य।</li>
+            </ul>
+        </div>
+
+        <!-- Section 4: Why Choose Pakka Traders -->
+        <h2 class="section-title">🌟 हमारी मुख्य विशेषताएं (Why Choose Pakka Traders?)</h2>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="feature-icon">🎓</span>
+                <h4>1. सामाजिक प्रतिबद्धता वाला व्यापार</h4>
+                <p>एक ऐसे उद्यमी द्वारा संचालित, जो व्यापार के साथ समाज और शिक्षा के उत्थान के लिए समर्पित हैं।</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🧾</span>
+                <h4>2. 100% सरकारी पंजीकरण एवं पारदर्शिता</h4>
+                <p>प्रत्येक व्यापारिक लेन-देन और सप्लाई पर पक्का GST बिल।</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🛡️</span>
+                <h4>3. शुद्धता और गुणवत्ता की गारंटी</h4>
+                <p>FSSAI खाद्य सुरक्षा मानकों के अनुरूप उत्पादों की पूरी जांच।</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🚚</span>
+                <h4>4. वाजिब दाम और समयबद्ध डिलीवरी</h4>
+                <p>थोक, खुदरा और कॉर्पोरेट ऑर्डर्स की तय समय-सीमा में भरोसेमंद आपूर्ति।</p>
+            </div>
+        </div>
+
+        <!-- Section 5: Company Profile Table -->
+        <h2 class="section-title">🏛️ आधिकारिक एवं पंजीकरण विवरण (Company Profile)</h2>
+        
+        <div class="table-wrapper">
+            <table class="profile-table">
+                <thead>
+                    <tr>
+                        <th>विवरण (Particulars)</th>
+                        <th>आधिकारिक जानकारी (Official Details)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🏢 प्रतिष्ठान का नाम (Trade Name)</td>
+                        <td><strong>PAKKA TRADERS (पक्का ट्रेडर्स)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>👤 प्रोप्राइटर एवं संस्थापक</td>
+                        <td><strong>श्री पिंटू कुमार सिंह</strong> (बिजनेसमैन एवं समाजसेवी)</td>
+                    </tr>
+                    <tr>
+                        <td>🤝 सामाजिक पहल (NGO)</td>
+                        <td>फ्लेयर फाउंडेशन (स्थापना: 2017) एवं राम जानकी +2 हाई स्कूल</td>
+                    </tr>
+                    <tr>
+                        <td>📅 व्यापारिक स्थापना वर्ष</td>
+                        <td>2026</td>
+                    </tr>
+                    <tr>
+                        <td>📄 GSTIN नंबर</td>
+                        <td><span class="gst-badge">10IMAPS7440N1ZQ</span></td>
+                    </tr>
+                    <tr>
+                        <td>🏅 अन्य सरकारी पंजीकरण</td>
+                        <td>Udyam (MSME) एवं FSSAI पंजीकृत</td>
+                    </tr>
+                    <tr>
+                        <td>🌟 प्रमुख इकाइयां</td>
+                        <td>फुलबासो मंडी, बुद्धा पार्किंग एवं ईवी चार्जिंग स्टेशन</td>
+                    </tr>
+                    <tr>
+                        <td>📍 कार्यक्षेत्र (Jurisdiction)</td>
+                        <td>दीदारगंज रेंज, पटना सिटी ईस्ट, बिहार</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 6: Contact Us -->
+        <h2 class="section-title">📞 संपर्क करें (Contact Us)</h2>
+        
+        <div class="contact-card">
+            <h3>मेसर्स पक्का ट्रेडर्स (M/s Pakka Traders)</h3>
+            
+            <div class="contact-info-list">
+                <p>📍 <strong>पता (Address):</strong> फुलबासो मंडी, वार्ड-03, कच्ची दरगाह, बांका घाट रेलवे स्टेशन रोड, पटना, बिहार – 803201<br>
+                <span style="color: #666; font-size: 0.95rem;">(Fulbaso Mandi, Ward-03, Kacchi Dargah, Banka Ghat Railway Station Road, Patna, Bihar - 803201)</span></p>
+                <p>📱 <strong>मोबाइल नंबर (Mobile):</strong> +91 70506 68855</p>
+                <p>☎️ <strong>टेलीफोन नंबर (Landline):</strong> 0612-26642261</p>
+                <p>✉️ <strong>ईमेल (Email):</strong> pakkatraders@gmail.com</p>
+            </div>
+
+            <div class="action-btns">
+                <a href="https://wa.me/917050668855?text=नमस्ते%20पिंटू%20जी,%20मैं%20पक्का%20ट्रेडर्स%20(Pakka%20Traders)%20के%20संबंध%20में%20संपर्क%20कर%20रहा%20हूँ।" target="_blank" class="btn-action btn-wa">
+                    <i class="fab fa-whatsapp"></i> WhatsApp पर संपर्क करें
+                </a>
+                <a href="tel:+917050668855" class="btn-action btn-call">
+                    <i class="fas fa-phone"></i> मोबाइल कॉल (+91 70506 68855)
+                </a>
+                <a href="tel:061226642261" class="btn-action btn-landline">
+                    <i class="fas fa-phone-volume"></i> लैंडलाइन (0612-26642261)
+                </a>
+                <a href="mailto:pakkatraders@gmail.com" class="btn-action btn-mail">
+                    <i class="fas fa-envelope"></i> ईमेल भेजें
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer (सभी पेजों पर 100% सेम) -->
+    <footer>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/FlairFoundation" class="fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/flairfoundation" class="tw" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/flairfoundation" class="in" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/flairfoundationngo" class="ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@FlairFoundation" class="yt" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/917050668855" class="wa" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.youtube.com/@FlairFoundation" class="tg" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+        <p>&copy; 2026 <span>Flair Foundation</span> & <span>Pakka Traders</span>. All Rights Reserved.</p>
+        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Proprietor/Founder: Shri Pintu Kumar Singh | Kacchi Dargah, Banka Ghat, Patna</p>
+    </footer>
+
+    <!-- Scripts (Menu, Clean URL & Security) -->
+    <script>
+        if (window.location.pathname.endsWith('/index.html')) {
+            window.history.replaceState(null, '', window.location.pathname.replace('index.html', ''));
+        }
+
+        function toggleMenu() {
+            var menu = document.getElementById("nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || e.keyCode === 123) e.preventDefault();
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'c' || e.key === 'C' || e.key === 's' || e.key === 'S')) e.preventDefault();
+            if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'c' || e.key === 'C' || e.key === 'j' || e.key === 'J')) e.preventDefault();
+        });
+
+        document.addEventListener('keyup', function (e) {
+            if (e.key === 'PrintScreen' || e.keyCode === 44) {
+                navigator.clipboard.writeText(''); 
+                alert("सुरक्षा कारणों से इस वेबसाइट का स्क्रीनशॉट लेना सख्त मना है!");
+            }
+        });
+    </script>
+
+</body>
+</html>
