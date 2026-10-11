@@ -3,23 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flair Foundation | Free Education Campaign</title>
+    <title>Flair Foundation | Free Education & Buddha Library Patna</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="फ्लेयर फाउंडेशन 2017 से पटना में नर्सरी से 12वीं तक निःशुल्क शिक्षा प्रदान कर रहा है। यहाँ अत्याधुनिक बुद्धा लाइब्रेरी और पक्का ट्रेडर्स की सुविधा उपलब्ध है।">
+    <meta name="keywords" content="Flair Foundation, Free Education Patna, Buddha Library, PK Singh, Pakka Traders, Phulbaso Mandi">
     
     <!-- Favicon -->
-   <!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flair Foundation | Free Education Campaign</title>
-    
-    <!-- Favicon (सभी डिवाइस और ब्राउज़र के लिए 100% पक्का जुगाड़) -->
     <link rel="icon" type="image/png" href="logo.png">
-    <link rel="shortcut icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
-    
-    <!-- Social Media Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <!-- Social Media Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -36,7 +27,6 @@
             --white: #ffffff;
         }
         
-        /* सिक्योरिटी: कोई भी टेक्स्ट सेलेक्ट या कॉपी नहीं कर पाएगा */
         body { 
             font-family: system-ui, -apple-system, sans-serif; 
             background-color: var(--bg-light); 
@@ -49,67 +39,38 @@
         }
         
         /* Navbar */
-        .navbar { background-color: var(--brand-blue); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
+        .navbar { background-color: var(--brand-blue); padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
         
-        .logo-container { display: flex; align-items: center; gap: 12px; }
-        /* लोगो स्क्रीन के हिसाब से अपने आप बड़ा-छोटा होगा */
-        .logo-container img { height: clamp(50px, 8vw, 75px); width: auto; object-fit: contain; }
-        .logo-text { color: var(--brand-yellow); font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        /* Logo & Brand container linked to Home */
+        .brand-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .brand-link img { height: clamp(45px, 6vw, 65px); width: auto; object-fit: contain; }
         
+        .brand-text-box { display: flex; flex-direction: column; }
+        .logo-text { color: var(--brand-yellow); font-size: clamp(1.1rem, 2.2vw, 1.4rem); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; line-height: 1.2; }
+        .tagline-text { color: var(--white); font-size: clamp(0.7rem, 1.2vw, 0.85rem); font-weight: 600; letter-spacing: 0.5px; opacity: 0.9; }
+        
+        /* ESTD Badge on Right / Header */
+        .estd-badge { background-color: var(--brand-yellow); color: #000; font-size: 0.8rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); text-transform: uppercase; margin-left: auto; margin-right: 15px; }
+
         /* Desktop Menu */
         .nav-links { display: flex; gap: 8px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.95rem; padding: 6px 12px; border-radius: 4px; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
         .nav-links a:hover, .nav-links a.active { color: var(--brand-blue); background-color: var(--brand-yellow); }
         
-        /* Mobile Menu (Hamburger Icon) */
-        .menu-toggle { display: none; color: var(--brand-yellow); font-size: 2rem; cursor: pointer; }
+        .menu-toggle { display: none; color: var(--brand-yellow); font-size: 1.8rem; cursor: pointer; }
 
-        .ticker-wrap { background: var(--brand-yellow); color: var(--brand-blue); padding: 8px 20px; font-weight: 700; font-size: 1rem; border-bottom: 3px solid var(--brand-red); }
-        
-        /* Hero Banner */
-        .hero { background: linear-gradient(135deg, var(--brand-blue) 0%, #3949ab 100%); color: var(--white); text-align: center; padding: 70px 20px; border-bottom: 5px solid var(--brand-yellow); }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.95; }
-        
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-        
-        .card { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--brand-blue); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-top: 4px solid var(--brand-red); }
-        .card h3 { color: var(--brand-blue); margin-bottom: 15px; font-size: 1.4rem; display: flex; align-items: center; gap: 10px; }
-        
-        .wa-btn-container { text-align: center; margin: 50px 0 20px; }
-        .wa-btn { background-color: #25d366; color: white; padding: 14px 30px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: 0.3s; }
-        .wa-btn:hover { background-color: #1ebe57; transform: scale(1.05); }
+        /* Hero Section */
+        .hero { background-color: var(--white); padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--brand-yellow); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .hero h1 { color: var(--brand-blue); font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 900; margin-bottom: 10px; text-transform: uppercase; }
+        .hero p { color: #555; font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 600; max-width: 700px; margin: 0 auto; }
 
-        /* Footer & Official Colored Social Icons */
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .section-title { text-align: center; color: var(--brand-blue); font-size: 1.8rem; margin: 40px 0 25px; text-decoration: underline; text-decoration-color: var(--brand-yellow); text-decoration-thickness: 3px; text-transform: uppercase; }
+
+        /* Footer */
         footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 40px 20px 25px; border-top: 5px solid var(--brand-red); margin-top: 40px; }
-        
-        .footer-social { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center;
-            gap: clamp(10px, 2.5vw, 20px); 
-            margin-bottom: 30px; 
-            width: 100%;
-        }
-        
-        .footer-social a { 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            width: clamp(40px, 10vw, 55px); 
-            height: clamp(40px, 10vw, 55px); 
-            color: var(--white); 
-            font-size: clamp(1.2rem, 4.5vw, 1.7rem); 
-            border-radius: 50%; 
-            text-decoration: none; 
-            transition: all 0.3s ease; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        
-        /* अब सभी आइकॉन अपने असली (ऑफिशियल) रंग में दिखेंगे */
+        .footer-social { display: flex; justify-content: center; align-items: center; gap: clamp(10px, 2.5vw, 20px); margin-bottom: 30px; width: 100%; }
+        .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: clamp(35px, 8vw, 45px); height: clamp(35px, 8vw, 45px); color: var(--white); font-size: clamp(1.1rem, 4vw, 1.4rem); border-radius: 50%; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         .footer-social a.fb { background: #1877f2; }
         .footer-social a.tw { background: #000000; border: 1px solid #333; }
         .footer-social a.in { background: #0077b5; }
@@ -117,29 +78,16 @@
         .footer-social a.yt { background: #ff0000; }
         .footer-social a.wa { background: #25d366; }
         .footer-social a.tg { background: #0088cc; }
-        
-        /* होवर करने पर हल्का सा उछलेंगे */
         .footer-social a:hover { transform: scale(1.15) translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.5); }
-        
         footer span { color: var(--brand-yellow); font-weight: 700; }
         
-        /* 📱 Mobile Responsiveness Setup */
         @media (max-width: 900px) {
             .menu-toggle { display: block; } 
-            
-            .nav-links { 
-                display: none; 
-                width: 100%; 
-                flex-direction: column; 
-                background-color: var(--brand-blue); 
-                padding: 10px 0 20px 0; 
-            }
+            .nav-links { display: none; width: 100%; flex-direction: column; background-color: var(--brand-blue); padding: 10px 0 20px 0; }
             .nav-links.active { display: flex; } 
-            
             .nav-links li { width: 100%; text-align: center; margin-bottom: 5px; }
-            .nav-links a { display: block; padding: 12px; font-size: 1.1rem; }
-            
-            .hero h1 { font-size: 2.2rem; }
+            .nav-links a { display: block; padding: 12px; font-size: 1rem; }
+            .estd-badge { margin-left: 0; margin-top: 5px; }
         }
     </style>
 </head>
@@ -147,11 +95,18 @@
 
     <!-- Header / Navbar -->
     <nav class="navbar">
-        <div class="logo-container">
-            <a href="index.html"><img src="logo.png" alt="Flair Foundation Logo"></a>
-            <span class="logo-text">Flair Foundation</span>
-        </div>
+        <!-- लोगो और नाम दोनों को होमपेज से जोड़ दिया गया है, क्लिक करते ही होम खुलेगा -->
+        <a href="index.html" class="brand-link">
+            <img src="logo.png" alt="Flair Foundation Logo">
+            <div class="brand-text-box">
+                <span class="logo-text">Flair Foundation</span>
+                <span class="tagline-text">निःशुल्क शिक्षा प्रसार अभियान</span>
+            </div>
+        </a>
         
+        <!-- ESTD Badge -->
+        <div class="estd-badge">ESTD: 2017</div>
+
         <div class="menu-toggle" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
@@ -159,127 +114,61 @@
         <ul class="nav-links" id="nav-menu">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="buddha-library/">Buddha Library</a></li>
-            <li><a href="pakka-traders.html">Pakka Traders</a></li>
-            <li><a href="buddha-parking.html">Buddha Parking</a></li>
-            <li><a href="hostel.html">Hostel</a></li>
-            <li><a href="admission.html">Admission</a></li>
-            <li><a href="notice.html">Notice</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="pakka-traders/">Pakka Traders</a></li>
+            <li><a href="buddha-parking/">Buddha Parking</a></li>
+            <li><a href="hostel/">Hostel</a></li>
+            <li><a href="admission/">Admission</a></li>
+            <li><a href="notice/">Notice</a></li>
+            <li><a href="about/">About Us</a></li>
+            <li><a href="contact/">Contact Us</a></li>
         </ul>
     </nav>
 
-    <!-- Marquee Ticker -->
-    <div class="ticker-wrap">
-        <marquee behavior="scroll" direction="left" scrollamount="6">
-            📢 <b>जरूरी सूचना:</b> फ्लेयर फाउंडेशन में नर्सरी से 12वीं तक निःशुल्क शिक्षा के लिए प्रवेश प्रारंभ! | बुद्धा लाइब्रेरी (पटना) में 250 सीटों की उत्तम व्यवस्था। | पक्का ट्रेडर्स और फुलबासो मंडी से जुड़ें।
-        </marquee>
-    </div>
-
-    <!-- Hero Banner -->
+    <!-- Home Hero Section -->
     <div class="hero">
-        <h1>Flair Foundation</h1>
-        <p>निःशुल्क शिक्षा से सशक्त समाज की ओर एक कदम (स्थापित 2017)</p>
+        <h1>फ्लेयर फाउंडेशन</h1>
+        <p>शिक्षा ही भविष्य की नींव है। समाज के हर बच्चे तक गुणवत्तापूर्ण और निःशुल्क शिक्षा पहुँचाने का हमारा संकल्प। ✨</p>
     </div>
 
     <!-- Main Content -->
     <div class="container">
-        
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h2 style="color: var(--brand-red); font-size: 2.2rem; margin-bottom: 15px;">हमारा विजन और मिशन</h2>
-            <p style="font-size: 1.15rem; max-width: 900px; margin: 0 auto; color: #555;">
-                फ्लेयर फाउंडेशन की स्थापना 2017 में समाज के हर वर्ग तक गुणवत्तापूर्ण और निःशुल्क शिक्षा पहुँचाने के उद्देश्य से की गई थी। हमारा मानना है कि शिक्षा हर बच्चे का बुनियादी अधिकार है। हम सिर्फ किताबी ज्ञान नहीं, बल्कि बच्चों के समग्र विकास और बेहतर भविष्य के लिए प्रतिबद्ध हैं।
-            </p>
-        </div>
-
-        <!-- Cards Section -->
-        <div class="grid-container">
-            
-            <div class="card">
-                <h3>📚 निःशुल्क शिक्षा अभियान</h3>
-                <p>वर्ष 2017 से लगातार हम नर्सरी से 12वीं कक्षा तक के छात्र-छात्राओं को उत्तम एवं निःशुल्क शिक्षा प्रदान कर रहे हैं, ताकि पैसे के अभाव में कोई भी बच्चा शिक्षा से वंचित न रहे।</p>
-            </div>
-
-            <div class="card">
-                <h3>🏛️ Buddha Library</h3>
-                <p>पटना में 250 सीटों वाला एक अत्याधुनिक अध्ययन केंद्र, जहाँ विद्यार्थियों को मिलता है पूर्णतः शांत वातावरण, हाई-स्पीड वाई-फाई, और प्रतियोगी परीक्षाओं की तैयारी के लिए बेहतरीन माहौल।</p>
-            </div>
-
-            <div class="card">
-                <h3>🌾 Pakka Traders</h3>
-                <p>कृषि उत्पादों, ताजे फल, सब्जियों और खाद्यान्न के थोक एवं खुदरा व्यापार का विश्वस्त केंद्र। फुलबासो मंडी - किसानों और उपभोक्ताओं के बीच एक मजबूत व्यावसायिक कड़ी।</p>
-            </div>
-
-            <div class="card">
-                <h3>⚡ Buddha Parking & EV</h3>
-                <p>बांका घाट रेलवे स्टेशन रोड (काची दरगाह) पर स्थित सुरक्षित वाहन पार्किंग और आधुनिक इलेक्ट्रिक व्हीकल (EV) चार्जिंग स्टेशन की 24/7 सुविधा।</p>
-            </div>
-
-        </div>
-
-        <!-- WhatsApp Button -->
-        <div class="wa-btn-container">
-            <a href="https://wa.me/917050668855?text=नमस्ते%20पिंटू%20जी,%20मैं%20आपकी%20वेबसाइट%20से%20संपर्क%20कर%20रहा%20हूँ।" target="_blank" class="wa-btn">
-               💬 Chat on WhatsApp
-            </a>
-        </div>
-
+        <h2 class="section-title">🌟 हमारे प्रमुख सेवा केंद्र</h2>
+        <p style="text-align: center; color: #555; font-size: 1.1rem;">बुद्धा लाइब्रेरी, पक्का ट्रेडर्स, बुद्धा पार्किंग और अन्य सुविधाओं के लिए ऊपर दिए गए मेनू का उपयोग करें।</p>
     </div>
 
     <!-- Footer -->
     <footer>
-        <!-- Social Media Icons (अब फुल ऑफिशियल कलर के साथ) -->
         <div class="footer-social">
-            <a href="https://www.facebook.com/FlairFoundation" class="fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://x.com/flairfoundation" class="tw" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/flairfoundation" class="in" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/flairfoundationngo" class="ig" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@FlairFoundation" class="yt" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="tw" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="in" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="yt" title="YouTube"><i class="fab fa-youtube"></i></a>
             <a href="https://wa.me/917050668855" class="wa" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.youtube.com/@FlairFoundation" class="tg" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="tg" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
         </div>
-        
         <p>&copy; 2026 <span>Flair Foundation</span>. All Rights Reserved.</p>
         <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Director/Founder: Er. PK Singh | Kacchi Dargah, Banka Ghat, Patna</p>
     </footer>
 
-    <!-- Scripts (Menu & Security) -->
+    <!-- Scripts -->
     <script>
-        // मोबाइल मेनू के लिए
         function toggleMenu() {
             var menu = document.getElementById("nav-menu");
             menu.classList.toggle("active");
         }
 
-        // ==========================================
-        // हाई-सिक्योरिटी कोड (एंटी-कॉपी & एंटी-स्क्रीनशॉट)
-        // ==========================================
-        
-        // 1. राइट-क्लिक (Right Click) बंद करना
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
 
-        // 2. कीबोर्ड शॉर्टकट बंद करना (Ctrl+C, Ctrl+U, F12, आदि)
         document.addEventListener('keydown', function(e) {
-            // F12 (Developer Tools)
-            if (e.key === 'F12' || e.keyCode === 123) {
-                e.preventDefault();
-            }
-            // Ctrl+C (Copy), Ctrl+U (View Source), Ctrl+S (Save)
-            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'c' || e.key === 'C' || e.key === 's' || e.key === 'S')) {
-                e.preventDefault();
-            }
-            // Ctrl+Shift+I (Inspect Element)
-            if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'c' || e.key === 'C' || e.key === 'j' || e.key === 'J')) {
-                e.preventDefault();
-            }
+            if (e.key === 'F12' || e.keyCode === 123) e.preventDefault();
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'c' || e.key === 'C' || e.key === 's' || e.key === 'S')) e.preventDefault();
+            if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'c' || e.key === 'C' || e.key === 'j' || e.key === 'J')) e.preventDefault();
         });
 
-        // 3. कंप्यूटर पर PrintScreen (स्क्रीनशॉट) बटन दबाने पर क्लिपबोर्ड खाली करना
         document.addEventListener('keyup', function (e) {
             if (e.key === 'PrintScreen' || e.keyCode === 44) {
-                navigator.clipboard.writeText(''); // कॉपी किया हुआ डाटा डिलीट
+                navigator.clipboard.writeText(''); 
                 alert("सुरक्षा कारणों से इस वेबसाइट का स्क्रीनशॉट लेना सख्त मना है!");
             }
         });
