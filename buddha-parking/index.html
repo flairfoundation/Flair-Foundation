@@ -1,1 +1,444 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddha Parking & EV Charging Station - A Unit of Pakka Traders & Flair Foundation</title>
+    
+    <meta name="description" content="बुद्धा पार्किंग (Buddha Parking) - कच्ची दरगाह, बांका घाट, पटना। विशाल शेड, ई-रिक्शा फास्ट चार्जिंग, 24/7 CCTV सुरक्षा, शौचालय, Wi-Fi और ड्राइवरों के लिए विश्राम व भोजन की उत्तम व्यवस्था।">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../logo.png">
+    <link rel="shortcut icon" type="image/png" href="../logo.png">
+    <link rel="apple-touch-icon" href="../logo.png">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root { 
+            --brand-blue: #1a237e;  
+            --brand-yellow: #fbc02d; 
+            --brand-red: #d32f2f;    
+            --parking-green: #00695c;
+            --parking-light: #e0f2f1;
+            --bg-light: #f4f6f9;
+            --text-dark: #2c3e50;
+            --white: #ffffff;
+        }
+        
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+            background-color: var(--bg-light); 
+            color: var(--text-dark); 
+            line-height: 1.7; 
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            user-select: none; 
+        }
+        
+        /* Universal Navbar */
+        .navbar { 
+            background-color: var(--brand-blue); 
+            padding: 14px 3% 12px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 12px 15px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            flex-wrap: wrap; 
+        }
+        
+        .estd-tag {
+            position: absolute;
+            top: 4px;
+            right: 3%;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.8px;
+        }
+        .estd-tag span { color: var(--brand-yellow); font-weight: 700; }
 
+        .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
+        .logo-container img { height: clamp(48px, 6vw, 64px); width: auto; object-fit: contain; }
+        .logo-text-box { display: flex; flex-direction: column; justify-content: center; }
+        .logo-text { color: var(--brand-yellow); font-size: clamp(1.15rem, 2.2vw, 1.45rem); font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; line-height: 1.15; }
+        .logo-tagline { color: #ff6b6b; font-size: clamp(0.75rem, 1.3vw, 0.88rem); font-weight: 400; letter-spacing: 0.4px; margin-top: 2px; }
+        
+        .nav-links { display: flex; gap: 5px; list-style: none; align-items: center; flex-wrap: wrap; margin-top: 6px; }
+        .nav-links a { text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.86rem; padding: 6px 10px; border-radius: 5px; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 0.4px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--brand-blue); background-color: var(--brand-yellow); box-shadow: 0 3px 6px rgba(0,0,0,0.25); transform: translateY(-1px); }
+        .menu-toggle { display: none; color: var(--brand-yellow); font-size: 1.8rem; cursor: pointer; padding: 4px 8px; }
+
+        /* Parking Hero Section */
+        .parking-hero { 
+            background: linear-gradient(180deg, #ffffff 0%, #e0f2f1 100%); 
+            padding: 50px 20px 40px; 
+            text-align: center; 
+            border-bottom: 5px solid var(--brand-yellow); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        }
+        .parking-logo { 
+            width: clamp(140px, 22vw, 185px); 
+            height: auto; 
+            border-radius: 50%; 
+            margin-bottom: 15px; 
+            box-shadow: 0 8px 20px rgba(0, 105, 92, 0.3); 
+            border: 3px solid var(--brand-yellow);
+            background: #fff;
+        }
+        .unit-badge {
+            display: inline-block;
+            background: var(--parking-green);
+            color: var(--white);
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 5px 16px;
+            border-radius: 50px;
+            letter-spacing: 0.8px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .parking-hero h1 { color: var(--brand-blue); font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 900; margin-bottom: 10px; text-transform: uppercase; }
+        .parking-hero .motto { color: var(--brand-red); font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 800; margin-bottom: 12px; }
+        .parking-hero .sub-info { color: #444; font-size: clamp(0.95rem, 2vw, 1.1rem); font-weight: 600; background: rgba(251, 192, 45, 0.25); display: inline-block; padding: 6px 20px; border-radius: 8px; border: 1px solid #fde08d; }
+
+        .container { max-width: 1150px; margin: 40px auto; padding: 0 20px; }
+
+        .section-title { 
+            text-align: center; 
+            color: var(--brand-blue); 
+            font-size: clamp(1.5rem, 3.2vw, 1.9rem); 
+            margin: 45px 0 25px; 
+            font-weight: 900;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: ""; display: block; width: 90px; height: 4px; background: var(--brand-yellow); margin: 8px auto 0; border-radius: 2px;
+        }
+
+        /* Highlight Description Box */
+        .desc-box {
+            background: var(--white);
+            padding: clamp(25px, 4vw, 35px);
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--parking-green);
+            margin-bottom: 30px;
+        }
+        .desc-box p { font-size: 1.08rem; color: #333; margin-bottom: 15px; text-align: justify; }
+        .desc-box p:last-child { margin-bottom: 0; }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+        .feature-card {
+            background: var(--white);
+            padding: 28px 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--parking-green);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 8px 22px rgba(0,0,0,0.1); }
+        .feature-icon { font-size: 2.3rem; margin-bottom: 15px; display: inline-block; }
+        .feature-card h3 { color: var(--brand-blue); font-size: 1.25rem; margin-bottom: 10px; font-weight: 700; }
+        .feature-card p { color: #555; font-size: 0.98rem; text-align: center; }
+
+        /* Photo Album Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .gallery-item {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #e0e0e0;
+            transition: 0.3s;
+        }
+        .gallery-item:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-caption {
+            padding: 14px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--brand-blue);
+            font-size: 1.02rem;
+            background: #f8fafc;
+            border-top: 1px solid #eee;
+        }
+
+        /* Contact & CTA Section */
+        .cta-box {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
+            border: 2px solid var(--brand-yellow);
+            border-radius: 16px;
+            padding: clamp(30px, 5vw, 45px);
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            margin-top: 40px;
+        }
+        .cta-box h3 { color: var(--brand-blue); font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 12px; font-weight: 900; }
+        .cta-box p { font-size: 1.1rem; color: #444; margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        
+        .manager-info {
+            background: #fff;
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--parking-green);
+            border: 2px dashed var(--parking-green);
+            margin-bottom: 25px;
+        }
+
+        .cta-btns {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .btn-action {
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-wa { background-color: #25d366; }
+        .btn-call { background-color: var(--brand-blue); }
+        .btn-action:hover { transform: translateY(-3px); opacity: 0.95; }
+
+        /* Map Section */
+        .map-box { margin-top: 40px; background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); text-align: center; border-top: 5px solid var(--brand-yellow); }
+        .map-responsive { overflow: hidden; padding-bottom: 45%; position: relative; height: 0; border-radius: 10px; margin-top: 20px; border: 1px solid #ddd; }
+        .map-responsive iframe { left: 0; top: 0; height: 100%; width: 100%; position: absolute; border: 0; }
+
+        /* Footer */
+        footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 40px 20px 25px; border-top: 5px solid var(--brand-red); margin-top: 50px; }
+        .footer-social { display: flex; justify-content: center; align-items: center; gap: clamp(10px, 2.5vw, 20px); margin-bottom: 25px; width: 100%; }
+        .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: clamp(40px, 10vw, 55px); height: clamp(40px, 10vw, 55px); color: var(--white); font-size: clamp(1.2rem, 4.5vw, 1.7rem); border-radius: 50%; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .footer-social a.fb { background: #1877f2; }
+        .footer-social a.tw { background: #000000; border: 1px solid #333; }
+        .footer-social a.in { background: #0077b5; }
+        .footer-social a.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .footer-social a.yt { background: #ff0000; }
+        .footer-social a.wa { background: #25d366; }
+        .footer-social a.tg { background: #0088cc; }
+        .footer-social a:hover { transform: scale(1.15) translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.5); }
+        footer span { color: var(--brand-yellow); font-weight: 700; }
+        
+        @media (max-width: 950px) {
+            .navbar { padding: 18px 4% 10px; }
+            .estd-tag { top: 3px; right: 4%; font-size: 0.62rem; }
+            .menu-toggle { display: block; } 
+            .nav-links { 
+                display: none; width: 100%; flex-direction: column; background-color: var(--brand-blue); padding: 10px 0 15px 0; margin-top: 8px; border-top: 1px solid rgba(255,255,255,0.1);
+            }
+            .nav-links.active { display: flex; } 
+            .nav-links li { width: 100%; text-align: center; margin-bottom: 4px; }
+            .nav-links a { display: block; padding: 10px; font-size: 1rem; }
+            .map-responsive { padding-bottom: 75%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav class="navbar">
+        <div class="estd-tag">ESTD : <span>2017</span></div>
+
+        <a href="/" class="logo-container">
+            <img src="../logo.png" alt="Flair Foundation Logo">
+            <div class="logo-text-box">
+                <span class="logo-text">Flair Foundation</span>
+                <span class="logo-tagline">निःशुल्क शिक्षा प्रसार अभियान</span>
+            </div>
+        </a>
+        
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/buddha-library/">Buddha Library</a></li>
+            <li><a href="/pakka-traders/">Pakka Traders</a></li>
+            <li><a href="/buddha-parking/" class="active">Buddha Parking</a></li>
+            <li><a href="/hostel.html">Hostel</a></li>
+            <li><a href="/admission.html">Admission</a></li>
+            <li><a href="/notice.html">Notice</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Parking Hero Banner -->
+    <div class="parking-hero">
+        <img src="../Parking-logo.jpeg" alt="Buddha Parking Logo" class="parking-logo">
+        <br>
+        <span class="unit-badge">⚡ EV Charging & Parking Station | ESTD. 2026</span>
+        <h1>बुद्धा पार्किंग (BUDDHA PARKING)</h1>
+        <p class="motto">🛡️ ई-रिक्शा, ऑटो एवं चार पहिया वाहनों के लिए पटना की सबसे विशाल और सुरक्षित पार्किंग!</p>
+        <div class="sub-info">
+            📍 कच्ची दरगाह, बांका घाट, स्टेशन रोड, पटना-803201
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Overview / Praise Section -->
+        <h2 class="section-title">🌟 हमारी विशालता और मुख्य विशेषताएं</h2>
+        
+        <div class="desc-box">
+            <p><strong>बुद्धा पार्किंग</strong> केवल एक वाहन खड़ा करने की जगह नहीं, बल्कि वाहन चालकों और ड्राइवरों के लिए एक संपूर्ण विश्राम गृह और आधुनिक सुविधा केंद्र है। पक्का ट्रेडर्स के अंतर्गत संचालित यह पार्किंग परिसर बेहद विशाल क्षेत्रफल में फैला हुआ है, जहाँ सैकड़ों वाहनों के लिए मजबूत और पक्की छावनी (शेड) की व्यवस्था है, ताकि धूप, बारिश या आंधी-तूफान में वाहन पूरी तरह सुरक्षित रहें।</p>
+            <p>यहाँ सुरक्षा से लेकर आराम तक का पूरा ख्याल रखा जाता है। परिसर के चप्पे-चप्पे पर 24 घंटे सीसीटीवी कैमरों से कड़ी निगरानी रखी जाती है[cite: 12]। इसके अलावा ड्राइवरों के लिए स्वच्छ शौचालय (लैट्रिन-बाथरूम), हाई-स्पीड Wi-Fi, रात में सुकून से सोने की व्यवस्था तथा उनके खुद के भोजन पकाने के लिए विशेष रसोई एवं चूल्हे-बर्तन की सुविधा उपलब्ध है।</p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">⛺</span>
+                <h3>विशाल छावनी (शेड)</h3>
+                <p>धूप और बारिश से बचाव के लिए सैकड़ों वाहनों की क्षमता वाला मजबूत और पक्का शेडनुमा शेल्टर।</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>ई-रिक्शा फास्ट चार्जिंग</h3>
+                <p>वाहन चालकों के लिए आधुनिक और तेज गति से चार्जिंग करने वाले डेडिकेटेड ईवी चार्जिंग पॉइंट्स[cite: 12]।</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📹</span>
+                <h3>24/7 CCTV निगरानी</h3>
+                <p>आपके वाहनों की सुरक्षा सुनिश्चित करने के लिए चप्पे-चप्पे पर आधुनिक सीसीटीवी कैमरे और गार्ड्स[cite: 12]।</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🛌</span>
+                <h3>विश्राम एवं सोने की सुविधा</h3>
+                <p>लंबे सफर के बाद ड्राइवरों के रात में आराम से सोने और ठहरने के लिए सुरक्षित व शांत कमरे।</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🍳</span>
+                <h3>ड्राइवर रसोई (खाना बनाने की जगह)</h3>
+                <p>चालक साथियों के लिए अपना भोजन स्वयं बनाने हेतु स्वच्छ रसोई घर और पानी की पूरी व्यवस्था।</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🚻</span>
+                <h3>शौचालय एवं फ्री Wi-Fi</h3>
+                <p>स्वच्छ और अलग शौचालय परिसर के साथ-साथ सभी विजिटर्स और चालकों के लिए मुफ्त हाई-स्पीड Wi-Fi[cite: 12]。</p>
+            </div>
+        </div>
+
+        <!-- Photo Album / Gallery Section -->
+        <h2 class="section-title">📸 पार्किंग फोटो एल्बम (Photo Gallery)</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 20px;">यहाँ आप हमारे विशाल परिसर, शेड, चार्जिंग पॉइंट और सुरक्षा व्यवस्था की असली तस्वीरें देख सकते हैं:</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="../parking-1.jpeg" alt="Buddha Parking Main View">
+                <div class="gallery-caption">🅿️ पार्किंग का मुख्य दृश्य (दिन में शेड)</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../parking-2.jpeg" alt="Buddha Parking Banner & EV">
+                <div class="gallery-caption">⚡ मुख्य प्रवेश द्वार एवं ईवी चार्जिंग पॉइंट</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../parking-3.jpeg" alt="Buddha Parking Comprehensive View">
+                <div class="gallery-caption">🌙 रात का दृश्य, सीसीटीवी कवरेज एवं वाहन लाइनअप</div>
+            </div>
+        </div>
+
+        <!-- Call to Action & Contact -->
+        <h2 class="section-title">📞 संपर्क करें & पूछताछ</h2>
+        
+        <div class="cta-box">
+            <h3>अपनी गाड़ी पार्क करने या चार्ज करने के लिए आज ही संपर्क करें!</h3>
+            <p>किसी भी समय वाहन पार्किंग, मासिक पास या ई-रिक्शा चार्जिंग की जानकारी के लिए हमारे सीधे नंबर पर कॉल या व्हाट्सएप करें।</p>
+            
+            <div class="manager-info">
+                👤 संचालक: अमन कुमार गुल्लू &nbsp;|&nbsp; प्रोप्राइटर: पिंटू कुमार सिंह
+            </div>
+            <br>
+            
+            <div class="cta-btns">
+                <a href="https://wa.me/917050668855?text=नमस्ते%20पिंटू%20जी,%20मुझे%20बुद्धा%20पार्किंग%20(Buddha%20Parking)%20के%20संबंध%20में%20जानकारी%20चाहिए।" target="_blank" class="btn-action btn-wa">
+                    <i class="fab fa-whatsapp"></i> WhatsApp पर बात करें (+91 7050668855)
+                </a>
+                <a href="tel:+917050668855" class="btn-action btn-call">
+                    <i class="fas fa-phone"></i> डायरेक्ट कॉल करें
+                </a>
+            </div>
+        </div>
+
+        <!-- Map Location -->
+        <div class="map-box">
+            <h2 style="color: var(--brand-blue); font-size: 1.6rem; text-transform: uppercase; font-weight: 800;">📍 गूगल मैप लोकेशन (Google Map Location)</h2>
+            <p style="color: #666; font-size: 1rem; margin-top: 8px;">कच्ची दरगाह, बांका घाट रेलवे स्टेशन रोड पर स्थित बुद्धा पार्किंग पहुँचने का रास्ता:</p>
+            
+            <div class="map-responsive">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14392.204732441094!2d85.2259695!3d25.6032128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5844f0bb6903%3A0x2a9a4b8686d1b74c!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/FlairFoundation" class="fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/flairfoundation" class="tw" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/flairfoundation" class="in" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/flairfoundationngo" class="ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@FlairFoundation" class="yt" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/917050668855" class="wa" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.youtube.com/@FlairFoundation" class="tg" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+        <p>&copy; 2026 <span>Buddha Parking</span> (A Unit of Pakka Traders & Flair Foundation). All Rights Reserved.</p>
+        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Director/Founder: Shri Pintu Kumar Singh | Kacchi Dargah, Banka Ghat, Patna</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || e.keyCode === 123) e.preventDefault();
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'c' || e.key === 'C' || e.key === 's' || e.key === 'S')) e.preventDefault();
+        });
+    </script>
+
+</body>
+</html>
