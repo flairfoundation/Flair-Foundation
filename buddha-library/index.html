@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buddha Library - A Unit of Flair Foundation</title>
     
-    <link rel="icon" type="image/png" href="/logo.png">
-    <link rel="shortcut icon" type="image/png" href="/logo.png">
-    <link rel="apple-touch-icon" href="/logo.png">
+    <!-- Favicon (सभी डिवाइस और ब्राउज़र के लिए 100% पक्का जुगाड़) -->
+    <link rel="icon" type="image/png" href="../logo.png">
+    <link rel="shortcut icon" type="image/png" href="../logo.png">
+    <link rel="apple-touch-icon" href="../logo.png">
     
+    <!-- Social Media Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
@@ -19,10 +21,11 @@
             --brand-yellow: #fbc02d; 
             --brand-red: #d32f2f;    
             --bg-light: #f4f6f9;
-            --text-dark: #2c3e50;
+            --text-dark: #333;
             --white: #ffffff;
         }
         
+        /* सिक्योरिटी: एंटी-कॉपी */
         body { 
             font-family: system-ui, -apple-system, sans-serif; 
             background-color: var(--bg-light); 
@@ -34,69 +37,71 @@
             user-select: none; 
         }
         
-        /* होम पेज जैसा 100% सेम हेडर */
+        /* ==========================================
+           होम पेज जैसा सेम हेडर (Navbar)
+           ========================================== */
         .navbar { 
             background-color: var(--brand-blue); 
-            padding: 10px 2%; 
+            padding: 14px 3% 12px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            gap: 10px; 
-            box-shadow: 0 3px 10px rgba(0,0,0,0.18); 
+            gap: 12px 15px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
             position: sticky; 
             top: 0; 
             z-index: 1000; 
+            flex-wrap: wrap; 
         }
         
-        .estd-corner {
+        /* कोने में ESTD 2017 */
+        .estd-tag {
             position: absolute;
-            top: 3px;
-            right: 2%;
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: var(--brand-yellow);
+            top: 4px;
+            right: 3%;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
             letter-spacing: 0.8px;
-            opacity: 0.95;
+        }
+        .estd-tag span {
+            color: var(--brand-yellow);
+            font-weight: 700;
         }
 
+        /* लोगो और नाम (दोनों पर क्लिक करने से होम पेज खुलेगा) */
         .logo-container { 
             display: flex; 
             align-items: center; 
-            gap: 10px; 
+            gap: 12px; 
             text-decoration: none; 
-            cursor: pointer;
-            flex-shrink: 0;
+            cursor: pointer; 
         }
-        
         .logo-container img { 
-            height: clamp(44px, 5vw, 56px); 
+            height: clamp(48px, 6vw, 64px); 
             width: auto; 
             object-fit: contain; 
         }
-        
         .logo-text-box {
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-        
         .logo-text { 
             color: var(--brand-yellow); 
-            font-size: clamp(1.05rem, 1.8vw, 1.35rem); 
+            font-size: clamp(1.15rem, 2.2vw, 1.45rem); 
             font-weight: 800; 
             text-transform: uppercase; 
-            letter-spacing: 0.6px; 
+            letter-spacing: 0.8px; 
             line-height: 1.15;
-            white-space: nowrap;
         }
-        
+        /* नीचे पतले लाल रंग में हिंदी टैगलाइन */
         .logo-tagline {
             color: #ff6b6b;
-            font-size: clamp(0.72rem, 1.1vw, 0.84rem);
-            font-weight: 500;
-            letter-spacing: 0.3px;
+            font-size: clamp(0.75rem, 1.3vw, 0.88rem);
+            font-weight: 400;
+            letter-spacing: 0.4px;
             margin-top: 2px;
-            white-space: nowrap;
         }
         
         .nav-links { 
@@ -104,42 +109,32 @@
             gap: 5px; 
             list-style: none; 
             align-items: center; 
-            flex-wrap: nowrap;
+            flex-wrap: wrap; 
             margin-top: 6px;
         }
-        
         .nav-links a { 
             text-decoration: none; 
             color: var(--white); 
             font-weight: 600; 
-            font-size: clamp(0.72rem, 0.95vw, 0.85rem); 
-            padding: 6px 9px; 
+            font-size: 0.86rem; 
+            padding: 6px 10px; 
             border-radius: 5px; 
             transition: all 0.2s ease; 
             text-transform: uppercase; 
-            letter-spacing: 0.3px;
-            white-space: nowrap;
-            background: rgba(255, 255, 255, 0.08);
-            border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+            letter-spacing: 0.4px; 
         }
-        
         .nav-links a:hover, .nav-links a.active { 
             color: var(--brand-blue); 
             background-color: var(--brand-yellow); 
-            font-weight: 700;
-            border-bottom: 2px solid #c79100;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.25);
             transform: translateY(-1px);
-            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
         }
-        
         .menu-toggle { 
             display: none; 
             color: var(--brand-yellow); 
-            font-size: 1.6rem; 
+            font-size: 1.8rem; 
             cursor: pointer; 
-            padding: 4px 10px;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 8px;
         }
 
         /* Library Hero Banner */
@@ -172,4 +167,319 @@
         .fee-card .price { font-size: 2.2rem; color: var(--brand-red); font-weight: 800; }
         
         .top-choice { border: 2px solid var(--brand-yellow); background: #fffdf0; }
-        .top-badge
+        .top-badge { position: absolute; top: -12px; right: 20px; background: var(--brand-yellow); color: #000; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+        .special-msg { background: var(--brand-blue); color: white; padding: 20px; text-align: center; border-radius: 8px; margin-top: 35px; font-size: 1.05rem; font-weight: 600; line-height: 1.6; border-left: 5px solid var(--brand-yellow); }
+
+        /* Payment Section */
+        .payment-section { background: #ffffff; border-radius: 16px; padding: 40px 30px; margin-top: 40px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); border: 1px solid #e0e0e0; text-align: center; }
+        .payment-section h3 { color: var(--brand-blue); font-size: 1.8rem; margin-bottom: 12px; font-weight: 800; }
+        .payment-section p { color: #555; margin-bottom: 25px; font-size: 1.05rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        .upi-btn { background: linear-gradient(135deg, #00897b, #00695c); color: white; padding: 15px 35px; text-decoration: none; font-size: 1.15rem; font-weight: 700; border-radius: 50px; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 6px 20px rgba(0, 137, 123, 0.35); transition: 0.3s; margin-bottom: 30px; }
+        .upi-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 137, 123, 0.45); }
+
+        .qr-display-box { background: #f8f9fa; border: 2px solid var(--brand-yellow); padding: 25px; border-radius: 14px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.04); max-width: 320px; width: 100%; }
+        .qr-display-box img { width: 100%; height: auto; max-height: 280px; object-fit: contain; border-radius: 8px; display: block; margin: 0 auto; }
+        .qr-display-box p { margin-top: 12px; font-weight: 700; color: #333; font-size: 1rem; }
+
+        /* Contact Details */
+        .contact-box { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 12px; padding: 35px 20px; text-align: center; margin-top: 40px; box-shadow: inset 0 0 10px rgba(0,0,0,0.02); }
+        .contact-box h2 { color: var(--brand-blue); margin-bottom: 15px; font-size: 1.6rem; text-transform: uppercase; }
+        .contact-box p { font-size: 1rem; color: #555; margin-bottom: 15px; }
+        
+        .wa-btn { background-color: #25d366; color: white; padding: 12px 25px; text-decoration: none; font-size: 1.1rem; font-weight: bold; border-radius: 50px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: 0.3s; margin: 10px 5px; }
+        .wa-btn:hover { background-color: #1ebe57; transform: scale(1.05); }
+
+        /* Map & Rating Section */
+        .map-rating-box { margin-top: 40px; background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.06); text-align: center; border-top: 5px solid var(--brand-yellow); }
+        .map-responsive { overflow: hidden; padding-bottom: 45%; position: relative; height: 0; border-radius: 10px; margin-top: 20px; border: 1px solid #ddd; }
+        .map-responsive iframe { left: 0; top: 0; height: 100%; width: 100%; position: absolute; border: 0; }
+        
+        .rating-btn { background-color: var(--brand-yellow); color: #000; padding: 14px 30px; text-decoration: none; font-size: 1.15rem; font-weight: 800; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 6px 20px rgba(251, 192, 45, 0.4); transition: 0.3s; margin-top: 20px; }
+        .rating-btn:hover { background-color: #f9a825; transform: translateY(-3px); }
+
+        /* ==========================================
+           होम पेज जैसा सेम फुटर (Footer)
+           ========================================== */
+        footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 40px 20px 25px; border-top: 5px solid var(--brand-red); margin-top: 40px; }
+        .footer-social { display: flex; justify-content: center; align-items: center; gap: clamp(10px, 2.5vw, 20px); margin-bottom: 30px; width: 100%; }
+        .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: clamp(40px, 10vw, 55px); height: clamp(40px, 10vw, 55px); color: var(--white); font-size: clamp(1.2rem, 4.5vw, 1.7rem); border-radius: 50%; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .footer-social a.fb { background: #1877f2; }
+        .footer-social a.tw { background: #000000; border: 1px solid #333; }
+        .footer-social a.in { background: #0077b5; }
+        .footer-social a.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .footer-social a.yt { background: #ff0000; }
+        .footer-social a.wa { background: #25d366; }
+        .footer-social a.tg { background: #0088cc; }
+        .footer-social a:hover { transform: scale(1.15) translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.5); }
+        footer span { color: var(--brand-yellow); font-weight: 700; }
+        
+        @media (max-width: 950px) {
+            .navbar { padding: 18px 4% 10px; }
+            .estd-tag { top: 3px; right: 4%; font-size: 0.62rem; }
+            .menu-toggle { display: block; } 
+            .nav-links { 
+                display: none; 
+                width: 100%; 
+                flex-direction: column; 
+                background-color: var(--brand-blue); 
+                padding: 10px 0 15px 0; 
+                margin-top: 8px;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+            .nav-links.active { display: flex; } 
+            .nav-links li { width: 100%; text-align: center; margin-bottom: 4px; }
+            .nav-links a { display: block; padding: 10px; font-size: 1rem; }
+            .map-responsive { padding-bottom: 75%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar (होम पेज जैसा 100% सेम) -->
+    <nav class="navbar">
+        <div class="estd-tag">ESTD : <span>2017</span></div>
+
+        <a href="../" class="logo-container">
+            <img src="../logo.png" alt="Flair Foundation Logo">
+            <div class="logo-text-box">
+                <span class="logo-text">Flair Foundation</span>
+                <span class="logo-tagline">निःशुल्क शिक्षा प्रसार अभियान</span>
+            </div>
+        </a>
+        
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="../">Home</a></li>
+            <li><a href="../buddha-library/" class="active">Buddha Library</a></li>
+            <li><a href="../pakka-traders.html">Pakka Traders</a></li>
+            <li><a href="../buddha-parking.html">Buddha Parking</a></li>
+            <li><a href="../hostel.html">Hostel</a></li>
+            <li><a href="../admission.html">Admission</a></li>
+            <li><a href="../notice.html">Notice</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Buddha Library Hero Section -->
+    <div class="lib-hero">
+        <img src="../buddha-logo.jpeg" alt="Buddha Library Logo" class="lib-logo">
+        <h1>बुद्धा लाइब्रेरी</h1>
+        <p>एक शांत वातावरण, एक उज्ज्वल भविष्य। ✨</p>
+        <p class="effective-date">(यह नियम 1 नवंबर 2025 से प्रभावी रूप से लागू हैं)</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <h2 class="section-title">📜 लाइब्रेरी के नियम एवं शर्तें</h2>
+
+        <!-- Rules Section -->
+        <div class="rule-card">
+            <h3>1. एकाग्रता और शांत वातावरण (सबसे महत्वपूर्ण)</h3>
+            <ul>
+                <li>लाइब्रेरी परिसर के भीतर बातचीत करना पूरी तरह वर्जित है। शांति बनाए रखें। 🤐</li>
+                <li>मोबाइल को अनिवार्य रूप से 'Silent' मोड पर ही रखना है। (Vibration की अनुमति नहीं है)।</li>
+                <li>कॉल मैनेजमेंट: सीट पर फोन उठाना सख्त मना है। फोन रिसीव करने से पहले हॉल के बाहर जाना होगा। 🚶</li>
+                <li>शांतिपूर्ण आवागमन: लाइब्रेरी के अंदर पैर पटककर या जूते-चप्पल घिसकर न चलें। 👣</li>
+            </ul>
+        </div>
+
+        <div class="rule-card">
+            <h3>2. सीट, समय एवं शिफ्ट प्रबंधन</h3>
+            <ul>
+                <li>सीट आवंटन: केवल अपनी अलॉट की गई सीट पर ही बैठें। 🪑</li>
+                <li>कुर्सी का रखरखाव: सीट छोड़ते समय कुर्सी को खींचकर आवाज न करें। इसे धीरे से डेस्क के अंदर रखें। 🚫</li>
+                <li>शुल्क चक्र: लाइब्रेरी का शुल्क चक्र 28 दिनों का होगा। 🗓️</li>
+            </ul>
+            <div class="highlight-box">
+                ☑️ विशेष समायोजन: हर 6 महीने में 12 दिन एक साथ जोड़ दिए जाएंगे जिससे औसत शुल्क चक्र 30 दिनों का ही रहेगा।
+            </div>
+        </div>
+
+        <div class="rule-card">
+            <h3>3. वित्तीय नीतियां एवं रिफंड</h3>
+            <ul>
+                <li>प्रवेश शुल्क: ₹199 एडमिशन चार्ज (नॉन-रिफंडेबल) अनिवार्य है। ♦️</li>
+                <li>रिफंड नीति: एक बार भुगतान होने के बाद शुल्क वापस नहीं होगा। ❌</li>
+                <li>प्लान बदलाव: चालू महीने में शिफ्ट बदलने पर ₹100 अधिभार लगेगा। 💸</li>
+            </ul>
+        </div>
+
+        <div class="rule-card urgent">
+            <h3>4. अनुपस्थिति, छुट्टी एवं पुनः नामांकन (Strict Policy)</h3>
+            <ul>
+                <li>पूर्व सूचना: छुट्टी के लिए शुल्क समाप्ति से एक दिन पहले व्हाट्सएप पर मैसेज करना अनिवार्य है। ✍️</li>
+                <li>बिना सूचना अनुपस्थिति: यदि कोई छात्र बिना बताए गायब रहता है, तो ध्यान दें: हमारा सिस्टम ऐप और कैमरों (CCTV) से लिंक है, जहाँ आपकी अटेंडेंस ऑटोमैटिक दर्ज होती है। 🖥️📸</li>
+                <li>झूठ एवं दंड: बिना सूचना गायब रहने पर पिछला बकाया देना होगा, अन्यथा नया नामांकन शुल्क लगेगा। ⚠️</li>
+            </ul>
+        </div>
+
+        <div class="rule-card">
+            <h3>5. बिजली उपकरण एवं AC प्रबंधन</h3>
+            <ul>
+                <li>हस्तक्षेप निषेध: पंखे, स्विच या AC के साथ छेड़छाड़ करना सख्त मना है। 🚫</li>
+                <li>बिजली की बचत: जाते समय अपनी डेस्क की लाइट और स्विच बंद करना न भूलें। 💡</li>
+            </ul>
+        </div>
+
+        <div class="rule-card">
+            <h3>6. शौचालय एवं स्वच्छता नियम</h3>
+            <ul>
+                <li>पृथक व्यवस्था: छात्र एवं छात्राओं के लिए अलग-अलग शौचालय की व्यवस्था है। 🚻</li>
+                <li>कठोर नियम: छात्रों द्वारा छात्राओं के शौचालय का उपयोग करना वर्जित है। 🚫</li>
+                <li>स्वच्छता: उपयोग के बाद फ्लश (Flush) का उपयोग अवश्य करें और गंदगी न फैलाएं। 🧼🚫</li>
+            </ul>
+        </div>
+
+        <div class="rule-card urgent">
+            <h3>7. भोजन एवं सामान्य स्वच्छता (विशेष चेतावनी)</h3>
+            <ul>
+                <li>नो ईटिंग जोन: मुख्य अध्ययन हॉल के अंदर खाना खाना सख्त वर्जित है। 🚫🍎</li>
+                <li>बेसिन स्वच्छता: लंच बॉक्स धोते समय सब्जी के छिलके, फल के टुकड़े या कचरा बेसिन में न छोड़ें। इन्हें डस्टबिन में ही डालें। 🗑️🚿</li>
+                <li>हाथ पोंछने के नियम: लाइब्रेरी के पर्दों से हाथ या मुँह पोंछना सख्त वर्जित है। अपना रुमाल साथ रखें। 🚫</li>
+            </ul>
+        </div>
+
+        <div class="rule-card urgent">
+            <h3>8. बाहरी व्यक्ति एवं मेहमानों के लिए नियम (Strict)</h3>
+            <ul>
+                <li>प्रवेश वर्जित: लाइब्रेरी हॉल के भीतर किसी भी बाहरी व्यक्ति का प्रवेश पूर्णतः वर्जित है। 🙅‍♂️</li>
+                <li>कोई रियायत नहीं: यदि आपसे कोई मिलने आता है, तो केवल निर्धारित गेस्ट रूम (Guest Room) में ही बात करें। 🛋️</li>
+            </ul>
+        </div>
+
+        <!-- Fee Structure -->
+        <h2 class="section-title">🕒 Fee Structure 2025</h2>
+        <div class="fee-grid">
+            <div class="fee-card">
+                <span class="fee-badge">MORNING</span>
+                <h4>06.00 AM – 10.00 AM</h4>
+                <div class="price">₹299</div>
+            </div>
+            <div class="fee-card">
+                <span class="fee-badge">AFTERNOON 1</span>
+                <h4>10.00 AM – 02.00 PM</h4>
+                <div class="price">₹399</div>
+            </div>
+            <div class="fee-card">
+                <span class="fee-badge">AFTERNOON 2</span>
+                <h4>02.00 PM – 06.00 PM</h4>
+                <div class="price">₹399</div>
+            </div>
+            <div class="fee-card">
+                <span class="fee-badge">NIGHT SHIFT</span>
+                <h4>10.00 PM – 05.00 AM</h4>
+                <div class="price">₹399</div>
+            </div>
+            <div class="fee-card top-choice">
+                <div class="top-badge">TOP CHOICE</div>
+                <span class="fee-badge">FULL DAY (12 HR)</span>
+                <h4>06.00 AM – 06.00 PM</h4>
+                <div class="price">₹499</div>
+            </div>
+            <div class="fee-card">
+                <span class="fee-badge">FULL DAY (24 HR)</span>
+                <h4>06.00 AM – 06.00 AM</h4>
+                <div class="price">₹799</div>
+            </div>
+        </div>
+
+        <div class="special-msg">
+            🌟 विशेष संदेश: "अनुशासन ही वह पुल है जो आपके आज के संघर्ष को कल की सफलता से जोड़ता है। आपकी सुविधा के लिए बनाए गए इन नियमों में सहयोग करें। धन्यवाद!" 🎓
+        </div>
+
+        <!-- Payment Section -->
+        <div class="payment-section">
+            <h3>💳 ऑनलाइन फीस भुगतान (Online Fee Payment)</h3>
+            <p>सीधे किसी भी यूपीआई ऐप से भुगतान करने के लिए नीचे दिए गए बटन पर क्लिक करें, या नीचे दिए गए क्यूआर कोड को स्कैन करें।</p>
+            
+            <a href="upi://pay?pa=7050668855@paytm&pn=Buddha%20Library&cu=INR" class="upi-btn">
+                <i class="fas fa-mobile-screen-button"></i> 📱 Pay via Any UPI App (GPay/PhonePe/Paytm)
+            </a>
+            
+            <div style="margin-top: 15px;">
+                <div class="qr-display-box">
+                    <img src="../qr-code.jpeg" alt="Buddha Library UPI QR Code" onerror="this.src='https://via.placeholder.com/250?text=Upload+qr-code.jpeg';">
+                    <p>📷 स्कैन करके भुगतान करें</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-box">
+            <h2>Admission Open - अभी नामांकन करें 🚩</h2>
+            <p>📍 मेन रोड, कच्ची दरगाह, दुर्गा मंदिर के पास, पटना-803201</p>
+            <br>
+            <a href="https://wa.me/917050668855?text=नमस्ते%20पिंटू%20सर,%20मुझे%20बुद्धा%20लाइब्रेरी%20में%20एडमिशन/छुट्टी%20लेना%20है।" target="_blank" class="wa-btn">
+               💬 Chat on WhatsApp
+            </a>
+            <a href="tel:+917050668855" class="wa-btn" style="background-color: #1a237e;">
+               📞 Call Now
+            </a>
+        </div>
+
+        <!-- Map & Rating Section -->
+        <div class="map-rating-box">
+            <h2 style="color: var(--brand-blue); font-size: 1.6rem; text-transform: uppercase; font-weight: 800;">📍 हमारी लोकेशन और रेटिंग (Google Map)</h2>
+            <p style="color: #666; font-size: 1rem; margin-top: 8px;">लाइब्रेरी की सटीक लोकेशन देखने और अपना बहुमूल्य रिव्यू/रेटिंग देने के लिए नीचे क्लिक करें!</p>
+            
+            <div class="map-responsive">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14392.204732441094!2d85.2259695!3d25.6032128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5844f0bb6903%3A0x2a9a4b8686d1b74c!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <a href="https://maps.app.goo.gl/cua5BFyn6ogWud4MA?g_st=ac" target="_blank" class="rating-btn">
+                ⭐ Google पर रेटिंग / रिव्यू दें
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer (होम पेज जैसा 100% सेम) -->
+    <footer>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/FlairFoundation" class="fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/flairfoundation" class="tw" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/flairfoundation" class="in" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/flairfoundationngo" class="ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@FlairFoundation" class="yt" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/917050668855" class="wa" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.youtube.com/@FlairFoundation" class="tg" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+        <p>&copy; 2026 <span>Flair Foundation</span>. All Rights Reserved.</p>
+        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Director/Founder: Er. PK Singh | Kacchi Dargah, Banka Ghat, Patna</p>
+    </footer>
+
+    <!-- Scripts (Menu, Clean URL & Security) -->
+    <script>
+        if (window.location.pathname.endsWith('/index.html')) {
+            window.history.replaceState(null, '', window.location.pathname.replace('index.html', ''));
+        }
+
+        function toggleMenu() {
+            var menu = document.getElementById("nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || e.keyCode === 123) e.preventDefault();
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'c' || e.key === 'C' || e.key === 's' || e.key === 'S')) e.preventDefault();
+            if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'c' || e.key === 'C' || e.key === 'j' || e.key === 'J')) e.preventDefault();
+        });
+
+        document.addEventListener('keyup', function (e) {
+            if (e.key === 'PrintScreen' || e.keyCode === 44) {
+                navigator.clipboard.writeText(''); 
+                alert("सुरक्षा कारणों से इस वेबसाइट का स्क्रीनशॉट लेना सख्त मना है!");
+            }
+        });
+    </script>
+
+</body>
+</html>
