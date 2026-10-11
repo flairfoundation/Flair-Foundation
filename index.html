@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flair Foundation | Free Education Campaign</title>
     
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="shortcut icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="shortcut icon" type="image/png" href="/logo.png">
+    <link rel="apple-touch-icon" href="/logo.png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
@@ -19,7 +19,7 @@
             --brand-yellow: #fbc02d; 
             --brand-red: #d32f2f;    
             --bg-light: #f4f6f9;
-            --text-dark: #333;
+            --text-dark: #2c3e50;
             --white: #ffffff;
         }
         
@@ -36,63 +36,66 @@
         
         .navbar { 
             background-color: var(--brand-blue); 
-            padding: 14px 3% 12px; 
+            padding: 10px 2%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            gap: 12px 15px; 
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15); 
+            gap: 10px; 
+            box-shadow: 0 3px 10px rgba(0,0,0,0.18); 
             position: sticky; 
             top: 0; 
             z-index: 1000; 
-            flex-wrap: wrap; 
         }
         
-        .estd-tag {
+        .estd-corner {
             position: absolute;
-            top: 4px;
-            right: 3%;
-            font-size: 0.68rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.85);
-            letter-spacing: 0.8px;
-        }
-        .estd-tag span {
-            color: var(--brand-yellow);
+            top: 3px;
+            right: 2%;
+            font-size: 0.65rem;
             font-weight: 700;
+            color: var(--brand-yellow);
+            letter-spacing: 0.8px;
+            opacity: 0.95;
         }
 
         .logo-container { 
             display: flex; 
             align-items: center; 
-            gap: 12px; 
+            gap: 10px; 
             text-decoration: none; 
             cursor: pointer;
+            flex-shrink: 0;
         }
+        
         .logo-container img { 
-            height: clamp(48px, 6vw, 64px); 
+            height: clamp(44px, 5vw, 56px); 
             width: auto; 
             object-fit: contain; 
         }
+        
         .logo-text-box {
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
+        
         .logo-text { 
             color: var(--brand-yellow); 
-            font-size: clamp(1.15rem, 2.2vw, 1.45rem); 
+            font-size: clamp(1.05rem, 1.8vw, 1.35rem); 
             font-weight: 800; 
             text-transform: uppercase; 
-            letter-spacing: 0.8px; 
+            letter-spacing: 0.6px; 
             line-height: 1.15;
+            white-space: nowrap;
         }
+        
         .logo-tagline {
             color: #ff6b6b;
-            font-size: clamp(0.75rem, 1.3vw, 0.88rem);
-            font-weight: 400;
-            letter-spacing: 0.4px;
+            font-size: clamp(0.72rem, 1.1vw, 0.84rem);
+            font-weight: 500;
+            letter-spacing: 0.3px;
             margin-top: 2px;
+            white-space: nowrap;
         }
         
         .nav-links { 
@@ -100,61 +103,98 @@
             gap: 5px; 
             list-style: none; 
             align-items: center; 
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             margin-top: 6px;
         }
+        
         .nav-links a { 
             text-decoration: none; 
             color: var(--white); 
             font-weight: 600; 
-            font-size: 0.86rem; 
-            padding: 6px 10px; 
+            font-size: clamp(0.72rem, 0.95vw, 0.85rem); 
+            padding: 6px 9px; 
             border-radius: 5px; 
             transition: all 0.2s ease; 
             text-transform: uppercase; 
-            letter-spacing: 0.4px; 
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.08);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.25);
         }
+        
         .nav-links a:hover, .nav-links a.active { 
             color: var(--brand-blue); 
             background-color: var(--brand-yellow); 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+            font-weight: 700;
+            border-bottom: 2px solid #c79100;
             transform: translateY(-1px);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
         }
         
         .menu-toggle { 
             display: none; 
             color: var(--brand-yellow); 
-            font-size: 1.8rem; 
+            font-size: 1.6rem; 
             cursor: pointer; 
-            padding: 4px 8px;
+            padding: 4px 10px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        .ticker-wrap { background: var(--brand-yellow); color: var(--brand-blue); padding: 8px 20px; font-weight: 700; font-size: 1rem; border-bottom: 3px solid var(--brand-red); }
+        .ticker-wrap { 
+            background: #fff8dc; 
+            color: var(--brand-blue); 
+            padding: 8px 15px; 
+            font-weight: 700; 
+            font-size: 0.95rem; 
+            border-bottom: 2px solid var(--brand-yellow); 
+        }
         
-        .hero { background: linear-gradient(135deg, var(--brand-blue) 0%, #3949ab 100%); color: var(--white); text-align: center; padding: 70px 20px; border-bottom: 5px solid var(--brand-yellow); }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.95; }
+        .hero { 
+            background: var(--white); 
+            color: var(--brand-blue); 
+            text-align: center; 
+            padding: 50px 20px; 
+            border-bottom: 4px solid var(--brand-yellow); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        
+        .hero h1 { 
+            font-size: clamp(1.8rem, 4vw, 2.6rem); 
+            margin-bottom: 10px; 
+            font-weight: 800; 
+            color: var(--brand-blue);
+        }
+        
+        .hero p { 
+            font-size: clamp(1rem, 2vw, 1.2rem); 
+            max-width: 800px; 
+            margin: 0 auto; 
+            color: #555; 
+            font-weight: 600;
+        }
         
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-top: 30px; }
         
-        .card { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--brand-blue); transition: 0.3s; }
+        .card { background: var(--white); padding: 28px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--brand-blue); transition: 0.3s; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-top: 4px solid var(--brand-red); }
-        .card h3 { color: var(--brand-blue); margin-bottom: 15px; font-size: 1.4rem; display: flex; align-items: center; gap: 10px; }
+        .card h3 { color: var(--brand-blue); margin-bottom: 12px; font-size: 1.35rem; display: flex; align-items: center; gap: 10px; }
+        .card p { color: #444; font-size: 0.98rem; }
         
-        .wa-btn-container { text-align: center; margin: 50px 0 20px; }
-        .wa-btn { background-color: #25d366; color: white; padding: 14px 30px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: 0.3s; }
-        .wa-btn:hover { background-color: #1ebe57; transform: scale(1.05); }
+        .wa-btn-container { text-align: center; margin: 45px 0 20px; }
+        .wa-btn { background-color: #25d366; color: white; padding: 13px 28px; text-decoration: none; font-size: 1.15rem; font-weight: bold; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35); transition: 0.3s; }
+        .wa-btn:hover { background-color: #1ebe57; transform: scale(1.04); }
 
-        footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 40px 20px 25px; border-top: 5px solid var(--brand-red); margin-top: 40px; }
+        footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 35px 20px 25px; border-top: 4px solid var(--brand-red); margin-top: 40px; }
         
         .footer-social { 
             display: flex; 
             justify-content: center; 
             align-items: center;
-            gap: clamp(10px, 2.5vw, 20px); 
-            margin-bottom: 30px; 
+            gap: clamp(10px, 2.5vw, 18px); 
+            margin-bottom: 25px; 
             width: 100%;
         }
         
@@ -162,10 +202,10 @@
             display: inline-flex; 
             align-items: center; 
             justify-content: center; 
-            width: clamp(40px, 10vw, 55px); 
-            height: clamp(40px, 10vw, 55px); 
+            width: clamp(38px, 9vw, 48px); 
+            height: clamp(38px, 9vw, 48px); 
             color: var(--white); 
-            font-size: clamp(1.2rem, 4.5vw, 1.7rem); 
+            font-size: clamp(1.1rem, 4vw, 1.4rem); 
             border-radius: 50%; 
             text-decoration: none; 
             transition: all 0.3s ease; 
@@ -180,40 +220,39 @@
         .footer-social a.wa { background: #25d366; }
         .footer-social a.tg { background: #0088cc; }
         
-        .footer-social a:hover { transform: scale(1.15) translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.5); }
+        .footer-social a:hover { transform: scale(1.15) translateY(-4px); box-shadow: 0 8px 15px rgba(0,0,0,0.5); }
         
         footer span { color: var(--brand-yellow); font-weight: 700; }
         
-        @media (max-width: 950px) {
-            .navbar { padding: 18px 4% 10px; }
-            .estd-tag { top: 3px; right: 4%; font-size: 0.62rem; }
+        @media (max-width: 1024px) {
+            .navbar { flex-wrap: wrap; padding: 14px 4% 10px; }
+            .estd-corner { top: 3px; right: 4%; font-size: 0.62rem; }
             .menu-toggle { display: block; } 
             
             .nav-links { 
                 display: none; 
                 width: 100%; 
                 flex-direction: column; 
-                background-color: var(--brand-blue); 
-                padding: 10px 0 15px 0; 
-                margin-top: 8px;
-                border-top: 1px solid rgba(255,255,255,0.1);
+                background-color: #151d69; 
+                padding: 12px; 
+                margin-top: 10px;
+                border-radius: 8px;
+                gap: 8px;
             }
             .nav-links.active { display: flex; } 
             
-            .nav-links li { width: 100%; text-align: center; margin-bottom: 4px; }
-            .nav-links a { display: block; padding: 10px; font-size: 1rem; }
-            
-            .hero h1 { font-size: 2.2rem; }
+            .nav-links li { width: 100%; text-align: center; }
+            .nav-links a { display: block; padding: 10px; font-size: 0.95rem; width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="estd-tag">ESTD : <span>2017</span></div>
+        <div class="estd-corner">ESTD : 2017</div>
 
-        <a href="./" class="logo-container">
-            <img src="logo.png" alt="Flair Foundation Logo">
+        <a href="/" class="logo-container">
+            <img src="/logo.png" alt="Flair Foundation Logo">
             <div class="logo-text-box">
                 <span class="logo-text">Flair Foundation</span>
                 <span class="logo-tagline">निःशुल्क शिक्षा प्रसार अभियान</span>
@@ -225,15 +264,15 @@
         </div>
 
         <ul class="nav-links" id="nav-menu">
-            <li><a href="./" class="active">Home</a></li>
-            <li><a href="buddha-library/">Buddha Library</a></li>
-            <li><a href="pakka-traders.html">Pakka Traders</a></li>
-            <li><a href="buddha-parking.html">Buddha Parking</a></li>
-            <li><a href="hostel.html">Hostel</a></li>
-            <li><a href="admission.html">Admission</a></li>
-            <li><a href="notice.html">Notice</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/buddha-library/">Buddha Library</a></li>
+            <li><a href="/pakka-traders.html">Pakka Traders</a></li>
+            <li><a href="/buddha-parking.html">Buddha Parking</a></li>
+            <li><a href="/hostel.html">Hostel</a></li>
+            <li><a href="/admission.html">Admission</a></li>
+            <li><a href="/notice.html">Notice</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
         </ul>
     </nav>
 
@@ -251,8 +290,8 @@
     <div class="container">
         
         <div style="text-align: center; margin-bottom: 40px;">
-            <h2 style="color: var(--brand-red); font-size: 2.2rem; margin-bottom: 15px;">हमारा विजन और मिशन</h2>
-            <p style="font-size: 1.15rem; max-width: 900px; margin: 0 auto; color: #555;">
+            <h2 style="color: var(--brand-red); font-size: clamp(1.6rem, 3vw, 2.1rem); margin-bottom: 12px;">हमारा विजन और मिशन</h2>
+            <p style="font-size: 1.1rem; max-width: 900px; margin: 0 auto; color: #444;">
                 फ्लेयर फाउंडेशन की स्थापना 2017 में समाज के हर वर्ग तक गुणवत्तापूर्ण और निःशुल्क शिक्षा पहुँचाने के उद्देश्य से की गई थी। हमारा मानना है कि शिक्षा हर बच्चे का बुनियादी अधिकार है। हम सिर्फ किताबी ज्ञान नहीं, बल्कि बच्चों के समग्र विकास और बेहतर भविष्य के लिए प्रतिबद्ध हैं।
             </p>
         </div>
