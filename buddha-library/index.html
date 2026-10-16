@@ -158,16 +158,27 @@
         
         .highlight-box { background: #fff9c4; padding: 12px; border-radius: 6px; margin-top: 15px; font-size: 0.95rem; color: #f57f17; border: 1px solid #fff59d; font-weight: 600; }
 
-        /* Fee Structure */
-        .fee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .fee-card { background: white; border: 1px solid #eee; border-radius: 12px; text-align: center; padding: 25px 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; position: relative; }
-        .fee-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-color: var(--brand-blue); }
-        .fee-badge { background: var(--brand-blue); color: white; padding: 5px 15px; border-radius: 50px; font-weight: bold; font-size: 0.85rem; display: inline-block; margin-bottom: 15px; letter-spacing: 0.5px; }
-        .fee-card h4 { font-size: 1.1rem; color: #555; margin-bottom: 10px; }
-        .fee-card .price { font-size: 2.2rem; color: var(--brand-red); font-weight: 800; }
+        /* Fee Structure (Enhanced & Attractive) */
+        .fee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .fee-card { background: white; border: 1px solid #eee; border-radius: 14px; text-align: center; padding: 25px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: 0.3s; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
+        .fee-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.12); border-color: var(--brand-blue); }
+        .fee-badge { background: var(--brand-blue); color: white; padding: 5px 15px; border-radius: 50px; font-weight: bold; font-size: 0.85rem; display: inline-block; margin-bottom: 10px; letter-spacing: 0.5px; }
+        .fee-card h4 { font-size: 1.05rem; color: #555; margin-bottom: 8px; font-weight: 600; }
+        .fee-card .price { font-size: 2.2rem; color: var(--brand-red); font-weight: 800; margin-bottom: 15px; }
         
+        /* Plan Discount Tags inside Card */
+        .plan-discounts { background: #f8f9fa; border: 1px dashed #d1d5db; border-radius: 8px; padding: 10px; margin-top: auto; font-size: 0.85rem; text-align: left; }
+        .plan-discounts div { display: flex; justify-content: space-between; margin-bottom: 4px; color: #4b5563; font-weight: 600; }
+        .plan-discounts div:last-child { margin-bottom: 0; }
+        .plan-discounts span { color: #047857; font-weight: 700; }
+
         .top-choice { border: 2px solid var(--brand-yellow); background: #fffdf0; }
         .top-badge { position: absolute; top: -12px; right: 20px; background: var(--brand-yellow); color: #000; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+        /* Fee Policy Alert Banner */
+        .fee-policy-banner { background: linear-gradient(135deg, #1a237e, #283593); color: white; padding: 18px 20px; border-radius: 10px; margin-top: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-left: 5px solid var(--brand-yellow); text-align: center; }
+        .fee-policy-banner p { font-size: 0.98rem; font-weight: 600; line-height: 1.6; }
+        .fee-policy-banner span { color: var(--brand-yellow); font-weight: 700; }
 
         .special-msg { background: var(--brand-blue); color: white; padding: 20px; text-align: center; border-radius: 8px; margin-top: 35px; font-size: 1.05rem; font-weight: 600; line-height: 1.6; border-left: 5px solid var(--brand-yellow); }
 
@@ -302,19 +313,13 @@
             </div>
         </div>
 
-        <div class="rule-card urgent">
-            <h3>3. वित्तीय नीतियां, छूट (Discounts) एवं विलंब शुल्क (Penalty)</h3>
+        <div class="rule-card">
+            <h3>3. वित्तीय नीतियां एवं रिफंड</h3>
             <ul>
                 <li>प्रवेश शुल्क: ₹199 एडमिशन चार्ज (नॉन-रिफंडेबल) अनिवार्य है। ♦️</li>
                 <li>रिफंड नीति: एक बार भुगतान होने के बाद शुल्क वापस नहीं होगा। ❌</li>
                 <li>प्लान बदलाव: चालू महीने में शिफ्ट बदलने पर ₹100 अधिभार लगेगा। 💸</li>
-                <li>🌟 <strong>समय पर भुगतान पर विशेष छूट:</strong> जिन विद्यार्थियों की आईडी समाप्त (ID End Date) हो चुकी है, वे यदि अपनी समाप्ति तिथि से <strong>5 दिनों के भीतर</strong> अपना मासिक शुल्क जमा कर देते हैं, तो उन्हें कुल शुल्क में <strong>₹20 की सीधी छूट</strong> दी जाएगी।</li>
-                <li>🎁 <strong>लॉन्ग-टर्म प्लान पर विशेष छूट:</strong> एकमुश्त एडवांस शुल्क जमा करने पर त्रैमासिक (Quarterly) प्लान पर <strong>5%</strong>, अर्धवार्षिक (Half-Yearly) प्लान पर <strong>10%</strong> और वार्षिक (Yearly) प्लान पर <strong>15%</strong> की छूट मिलेगी।</li>
-                <li>⚠️ <strong>विलंब शुल्क (Late Fee Penalty):</strong> जो विद्यार्थी आईडी समाप्त होने के <strong>5 दिनों के भीतर</strong> अपना शुल्क जमा नहीं करेंगे, उन्हें <strong>₹20 का विलंब शुल्क (Penalty)</strong> देना होगा।</li>
             </ul>
-            <div class="highlight-box">
-                📌 नोट: यह छूट और विलंब शुल्क के नियम केवल निश्चित मासिक शुल्क (Fixed Monthly Fee) पर ही लागू होंगे।
-            </div>
         </div>
 
         <div class="rule-card urgent">
@@ -360,40 +365,95 @@
             </ul>
         </div>
 
-        <!-- Fee Structure -->
-        <h2 class="section-title">🕒 Fee Structure 2025</h2>
+        <!-- Fee Structure with Highlighted Discounts & Fine Rules -->
+        <h2 class="section-title">🕒 Fee Structure & Special Offers (2025)</h2>
+        
         <div class="fee-grid">
             <div class="fee-card">
-                <span class="fee-badge">MORNING</span>
-                <h4>06.00 AM – 10.00 AM</h4>
-                <div class="price">₹299</div>
+                <div>
+                    <span class="fee-badge">MORNING</span>
+                    <h4>06.00 AM – 10.00 AM</h4>
+                    <div class="price">₹299</div>
+                </div>
+                <div class="plan-discounts">
+                    <div>त्रैमासिक (3 Month): <span>5% छूट</span></div>
+                    <div>अर्धवार्षिक (6 Month): <span>10% छूट</span></div>
+                    <div>वार्षिक (1 Year): <span>15% छूट</span></div>
+                </div>
             </div>
+
             <div class="fee-card">
-                <span class="fee-badge">AFTERNOON 1</span>
-                <h4>10.00 AM – 02.00 PM</h4>
-                <div class="price">₹399</div>
+                <div>
+                    <span class="fee-badge">AFTERNOON 1</span>
+                    <h4>10.00 AM – 02.00 PM</h4>
+                    <div class="price">₹399</div>
+                </div>
+                <div class="plan-discounts">
+                    <div>त्रैमासिक (3 Month): <span>5% छूट</span></div>
+                    <div>अर्धवार्षिक (6 Month): <span>10% छूट</span></div>
+                    <div>वार्षिक (1 Year): <span>15% छूट</span></div>
+                </div>
             </div>
+
             <div class="fee-card">
-                <span class="fee-badge">AFTERNOON 2</span>
-                <h4>02.00 PM – 06.00 PM</h4>
-                <div class="price">₹399</div>
+                <div>
+                    <span class="fee-badge">AFTERNOON 2</span>
+                    <h4>02.00 PM – 06.00 PM</h4>
+                    <div class="price">₹399</div>
+                </div>
+                <div class="plan-discounts">
+                    <div>त्रैमासिक (3 Month): <span>5% छूट</span></div>
+                    <div>अर्धवार्षिक (6 Month): <span>10% छूट</span></div>
+                    <div>वार्षिक (1 Year): <span>15% छूट</span></div>
+                </div>
             </div>
+
             <div class="fee-card">
-                <span class="fee-badge">NIGHT SHIFT</span>
-                <h4>10.00 PM – 05.00 AM</h4>
-                <div class="price">₹399</div>
+                <div>
+                    <span class="fee-badge">NIGHT SHIFT</span>
+                    <h4>10.00 PM – 05.00 AM</h4>
+                    <div class="price">₹399</div>
+                </div>
+                <div class="plan-discounts">
+                    <div>त्रैमासिक (3 Month): <span>5% छूट</span></div>
+                    <div>अर्धवार्षिक (6 Month): <span>10% छूट</span></div>
+                    <div>वार्षिक (1 Year): <span>15% छूट</span></div>
+                </div>
             </div>
+
             <div class="fee-card top-choice">
                 <div class="top-badge">TOP CHOICE</div>
-                <span class="fee-badge">FULL DAY (12 HR)</span>
-                <h4>06.00 AM – 06.00 PM</h4>
-                <div class="price">₹499</div>
+                <div>
+                    <span class="fee-badge">FULL DAY (12 HR)</span>
+                    <h4>06.00 AM – 06.00 PM</h4>
+                    <div class="price">₹499</div>
+                </div>
+                <div class="plan-discounts">
+                    <div>त्रैमासिक (3 Month): <span>5% छूट</span></div>
+                    <div>अर्धवार्षिक (6 Month): <span>10% छूट</span></div>
+                    <div>वार्षिक (1 Year): <span>15% छूट</span></div>
+                </div>
             </div>
+
             <div class="fee-card">
-                <span class="fee-badge">FULL DAY (24 HR)</span>
-                <h4>06.00 AM – 06.00 AM</h4>
-                <div class="price">₹799</div>
+                <div>
+                    <span class="fee-badge">FULL DAY (24 HR)</span>
+                    <h4>06.00 AM – 06.00 AM</h4>
+                    <div class="price">₹799</div>
+                </div>
+                <div class="plan-discounts">
+                    <div>त्रैमासिक (3 Month): <span>5% छूट</span></div>
+                    <div>अर्धवार्षिक (6 Month): <span>10% छूट</span></div>
+                    <div>वार्षिक (1 Year): <span>15% छूट</span></div>
+                </div>
             </div>
+        </div>
+
+        <!-- Timing / Discount & Fine Banner -->
+        <div class="fee-policy-banner">
+            <p>
+                ⏳ <span>मासिक भुगतान नियम:</span> आईडी समाप्त होने के <strong>5 दिनों के भीतर</strong> शुल्क जमा करने पर <span>₹20 की छूट</span> मिलेगी, और 5 दिन से अधिक लेट होने पर <span>₹20 का विलंब शुल्क (Fine)</span> लगेगा। (यह नियम केवल निश्चित मासिक शुल्क पर लागू है)।
+            </p>
         </div>
 
         <div class="special-msg">
@@ -457,4 +517,35 @@
             <a href="https://www.youtube.com/@FlairFoundation" class="tg" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
         </div>
         <p>&copy; 2026 <span>Flair Foundation</span>. All Rights Reserved.</p>
-        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.
+        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Director/Founder: Er. PK Singh | Kacchi Dargah, Banka Ghat, Patna</p>
+    </footer>
+
+    <!-- Scripts (Menu, Clean URL & Security) -->
+    <script>
+        if (window.location.pathname.endsWith('/index.html')) {
+            window.history.replaceState(null, '', window.location.pathname.replace('index.html', ''));
+        }
+
+        function toggleMenu() {
+            var menu = document.getElementById("nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || e.keyCode === 123) e.preventDefault();
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'c' || e.key === 'C' || e.key === 's' || e.key === 'S')) e.preventDefault();
+            if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'c' || e.key === 'C' || e.key === 'j' || e.key === 'J')) e.preventDefault();
+        });
+
+        document.addEventListener('keyup', function (e) {
+            if (e.key === 'PrintScreen' || e.keyCode === 44) {
+                navigator.clipboard.writeText(''); 
+                alert("सुरक्षा कारणों से इस वेबसाइट का स्क्रीनशॉट लेना सख्त मना है!");
+            }
+        });
+    </script>
+
+</body>
+</html>
