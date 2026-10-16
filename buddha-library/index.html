@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buddha Library - A Unit of Flair Foundation</title>
     
-    <!-- Favicon (सभी डिवाइस और ब्राउज़र के लिए 100% पक्का जुगाड़) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="../logo.png">
     <link rel="shortcut icon" type="image/png" href="../logo.png">
     <link rel="apple-touch-icon" href="../logo.png">
@@ -25,7 +25,6 @@
             --white: #ffffff;
         }
         
-        /* सिक्योरिटी: एंटी-कॉपी */
         body { 
             font-family: system-ui, -apple-system, sans-serif; 
             background-color: var(--bg-light); 
@@ -37,9 +36,7 @@
             user-select: none; 
         }
         
-        /* ==========================================
-            होम पेज जैसा सेम हेडर (Navbar)
-            ========================================== */
+        /* Navbar */
         .navbar { 
             background-color: var(--brand-blue); 
             padding: 14px 3% 12px; 
@@ -54,7 +51,6 @@
             flex-wrap: wrap; 
         }
         
-        /* कोने में ESTD 2017 */
         .estd-tag {
             position: absolute;
             top: 4px;
@@ -64,101 +60,45 @@
             color: rgba(255, 255, 255, 0.85);
             letter-spacing: 0.8px;
         }
-        .estd-tag span {
-            color: var(--brand-yellow);
-            font-weight: 700;
-        }
+        .estd-tag span { color: var(--brand-yellow); font-weight: 700; }
 
-        /* लोगो और नाम (दोनों पर क्लिक करने से होम पेज खुलेगा) */
-        .logo-container { 
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            text-decoration: none; 
-            cursor: pointer; 
-        }
-        .logo-container img { 
-            height: clamp(48px, 6vw, 64px); 
-            width: auto; 
-            object-fit: contain; 
-        }
-        .logo-text-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .logo-text { 
-            color: var(--brand-yellow); 
-            font-size: clamp(1.15rem, 2.2vw, 1.45rem); 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: 0.8px; 
-            line-height: 1.15;
-        }
-        /* नीचे पतले लाल रंग में हिंदी टैगलाइन */
-        .logo-tagline {
-            color: #ff6b6b;
-            font-size: clamp(0.75rem, 1.3vw, 0.88rem);
-            font-weight: 400;
-            letter-spacing: 0.4px;
-            margin-top: 2px;
-        }
+        .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
+        .logo-container img { height: clamp(48px, 6vw, 64px); width: auto; object-fit: contain; }
+        .logo-text-box { display: flex; flex-direction: column; justify-content: center; }
+        .logo-text { color: var(--brand-yellow); font-size: clamp(1.15rem, 2.2vw, 1.45rem); font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; line-height: 1.15; }
+        .logo-tagline { color: #ff6b6b; font-size: clamp(0.75rem, 1.3vw, 0.88rem); font-weight: 400; letter-spacing: 0.4px; margin-top: 2px; }
         
-        .nav-links { 
-            display: flex; 
-            gap: 5px; 
-            list-style: none; 
-            align-items: center; 
-            flex-wrap: wrap; 
-            margin-top: 6px;
-        }
-        .nav-links a { 
-            text-decoration: none; 
-            color: var(--white); 
-            font-weight: 600; 
-            font-size: 0.86rem; 
-            padding: 6px 10px; 
-            border-radius: 5px; 
-            transition: all 0.2s ease; 
-            text-transform: uppercase; 
-            letter-spacing: 0.4px; 
-        }
-        .nav-links a:hover, .nav-links a.active { 
-            color: var(--brand-blue); 
-            background-color: var(--brand-yellow); 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.25);
-            transform: translateY(-1px);
-        }
-        .menu-toggle { 
-            display: none; 
-            color: var(--brand-yellow); 
-            font-size: 1.8rem; 
-            cursor: pointer; 
-            padding: 4px 8px;
-        }
+        .nav-links { display: flex; gap: 5px; list-style: none; align-items: center; flex-wrap: wrap; margin-top: 6px; }
+        .nav-links a { text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.86rem; padding: 6px 10px; border-radius: 5px; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 0.4px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--brand-blue); background-color: var(--brand-yellow); box-shadow: 0 3px 6px rgba(0,0,0,0.25); transform: translateY(-1px); }
+        .menu-toggle { display: none; color: var(--brand-yellow); font-size: 1.8rem; cursor: pointer; padding: 4px 8px; }
 
-        /* Library Hero Banner (Attractive Director Showcase) */
-        .lib-hero { background: linear-gradient(135deg, #ffffff, #f8f9fa); padding: 45px 20px 35px; text-align: center; border-bottom: 5px solid var(--brand-yellow); box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+        /* Professional Hero Section with Side-by-Side Layout */
+        .lib-hero { background: linear-gradient(135deg, #ffffff, #f4f6f9); padding: 35px 20px; text-align: center; border-bottom: 5px solid var(--brand-yellow); box-shadow: 0 4px 15px rgba(0,0,0,0.06); position: relative; }
         
-        /* Director & Library Logo Flex Container */
-        .hero-top-showcase { display: flex; justify-content: center; align-items: center; gap: 25px; margin-bottom: 20px; flex-wrap: wrap; }
+        .hero-flex-wrapper { max-width: 850px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
         
-        .director-box { display: flex; flex-direction: column; align-items: center; }
-        .director-img { width: clamp(110px, 18vw, 135px); height: clamp(110px, 18vw, 135px); border-radius: 50%; object-fit: cover; border: 4px solid var(--brand-blue); box-shadow: 0 8px 20px rgba(26,35,126,0.25); transition: transform 0.3s ease; }
-        .director-img:hover { transform: scale(1.05); }
-        .director-name { font-size: 1.05rem; font-weight: 800; color: var(--brand-blue); margin-top: 8px; letter-spacing: 0.3px; }
-        .director-title { font-size: 0.82rem; font-weight: 700; color: var(--brand-red); background: #ffebee; padding: 2px 10px; border-radius: 20px; margin-top: 3px; border: 1px solid #ffcdd2; }
+        /* Left: Director Box (Square with Rounded Corners) */
+        .director-card { background: #ffffff; border: 2px solid var(--brand-blue); border-radius: 12px; padding: 12px; box-shadow: 0 6px 15px rgba(26,35,126,0.12); display: flex; align-items: center; gap: 15px; text-align: left; max-width: 320px; width: 100%; }
+        .director-img { width: 85px; height: 105px; border-radius: 8px; object-fit: cover; border: 2px solid var(--brand-yellow); box-shadow: 0 3px 8px rgba(0,0,0,0.15); }
+        .director-info .dir-badge { font-size: 0.72rem; font-weight: 800; color: #fff; background: var(--brand-red); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .director-info .dir-name { font-size: 1rem; font-weight: 800; color: var(--brand-blue); line-height: 1.2; margin-bottom: 2px; }
+        .director-info .dir-title { font-size: 0.75rem; font-weight: 600; color: #555; }
 
-        .lib-logo-box { display: flex; flex-direction: column; align-items: center; }
-        .lib-logo { width: clamp(110px, 18vw, 135px); height: clamp(110px, 18vw, 135px); border-radius: 50%; object-fit: cover; border: 4px solid var(--brand-yellow); box-shadow: 0 8px 20px rgba(251,192,45,0.3); }
+        /* Center / Library Title Details */
+        .lib-title-box { flex: 1; text-align: center; min-width: 240px; }
+        .lib-estd-badge { background: var(--brand-blue); color: var(--brand-yellow); font-size: 0.78rem; font-weight: 700; padding: 3px 12px; border-radius: 20px; display: inline-block; margin-bottom: 8px; letter-spacing: 1px; }
+        .lib-hero h1 { color: var(--brand-blue); font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .lib-hero p { color: #555; font-size: clamp(0.95rem, 2vw, 1.1rem); font-weight: 600; }
+        .effective-date { color: var(--brand-red); font-weight: 700; margin-top: 8px; font-size: 0.9rem; }
 
-        .lib-hero h1 { color: var(--brand-blue); font-size: clamp(2rem, 5vw, 2.6rem); font-weight: 900; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .lib-hero p { color: #555; font-size: clamp(1rem, 2.5vw, 1.15rem); font-weight: 600; }
-        .effective-date { color: var(--brand-red); font-weight: 700; margin-top: 10px; font-size: 0.95rem; }
+        /* Right: Library Logo Box */
+        .lib-logo-card { background: #ffffff; border: 2px solid var(--brand-yellow); border-radius: 12px; padding: 10px; box-shadow: 0 6px 15px rgba(251,192,45,0.2); display: flex; align-items: center; justify-content: center; width: 110px; height: 110px; margin: 0 auto; }
+        .lib-logo { width: 90px; height: 90px; object-fit: contain; border-radius: 50%; }
 
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         
-        /* Rules Section */
+        /* Rules & Other Sections */
         .section-title { text-align: center; color: var(--brand-blue); font-size: 1.8rem; margin: 40px 0 25px; text-decoration: underline; text-decoration-color: var(--brand-yellow); text-decoration-thickness: 3px; text-transform: uppercase; }
         
         .rule-card { background: #fff; padding: 25px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 5px solid var(--brand-blue); }
@@ -170,7 +110,7 @@
         
         .highlight-box { background: #fff9c4; padding: 12px; border-radius: 6px; margin-top: 15px; font-size: 0.95rem; color: #f57f17; border: 1px solid #fff59d; font-weight: 600; }
 
-        /* Fee Structure (Enhanced & Attractive) */
+        /* Fee Structure */
         .fee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
         .fee-card { background: white; border: 1px solid #eee; border-radius: 14px; text-align: center; padding: 25px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: 0.3s; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
         .fee-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.12); border-color: var(--brand-blue); }
@@ -178,7 +118,6 @@
         .fee-card h4 { font-size: 1.05rem; color: #555; margin-bottom: 8px; font-weight: 600; }
         .fee-card .price { font-size: 2.2rem; color: var(--brand-red); font-weight: 800; margin-bottom: 15px; }
         
-        /* Plan Discount Tags inside Card */
         .plan-discounts { background: #f8f9fa; border: 1px dashed #d1d5db; border-radius: 8px; padding: 10px; margin-top: auto; font-size: 0.85rem; text-align: left; }
         .plan-discounts div { display: flex; justify-content: space-between; margin-bottom: 4px; color: #4b5563; font-weight: 600; }
         .plan-discounts div:last-child { margin-bottom: 0; }
@@ -187,7 +126,6 @@
         .top-choice { border: 2px solid var(--brand-yellow); background: #fffdf0; }
         .top-badge { position: absolute; top: -12px; right: 20px; background: var(--brand-yellow); color: #000; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
 
-        /* Fee Policy Alert Banner */
         .fee-policy-banner { background: linear-gradient(135deg, #1a237e, #283593); color: white; padding: 18px 20px; border-radius: 10px; margin-top: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-left: 5px solid var(--brand-yellow); text-align: center; }
         .fee-policy-banner p { font-size: 0.98rem; font-weight: 600; line-height: 1.6; }
         .fee-policy-banner span { color: var(--brand-yellow); font-weight: 700; }
@@ -222,9 +160,7 @@
         .rating-btn { background-color: var(--brand-yellow); color: #000; padding: 14px 30px; text-decoration: none; font-size: 1.15rem; font-weight: 800; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 6px 20px rgba(251, 192, 45, 0.4); transition: 0.3s; margin-top: 20px; }
         .rating-btn:hover { background-color: #f9a825; transform: translateY(-3px); }
 
-        /* ==========================================
-            होम पेज जैसा सेम फुटर (Footer)
-            ========================================== */
+        /* Footer */
         footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 40px 20px 25px; border-top: 5px solid var(--brand-red); margin-top: 40px; }
         .footer-social { display: flex; justify-content: center; align-items: center; gap: clamp(10px, 2.5vw, 20px); margin-bottom: 30px; width: 100%; }
         .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: clamp(40px, 10vw, 55px); height: clamp(40px, 10vw, 55px); color: var(--white); font-size: clamp(1.2rem, 4.5vw, 1.7rem); border-radius: 50%; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
@@ -242,25 +178,20 @@
             .navbar { padding: 18px 4% 10px; }
             .estd-tag { top: 3px; right: 4%; font-size: 0.62rem; }
             .menu-toggle { display: block; } 
-            .nav-links { 
-                display: none; 
-                width: 100%; 
-                flex-direction: column; 
-                background-color: var(--brand-blue); 
-                padding: 10px 0 15px 0; 
-                margin-top: 8px;
-                border-top: 1px solid rgba(255,255,255,0.1);
-            }
+            .nav-links { display: none; width: 100%; flex-direction: column; background-color: var(--brand-blue); padding: 10px 0 15px 0; margin-top: 8px; border-top: 1px solid rgba(255,255,255,0.1); }
             .nav-links.active { display: flex; } 
             .nav-links li { width: 100%; text-align: center; margin-bottom: 4px; }
             .nav-links a { display: block; padding: 10px; font-size: 1rem; }
             .map-responsive { padding-bottom: 75%; }
+            .hero-flex-wrapper { flex-direction: column; text-align: center; }
+            .director-card { margin: 0 auto; justify-content: center; text-align: center; }
+            .director-info { text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar (होम पेज जैसा 100% सेम) -->
+    <!-- Header / Navbar -->
     <nav class="navbar">
         <div class="estd-tag">ESTD : <span>2017</span></div>
 
@@ -289,24 +220,34 @@
         </ul>
     </nav>
 
-    <!-- Buddha Library Hero Section with Director Photo -->
+    <!-- Professional Hero Section (Side-by-Side: Director & Library Logo) -->
     <div class="lib-hero">
-        <div class="hero-top-showcase">
-            <!-- Director Photo Box -->
-            <div class="director-box">
-                <img src="../director.jpg" alt="Director PK Singh" class="director-img" onerror="this.src='https://via.placeholder.com/130?text=PK+Singh';">
-                <div class="director-name">पिंटू कुमार सिंह</div>
-                <div class="director-title">(Social Entrepreneur & Businessman)</div>
+        <div class="hero-flex-wrapper">
+            
+            <!-- Left Side: Director Profile Card -->
+            <div class="director-card">
+                <img src="../director.jpeg" alt="Director PK Singh" class="director-img" onerror="this.src='https://via.placeholder.com/90x110?text=Director';">
+                <div class="director-info">
+                    <span class="dir-badge">Founder & Director</span>
+                    <div class="dir-name">पिंटू कुमार सिंह</div>
+                    <div class="dir-title">(Social Entrepreneur & Businessman)</div>
+                </div>
             </div>
-            <!-- Library Logo Box -->
-            <div class="lib-logo-box">
-                <img src="../buddha-logo.jpeg" alt="Buddha Library Logo" class="lib-logo">
-            </div>
-        </div>
 
-        <h1>बुद्धा लाइब्रेरी</h1>
-        <p>एक शांत वातावरण, एक उज्ज्वल भविष्य। ✨</p>
-        <p class="effective-date">(यह नियम 1 नवंबर 2025 से प्रभावी रूप से लागू हैं)</p>
+            <!-- Center: Title & Estd Date -->
+            <div class="lib-title-box">
+                <span class="lib-estd-badge">ESTD : 2023</span>
+                <h1>बुद्धा लाइब्रेरी</h1>
+                <p>एक शांत वातावरण, एक उज्ज्वल भविष्य। ✨</p>
+                <p class="effective-date">(यह नियम 1 नवंबर 2025 से प्रभावी रूप से लागू हैं)</p>
+            </div>
+
+            <!-- Right Side: Library Logo -->
+            <div class="lib-logo-card">
+                <img src="../buddha-logo.jpeg" alt="Buddha Library Logo" class="lib-logo" onerror="this.src='https://via.placeholder.com/90?text=Library';">
+            </div>
+
+        </div>
     </div>
 
     <!-- Main Content -->
@@ -314,7 +255,6 @@
         
         <h2 class="section-title">📜 लाइब्रेरी के नियम एवं शर्तें</h2>
 
-        <!-- Rules Section -->
         <div class="rule-card">
             <h3>1. एकाग्रता और शांत वातावरण (सबसे महत्वपूर्ण)</h3>
             <ul>
@@ -389,7 +329,7 @@
             </ul>
         </div>
 
-        <!-- Fee Structure with Highlighted Discounts & Fine Rules -->
+        <!-- Fee Structure -->
         <h2 class="section-title">🕒 Fee Structure & Special Offers (2025)</h2>
         
         <div class="fee-grid">
@@ -473,7 +413,6 @@
             </div>
         </div>
 
-        <!-- Timing / Discount & Fine Banner -->
         <div class="fee-policy-banner">
             <p>
                 ⏳ <span>मासिक भुगतान नियम:</span> आईडी समाप्त होने के <strong>5 दिनों के भीतर</strong> शुल्क जमा करने पर <span>₹20 की छूट</span> मिलेगी, और 5 दिन से अधिक लेट होने पर <span>₹20 का विलंब शुल्क (Fine)</span> लगेगा। (यह नियम केवल निश्चित मासिक शुल्क पर लागू है)।
@@ -529,7 +468,7 @@
         </div>
     </div>
 
-    <!-- Footer (होम पेज जैसा 100% सेम) -->
+    <!-- Footer -->
     <footer>
         <div class="footer-social">
             <a href="https://www.facebook.com/FlairFoundation" class="fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -544,7 +483,7 @@
         <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Director/Founder: Er. PK Singh | Kacchi Dargah, Banka Ghat, Patna</p>
     </footer>
 
-    <!-- Scripts (Menu, Clean URL & Security) -->
+    <!-- Scripts -->
     <script>
         if (window.location.pathname.endsWith('/index.html')) {
             window.history.replaceState(null, '', window.location.pathname.replace('index.html', ''));
