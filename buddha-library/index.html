@@ -73,28 +73,28 @@
         .nav-links a:hover, .nav-links a.active { color: var(--brand-blue); background-color: var(--brand-yellow); box-shadow: 0 3px 6px rgba(0,0,0,0.25); transform: translateY(-1px); }
         .menu-toggle { display: none; color: var(--brand-yellow); font-size: 1.8rem; cursor: pointer; padding: 4px 8px; }
 
-        /* Professional Hero Section with Side-by-Side Layout */
-        .lib-hero { background: linear-gradient(135deg, #ffffff, #f4f6f9); padding: 35px 20px; text-align: center; border-bottom: 5px solid var(--brand-yellow); box-shadow: 0 4px 15px rgba(0,0,0,0.06); position: relative; }
+        /* Professional Hero Section */
+        .lib-hero { background: var(--white); padding: 35px 20px; text-align: center; border-bottom: 5px solid var(--brand-yellow); box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: relative; }
         
-        .hero-flex-wrapper { max-width: 850px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .hero-flex-wrapper { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
         
-        /* Left: Director Box (Square with Rounded Corners) */
-        .director-card { background: #ffffff; border: 2px solid var(--brand-blue); border-radius: 12px; padding: 12px; box-shadow: 0 6px 15px rgba(26,35,126,0.12); display: flex; align-items: center; gap: 15px; text-align: left; max-width: 320px; width: 100%; }
-        .director-img { width: 85px; height: 105px; border-radius: 8px; object-fit: cover; border: 2px solid var(--brand-yellow); box-shadow: 0 3px 8px rgba(0,0,0,0.15); }
-        .director-info .dir-badge { font-size: 0.72rem; font-weight: 800; color: #fff; background: var(--brand-red); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .director-info .dir-name { font-size: 1rem; font-weight: 800; color: var(--brand-blue); line-height: 1.2; margin-bottom: 2px; }
-        .director-info .dir-title { font-size: 0.75rem; font-weight: 600; color: #555; }
+        /* Left: Director Square Card with Name & Title Below */
+        .director-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); display: flex; flex-direction: column; align-items: center; text-align: center; width: 180px; }
+        .director-img { width: 110px; height: 130px; border-radius: 6px; object-fit: cover; border: 2px solid var(--brand-blue); margin-bottom: 8px; background-color: #f0f0f0; }
+        .dir-name { font-size: 0.95rem; font-weight: 800; color: var(--brand-blue); line-height: 1.2; margin-top: 2px; }
+        .dir-title { font-size: 0.75rem; font-weight: 700; color: var(--brand-red); margin-top: 2px; }
+        .dir-sub { font-size: 0.68rem; color: #666; margin-top: 1px; }
 
-        /* Center / Library Title Details */
-        .lib-title-box { flex: 1; text-align: center; min-width: 240px; }
-        .lib-estd-badge { background: var(--brand-blue); color: var(--brand-yellow); font-size: 0.78rem; font-weight: 700; padding: 3px 12px; border-radius: 20px; display: inline-block; margin-bottom: 8px; letter-spacing: 1px; }
-        .lib-hero h1 { color: var(--brand-blue); font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        /* Center: Library Title & ESTD Badge */
+        .lib-title-box { flex: 1; text-align: center; min-width: 250px; position: relative; }
+        .lib-estd-top { position: absolute; top: -15px; right: 50%; transform: translateX(50%); background: var(--brand-blue); color: var(--brand-yellow); font-size: 0.75rem; font-weight: 700; padding: 2px 12px; border-radius: 12px; letter-spacing: 0.5px; }
+        .lib-hero h1 { color: var(--brand-blue); font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 900; margin-top: 10px; margin-bottom: 4px; text-transform: uppercase; }
         .lib-hero p { color: #555; font-size: clamp(0.95rem, 2vw, 1.1rem); font-weight: 600; }
         .effective-date { color: var(--brand-red); font-weight: 700; margin-top: 8px; font-size: 0.9rem; }
 
-        /* Right: Library Logo Box */
-        .lib-logo-card { background: #ffffff; border: 2px solid var(--brand-yellow); border-radius: 12px; padding: 10px; box-shadow: 0 6px 15px rgba(251,192,45,0.2); display: flex; align-items: center; justify-content: center; width: 110px; height: 110px; margin: 0 auto; }
-        .lib-logo { width: 90px; height: 90px; object-fit: contain; border-radius: 50%; }
+        /* Right: Library Logo */
+        .lib-logo-box { text-align: center; width: 150px; }
+        .lib-logo { width: 110px; height: 110px; object-fit: contain; border-radius: 50%; border: 3px solid var(--brand-yellow); padding: 3px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         
@@ -183,9 +183,9 @@
             .nav-links li { width: 100%; text-align: center; margin-bottom: 4px; }
             .nav-links a { display: block; padding: 10px; font-size: 1rem; }
             .map-responsive { padding-bottom: 75%; }
-            .hero-flex-wrapper { flex-direction: column; text-align: center; }
-            .director-card { margin: 0 auto; justify-content: center; text-align: center; }
-            .director-info { text-align: center; }
+            .hero-flex-wrapper { flex-direction: column; text-align: center; align-items: center; }
+            .director-card { width: 100%; max-width: 220px; margin: 0 auto; }
+            .lib-title-box { margin: 15px 0; }
         }
     </style>
 </head>
@@ -220,31 +220,29 @@
         </ul>
     </nav>
 
-    <!-- Professional Hero Section (Side-by-Side: Director & Library Logo) -->
+    <!-- Professional Hero Section -->
     <div class="lib-hero">
         <div class="hero-flex-wrapper">
             
-            <!-- Left Side: Director Profile Card -->
+            <!-- Left Side: Director Square Card with Name & Title Below -->
             <div class="director-card">
-                <img src="../director.jpeg" alt="Director PK Singh" class="director-img" onerror="this.src='https://via.placeholder.com/90x110?text=Director';">
-                <div class="director-info">
-                    <span class="dir-badge">Founder & Director</span>
-                    <div class="dir-name">पिंटू कुमार सिंह</div>
-                    <div class="dir-title">(Social Entrepreneur & Businessman)</div>
-                </div>
+                <img src="director.jpg" alt="Director Pintu Kumar Singh" class="director-img" onerror="this.onerror=null; this.src='director.jpeg';">
+                <div class="dir-name">Pintu Kumar Singh</div>
+                <div class="dir-title">Founder & Director</div>
+                <div class="dir-sub">(Social Entrepreneur & Businessman)</div>
             </div>
 
-            <!-- Center: Title & Estd Date -->
+            <!-- Center: Library Title & ESTD Badge -->
             <div class="lib-title-box">
-                <span class="lib-estd-badge">ESTD : 2023</span>
+                <span class="lib-estd-top">ESTD : 2023</span>
                 <h1>बुद्धा लाइब्रेरी</h1>
                 <p>एक शांत वातावरण, एक उज्ज्वल भविष्य। ✨</p>
                 <p class="effective-date">(यह नियम 1 नवंबर 2025 से प्रभावी रूप से लागू हैं)</p>
             </div>
 
             <!-- Right Side: Library Logo -->
-            <div class="lib-logo-card">
-                <img src="../buddha-logo.jpeg" alt="Buddha Library Logo" class="lib-logo" onerror="this.src='https://via.placeholder.com/90?text=Library';">
+            <div class="lib-logo-box">
+                <img src="../buddha-logo.jpeg" alt="Buddha Library Logo" class="lib-logo" onerror="this.src='https://via.placeholder.com/110?text=Library';">
             </div>
 
         </div>
