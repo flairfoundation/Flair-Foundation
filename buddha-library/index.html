@@ -68,7 +68,6 @@
         .logo-text { color: var(--brand-yellow); font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; line-height: 1.15; }
         .logo-tagline { color: #ff6b6b; font-size: clamp(0.7rem, 1.2vw, 0.82rem); font-weight: 400; letter-spacing: 0.4px; margin-top: 2px; }
         
-        /* Reduced gap for menu items */
         .nav-links { display: flex; gap: 2px; list-style: none; align-items: center; flex-wrap: wrap; margin-top: 4px; }
         .nav-links a { text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.82rem; padding: 5px 8px; border-radius: 4px; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 0.3px; }
         .nav-links a:hover, .nav-links a.active { color: var(--brand-blue); background-color: var(--brand-yellow); box-shadow: 0 3px 6px rgba(0,0,0,0.25); transform: translateY(-1px); }
@@ -79,51 +78,48 @@
         
         .hero-flex-wrapper { max-width: 950px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
         
-        /* Director Card with Hover Animation */
+        /* Clean Director Photo (No Outer Box, Only Photo Border & Hover) */
         .director-card { 
-            background: #ffffff; 
-            border: 2px solid var(--brand-blue); 
-            border-radius: 14px; 
-            padding: 12px; 
-            box-shadow: 0 8px 20px rgba(26,35,126,0.12); 
+            background: transparent; 
+            border: none; 
+            padding: 0; 
+            box-shadow: none; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
             text-align: center; 
-            width: 190px; 
+            width: 180px; 
             transition: all 0.3s ease;
         }
         .director-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(26,35,126,0.2);
-            border-color: var(--brand-yellow);
+            transform: translateY(-4px);
         }
         .director-img { 
             width: 110px; 
             height: 130px; 
             border-radius: 8px; 
             object-fit: cover; 
-            border: 2px solid var(--brand-yellow); 
-            margin-bottom: 8px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 3px solid var(--brand-yellow); 
+            margin-bottom: 6px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-        .dir-name { font-size: 0.98rem; font-weight: 800; color: var(--brand-blue); line-height: 1.2; margin-top: 2px; }
-        .dir-title { font-size: 0.75rem; font-weight: 700; color: var(--brand-red); margin-top: 3px; background: #ffebee; padding: 2px 8px; border-radius: 4px; display: inline-block; }
-        .dir-sub { font-size: 0.68rem; color: #4b5563; margin-top: 3px; font-weight: 600; }
+        .dir-name { font-size: 0.95rem; font-weight: 800; color: var(--brand-blue); line-height: 1.2; margin-top: 2px; }
+        .dir-title { font-size: 0.72rem; font-weight: 700; color: var(--brand-red); margin-top: 2px; background: #ffebee; padding: 2px 6px; border-radius: 4px; display: inline-block; }
+        .dir-sub { font-size: 0.65rem; color: #4b5563; margin-top: 2px; font-weight: 600; }
 
         /* Center: Perfectly Centered Title & Logo Block */
         .lib-title-box { flex: 1; text-align: center; min-width: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         
+        /* Subtle centered ESTD above title */
+        .top-estd-sub { font-size: 0.75rem; font-weight: 600; color: #777; letter-spacing: 1px; margin-bottom: 2px; }
+
         .title-logo-flex { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
         
-        /* Logo and clean ESTD underneath */
-        .logo-estd-wrapper { display: flex; flex-direction: column; align-items: center; }
-        .inline-lib-logo { width: 55px; height: 55px; object-fit: contain; border-radius: 50%; transition: transform 0.3s ease; }
+        /* Clean Logo */
+        .inline-lib-logo { width: 50px; height: 50px; object-fit: contain; border-radius: 50%; transition: transform 0.3s ease; }
         .inline-lib-logo:hover { transform: scale(1.1); }
-        
-        .logo-estd-text { font-size: 0.72rem; font-weight: 700; color: #555; margin-top: 2px; letter-spacing: 0.5px; }
 
-        /* Clean, Solid & Prominent Library Title */
+        /* Prominent Library Title */
         .lib-hero h1 { 
             color: var(--brand-blue);
             font-size: clamp(2.2rem, 4.8vw, 3rem); 
@@ -134,17 +130,17 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.06);
         }
 
-        /* Taglines with proper hierarchy */
-        .tagline-main { color: #333; font-size: clamp(1rem, 2.2vw, 1.15rem); font-weight: 700; margin-top: 4px; }
-        .tagline-sub { color: #666; font-size: clamp(0.8rem, 1.6vw, 0.9rem); font-weight: 500; margin-top: 2px; }
-        
-        .effective-date { color: var(--brand-red); font-weight: 700; margin-top: 6px; font-size: 0.88rem; }
+        /* Smaller Centered Tagline */
+        .tagline-main { color: #555; font-size: clamp(0.9rem, 1.8vw, 1.05rem); font-weight: 600; margin-top: 4px; }
 
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         
         /* Rules & Other Sections */
-        .section-title { text-align: center; color: var(--brand-blue); font-size: 1.8rem; margin: 40px 0 25px; text-decoration: underline; text-decoration-color: var(--brand-yellow); text-decoration-thickness: 3px; text-transform: uppercase; }
+        .section-title { text-align: center; color: var(--brand-blue); font-size: 1.8rem; margin: 40px 0 10px; text-decoration: underline; text-decoration-color: var(--brand-yellow); text-decoration-thickness: 3px; text-transform: uppercase; }
         
+        /* Effective Date under Rules Section Title */
+        .rules-effective-date { text-align: center; color: var(--brand-red); font-weight: 700; margin-bottom: 25px; font-size: 0.88rem; }
+
         .rule-card { background: #fff; padding: 25px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 5px solid var(--brand-blue); }
         .rule-card.urgent { border-left-color: var(--brand-red); }
         .rule-card h3 { font-size: 1.25rem; color: var(--brand-blue); margin-bottom: 12px; font-weight: 700; }
@@ -268,7 +264,7 @@
     <div class="lib-hero">
         <div class="hero-flex-wrapper">
             
-            <!-- Left Side: Director Card -->
+            <!-- Left Side: Director Card (No Outer Frame, Only Photo Border) -->
             <div class="director-card">
                 <img src="director.jpg" alt="Director Pintu Kumar Singh" class="director-img" onerror="this.onerror=null; this.src='director.jpeg';">
                 <div class="dir-name">Pintu Kumar Singh</div>
@@ -276,18 +272,16 @@
                 <div class="dir-sub">(Social Entrepreneur & Businessman)</div>
             </div>
 
-            <!-- Center: Title with Logo placed right beside 'Buddha' and clean ESTD underneath -->
+            <!-- Center: Title with Logo, subtle ESTD on top, and small tagline below -->
             <div class="lib-title-box">
+                <span class="top-estd-sub">ESTD : 2023</span>
+                
                 <div class="title-logo-flex">
-                    <div class="logo-estd-wrapper">
-                        <img src="../buddha-logo.jpeg" alt="Buddha Library Logo" class="inline-lib-logo" onerror="this.src='https://via.placeholder.com/55?text=Logo';">
-                        <span class="logo-estd-text">ESTD : 2023</span>
-                    </div>
+                    <img src="../buddha-logo.jpeg" alt="Buddha Library Logo" class="inline-lib-logo" onerror="this.src='https://via.placeholder.com/50?text=Logo';">
                     <h1>बुद्धा लाइब्रेरी</h1>
                 </div>
 
                 <p class="tagline-main">एक शांत वातावरण, एक उज्ज्वल भविष्य। ✨</p>
-                <p class="tagline-sub">(यह नियम 1 नवंबर 2025 से प्रभावी रूप से लागू हैं)</p>
             </div>
 
         </div>
@@ -297,6 +291,7 @@
     <div class="container">
         
         <h2 class="section-title">📜 लाइब्रेरी के नियम एवं शर्तें</h2>
+        <p class="rules-effective-date">(यह नियम 1 नवंबर 2025 से प्रभावी रूप से लागू हैं)</p>
 
         <div class="rule-card">
             <h3>1. एकाग्रता और शांत वातावरण (सबसे महत्वपूर्ण)</h3>
