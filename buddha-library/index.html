@@ -38,8 +38,8 @@
         }
         
         /* ==========================================
-           होम पेज जैसा सेम हेडर (Navbar)
-           ========================================== */
+            होम पेज जैसा सेम हेडर (Navbar)
+            ========================================== */
         .navbar { 
             background-color: var(--brand-blue); 
             padding: 14px 3% 12px; 
@@ -200,8 +200,8 @@
         .rating-btn:hover { background-color: #f9a825; transform: translateY(-3px); }
 
         /* ==========================================
-           होम पेज जैसा सेम फुटर (Footer)
-           ========================================== */
+            होम पेज जैसा सेम फुटर (Footer)
+            ========================================== */
         footer { background-color: var(--brand-blue); color: var(--white); text-align: center; padding: 40px 20px 25px; border-top: 5px solid var(--brand-red); margin-top: 40px; }
         .footer-social { display: flex; justify-content: center; align-items: center; gap: clamp(10px, 2.5vw, 20px); margin-bottom: 30px; width: 100%; }
         .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: clamp(40px, 10vw, 55px); height: clamp(40px, 10vw, 55px); color: var(--white); font-size: clamp(1.2rem, 4.5vw, 1.7rem); border-radius: 50%; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
@@ -302,13 +302,19 @@
             </div>
         </div>
 
-        <div class="rule-card">
-            <h3>3. वित्तीय नीतियां एवं रिफंड</h3>
+        <div class="rule-card urgent">
+            <h3>3. वित्तीय नीतियां, छूट (Discounts) एवं विलंब शुल्क (Penalty)</h3>
             <ul>
                 <li>प्रवेश शुल्क: ₹199 एडमिशन चार्ज (नॉन-रिफंडेबल) अनिवार्य है। ♦️</li>
                 <li>रिफंड नीति: एक बार भुगतान होने के बाद शुल्क वापस नहीं होगा। ❌</li>
                 <li>प्लान बदलाव: चालू महीने में शिफ्ट बदलने पर ₹100 अधिभार लगेगा। 💸</li>
+                <li>🌟 <strong>समय पर भुगतान पर विशेष छूट:</strong> जिन विद्यार्थियों की आईडी समाप्त (ID End Date) हो चुकी है, वे यदि अपनी समाप्ति तिथि से <strong>5 दिनों के भीतर</strong> अपना मासिक शुल्क जमा कर देते हैं, तो उन्हें कुल शुल्क में <strong>₹20 की सीधी छूट</strong> दी जाएगी।</li>
+                <li>🎁 <strong>लॉन्ग-टर्म प्लान पर विशेष छूट:</strong> एकमुश्त एडवांस शुल्क जमा करने पर त्रैमासिक (Quarterly) प्लान पर <strong>5%</strong>, अर्धवार्षिक (Half-Yearly) प्लान पर <strong>10%</strong> और वार्षिक (Yearly) प्लान पर <strong>15%</strong> की छूट मिलेगी।</li>
+                <li>⚠️ <strong>विलंब शुल्क (Late Fee Penalty):</strong> जो विद्यार्थी आईडी समाप्त होने के <strong>5 दिनों के भीतर</strong> अपना शुल्क जमा नहीं करेंगे, उन्हें <strong>₹20 का विलंब शुल्क (Penalty)</strong> देना होगा।</li>
             </ul>
+            <div class="highlight-box">
+                📌 नोट: यह छूट और विलंब शुल्क के नियम केवल निश्चित मासिक शुल्क (Fixed Monthly Fee) पर ही लागू होंगे।
+            </div>
         </div>
 
         <div class="rule-card urgent">
@@ -417,10 +423,10 @@
             <p>📍 मेन रोड, कच्ची दरगाह, दुर्गा मंदिर के पास, पटना-803201</p>
             <br>
             <a href="https://wa.me/917050668855?text=नमस्ते%20पिंटू%20सर,%20मुझे%20बुद्धा%20लाइब्रेरी%20में%20एडमिशन/छुट्टी%20लेना%20है।" target="_blank" class="wa-btn">
-               💬 Chat on WhatsApp
+                💬 Chat on WhatsApp
             </a>
             <a href="tel:+917050668855" class="wa-btn" style="background-color: #1a237e;">
-               📞 Call Now
+                📞 Call Now
             </a>
         </div>
 
@@ -451,35 +457,4 @@
             <a href="https://www.youtube.com/@FlairFoundation" class="tg" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
         </div>
         <p>&copy; 2026 <span>Flair Foundation</span>. All Rights Reserved.</p>
-        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Director/Founder: Er. PK Singh | Kacchi Dargah, Banka Ghat, Patna</p>
-    </footer>
-
-    <!-- Scripts (Menu, Clean URL & Security) -->
-    <script>
-        if (window.location.pathname.endsWith('/index.html')) {
-            window.history.replaceState(null, '', window.location.pathname.replace('index.html', ''));
-        }
-
-        function toggleMenu() {
-            var menu = document.getElementById("nav-menu");
-            menu.classList.toggle("active");
-        }
-
-        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F12' || e.keyCode === 123) e.preventDefault();
-            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'c' || e.key === 'C' || e.key === 's' || e.key === 'S')) e.preventDefault();
-            if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'c' || e.key === 'C' || e.key === 'j' || e.key === 'J')) e.preventDefault();
-        });
-
-        document.addEventListener('keyup', function (e) {
-            if (e.key === 'PrintScreen' || e.keyCode === 44) {
-                navigator.clipboard.writeText(''); 
-                alert("सुरक्षा कारणों से इस वेबसाइट का स्क्रीनशॉट लेना सख्त मना है!");
-            }
-        });
-    </script>
-
-</body>
-</html>
+        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.
