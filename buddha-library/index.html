@@ -137,10 +137,22 @@
             padding: 4px 8px;
         }
 
-        /* Library Hero Banner */
-        .lib-hero { background-color: var(--white); padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--brand-yellow); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .lib-logo { width: clamp(120px, 20vw, 160px); height: auto; border-radius: 50%; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
-        .lib-hero h1 { color: var(--brand-blue); font-size: clamp(2rem, 5vw, 2.5rem); font-weight: 900; margin-bottom: 5px; text-transform: uppercase; }
+        /* Library Hero Banner (Attractive Director Showcase) */
+        .lib-hero { background: linear-gradient(135deg, #ffffff, #f8f9fa); padding: 45px 20px 35px; text-align: center; border-bottom: 5px solid var(--brand-yellow); box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+        
+        /* Director & Library Logo Flex Container */
+        .hero-top-showcase { display: flex; justify-content: center; align-items: center; gap: 25px; margin-bottom: 20px; flex-wrap: wrap; }
+        
+        .director-box { display: flex; flex-direction: column; align-items: center; }
+        .director-img { width: clamp(110px, 18vw, 135px); height: clamp(110px, 18vw, 135px); border-radius: 50%; object-fit: cover; border: 4px solid var(--brand-blue); box-shadow: 0 8px 20px rgba(26,35,126,0.25); transition: transform 0.3s ease; }
+        .director-img:hover { transform: scale(1.05); }
+        .director-name { font-size: 1.05rem; font-weight: 800; color: var(--brand-blue); margin-top: 8px; letter-spacing: 0.3px; }
+        .director-title { font-size: 0.82rem; font-weight: 700; color: var(--brand-red); background: #ffebee; padding: 2px 10px; border-radius: 20px; margin-top: 3px; border: 1px solid #ffcdd2; }
+
+        .lib-logo-box { display: flex; flex-direction: column; align-items: center; }
+        .lib-logo { width: clamp(110px, 18vw, 135px); height: clamp(110px, 18vw, 135px); border-radius: 50%; object-fit: cover; border: 4px solid var(--brand-yellow); box-shadow: 0 8px 20px rgba(251,192,45,0.3); }
+
+        .lib-hero h1 { color: var(--brand-blue); font-size: clamp(2rem, 5vw, 2.6rem); font-weight: 900; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
         .lib-hero p { color: #555; font-size: clamp(1rem, 2.5vw, 1.15rem); font-weight: 600; }
         .effective-date { color: var(--brand-red); font-weight: 700; margin-top: 10px; font-size: 0.95rem; }
 
@@ -277,9 +289,21 @@
         </ul>
     </nav>
 
-    <!-- Buddha Library Hero Section -->
+    <!-- Buddha Library Hero Section with Director Photo -->
     <div class="lib-hero">
-        <img src="../buddha-logo.jpeg" alt="Buddha Library Logo" class="lib-logo">
+        <div class="hero-top-showcase">
+            <!-- Director Photo Box -->
+            <div class="director-box">
+                <img src="../director.jpg" alt="Director PK Singh" class="director-img" onerror="this.src='https://via.placeholder.com/130?text=PK+Singh';">
+                <div class="director-name">पिंटू कुमार सिंह</div>
+                <div class="director-title">(Social Entrepreneur & Businessman)</div>
+            </div>
+            <!-- Library Logo Box -->
+            <div class="lib-logo-box">
+                <img src="../buddha-logo.jpeg" alt="Buddha Library Logo" class="lib-logo">
+            </div>
+        </div>
+
         <h1>बुद्धा लाइब्रेरी</h1>
         <p>एक शांत वातावरण, एक उज्ज्वल भविष्य। ✨</p>
         <p class="effective-date">(यह नियम 1 नवंबर 2025 से प्रभावी रूप से लागू हैं)</p>
