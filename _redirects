@@ -1,12 +1,1 @@
-# Universal Folder Routing for Flair Foundation
-/:page/    /:page/index.html   200
-
-# Specific Pages Direct Rules
-/pakka-traders    /pakka-traders/index.html   200
-/buddha-parking   /buddha-parking/index.html   200
-/buddha-library   /buddha-library/index.html   200
-/hostel           /hostel/index.html          200
-/admission        /admission/index.html       200
-/notice           /notice/index.html          200
-/about            /about/index.html           200
-/contact          /contact/index.html         200
+/*    /:splat/index.html   200
