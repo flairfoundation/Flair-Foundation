@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>पेज नहीं मिला - फ्लेयर फाउंडेशन</title>
+    <script>
+        // यह कोड तुरंत चेक करेगा कि क्या यह कोई असली पेज है जिसे .html की वजह से दिक्कत आ रही है
+        var currentPath = window.location.pathname;
+        if (currentPath.includes('.html')) {
+            var cleanPath = currentPath.replace('.html', '/');
+            window.location.replace(cleanPath + window.location.search + window.location.hash);
+        }
+    </script>
     <style>
         body {
             margin: 0;
