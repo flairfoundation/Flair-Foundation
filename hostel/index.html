@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>छात्रावास (Hostel Facility) | Flair Foundation</title>
-    <!-- सेम टू सेम फेविकॉन (Favicon) -->
-    <link rel="icon" type="image/png" href="/logo.png">
-    <link rel="shortcut icon" type="image/png" href="../logo.png">
+    
+    <!-- 100% Working Favicon (Direct URL + Root Path) -->
+    <link rel="icon" type="image/png" href="https://flairfoundation.org.in/logo.png">
+    <link rel="shortcut icon" type="image/png" href="/logo.png">
+    <link rel="apple-touch-icon" href="https://flairfoundation.org.in/logo.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -25,7 +28,7 @@
             overflow-x: hidden;
         }
 
-        /* ===== सेम टू सेम हेडर और लोगो ===== */
+        /* ===== सेम टू सेम हेडर, लोगो और मोबाइल 3-लाइन (Hamburger) मेनू ===== */
         header {
             background: linear-gradient(90deg, #092659 0%, #0d3880 100%);
             color: white;
@@ -33,11 +36,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
             position: sticky;
             top: 0;
             z-index: 1000;
-            gap: 15px;
         }
 
         .brand-box {
@@ -61,7 +63,7 @@
 
         .brand-title h1 {
             color: #ff8c1a;
-            font-size: 22px;
+            font-size: 21px;
             font-weight: 800;
             letter-spacing: 0.5px;
             line-height: 1.15;
@@ -74,11 +76,31 @@
             margin-top: 2px;
         }
 
+        /* 3-Line Mobile Menu Button (Hidden on Desktop) */
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            color: #ffffff;
+            font-size: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            background: #f5b014;
+            color: #092659;
+        }
+
         nav {
             display: flex;
             gap: 6px;
             align-items: center;
-            flex-wrap: wrap;
         }
 
         nav a {
@@ -86,7 +108,7 @@
             text-decoration: none;
             font-size: 12.5px;
             font-weight: 600;
-            padding: 7px 13px;
+            padding: 8px 13px;
             border-radius: 6px;
             transition: all 0.25s ease;
             white-space: nowrap;
@@ -348,25 +370,46 @@
             color: #94a3b8;
         }
 
-        @media (max-width: 850px) {
-            header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 12px 3%;
+        /* ===== MOBILE RESPONSIVE (3-LINE DROPDOWN MENU) ===== */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: flex;
             }
+
             nav {
-                justify-content: center;
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
                 width: 100%;
-                padding-top: 8px;
-                border-top: 1px solid rgba(255,255,255,0.12);
+                background: #092659;
+                padding: 12px 4%;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
+                gap: 6px;
             }
+
+            nav.show-menu {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: left;
+                padding: 11px 15px;
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
             .hero-card, .info-split {
                 grid-template-columns: 1fr;
             }
+
             .hero-text {
                 padding: 25px;
             }
+
             .hero-text h2 {
                 font-size: 24px;
             }
@@ -375,25 +418,32 @@
 </head>
 <body>
 
-    <!-- सेम टू सेम हेडर और लोगो -->
+    <!-- सेम टू सेम हेडर, लोगो और मोबाइल 3-लाइन बटन -->
     <header>
-        <a href="../" class="brand-box">
-            <img src="../logo.png" onerror="this.src='/logo.png'" alt="Flair Foundation Logo" class="brand-logo">
+        <a href="https://flairfoundation.org.in/" class="brand-box">
+            <img src="https://flairfoundation.org.in/logo.png" onerror="this.onerror=null;this.src='/logo.png';" alt="Flair Foundation Logo" class="brand-logo">
             <div class="brand-title">
                 <h1>FLAIR FOUNDATION</h1>
                 <p>निःशुल्क शिक्षा प्रसार अभियान</p>
             </div>
         </a>
-        <nav>
-            <a href="../">HOME</a>
-            <a href="../buddha-library/">BUDDHA LIBRARY</a>
-            <a href="../pakka-traders/">PAKKA TRADERS</a>
-            <a href="../buddha-parking/">BUDDHA PARKING</a>
-            <a href="../hostel/" class="active">HOSTEL</a>
-            <a href="../#admission">ADMISSION</a>
-            <a href="../#notice">NOTICE</a>
-            <a href="../#about">ABOUT US</a>
-            <a href="../#contact">CONTACT</a>
+
+        <!-- मोबाइल के लिए 3-लाइन वाला बटन -->
+        <button class="menu-toggle" id="menuBtn" aria-label="Menu" onclick="toggleMobileMenu()">
+            ☰
+        </button>
+
+        <!-- नेविगेशन मेनू (No Double /hostel/hostel Issue) -->
+        <nav id="mainNav">
+            <a href="/">HOME</a>
+            <a href="/buddha-library/">BUDDHA LIBRARY</a>
+            <a href="/pakka-traders/">PAKKA TRADERS</a>
+            <a href="/buddha-parking/">BUDDHA PARKING</a>
+            <a href="/hostel/" class="active">HOSTEL</a>
+            <a href="/#admission">ADMISSION</a>
+            <a href="/#notice">NOTICE</a>
+            <a href="/#about">ABOUT US</a>
+            <a href="/#contact">CONTACT</a>
         </nav>
     </header>
 
@@ -479,11 +529,11 @@
             </div>
             <div class="footer-col">
                 <h4>हमारी इकाइयाँ (Our Units)</h4>
-                <a href="../">🎓 निःशुल्क शिक्षा अभियान</a>
-                <a href="../buddha-library/">🏛️ बुद्धा लाइब्रेरी (250 Seats)</a>
-                <a href="../pakka-traders/">🌾 पक्का ट्रेडर्स (फूलबासो मंडी)</a>
-                <a href="../buddha-parking/">⚡ बुद्धा पार्किंग एवं EV चार्जिंग</a>
-                <a href="../hostel/">🏢 छात्रावास योजना (Hostel Facility)</a>
+                <a href="/">🎓 निःशुल्क शिक्षा अभियान</a>
+                <a href="/buddha-library/">🏛️ बुद्धा लाइब्रेरी (250 Seats)</a>
+                <a href="/pakka-traders/">🌾 पक्का ट्रेडर्स (फूलबासो मंडी)</a>
+                <a href="/buddha-parking/">⚡ बुद्धा पार्किंग एवं EV चार्जिंग</a>
+                <a href="/hostel/">🏢 छात्रावास योजना (Hostel Facility)</a>
             </div>
             <div class="footer-col">
                 <h4>संपर्क सूत्र (Contact Us)</h4>
@@ -498,8 +548,15 @@
         </div>
     </footer>
 
-    <!-- Security Protection -->
+    <!-- Mobile Menu Toggle & Security Script -->
     <script>
+        function toggleMobileMenu() {
+            var nav = document.getElementById('mainNav');
+            var btn = document.getElementById('menuBtn');
+            nav.classList.toggle('show-menu');
+            btn.innerHTML = nav.classList.contains('show-menu') ? '✕' : '☰';
+        }
+
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'c' || e.key === 'C')) {
                 e.preventDefault();
