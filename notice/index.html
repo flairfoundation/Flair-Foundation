@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="hi" oncontextmenu="return false">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>महत्वपूर्ण सूचनाएँ (Notice Board) | Flair Foundation</title>
+    
+    <!-- 100% Working Favicon -->
+    <link rel="icon" type="image/png" href="https://flairfoundation.org.in/logo.png">
+    <link rel="shortcut icon" type="image/png" href="/logo.png">
+    <link rel="apple-touch-icon" href="https://flairfoundation.org.in/logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            background-color: #f4f7fb;
+            color: #1e293b;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        /* ===== सेम टू सेम हेडर, लोगो और मोबाइल 3-लाइन (Hamburger) मेनू ===== */
+        header {
+            background: linear-gradient(90deg, #092659 0%, #0d3880 100%);
+            color: white;
+            padding: 12px 3%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .brand-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 2px;
+            object-fit: contain;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+
+        .brand-title h1 {
+            color: #ff8c1a;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            line-height: 1.15;
+        }
+
+        .brand-title p {
+            font-size: 13px;
+            color: #e2e8f0;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            color: #ffffff;
+            font-size: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            background: #f5b014;
+            color: #092659;
+        }
+
+        nav {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 8px 13px;
+            border-radius: 6px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        nav a.active {
+            background-color: #f5b014;
+            color: #092659;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(245, 176, 20, 0.35);
+        }
+
+        /* ===== सूचना पट्टी (Ticker Bar) ===== */
+        .notice-bar {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 7px 2%;
+            font-size: 13.5px;
+            color: #0d3880;
+            font-weight: 600;
+        }
+
+        /* ===== नोटिस हीरो बैनर ===== */
+        .notice-hero {
+            background: linear-gradient(135deg, #092659 0%, #174ea6 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .notice-badge {
+            display: inline-block;
+            background: #f5b014;
+            color: #092659;
+            font-weight: 800;
+            font-size: 14px;
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 14px;
+        }
+
+        .notice-hero h2 {
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .notice-hero h2 span {
+            color: #ffd700;
+        }
+
+        .notice-hero p {
+            max-width: 750px;
+            margin: 0 auto;
+            color: #e0f2fe;
+            font-size: 15.5px;
+        }
+
+        /* ===== नोटिस बोर्ड कंटेनर ===== */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .notice-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .notice-item {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 24px 28px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border-left: 5px solid #092659;
+            position: relative;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .notice-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(9, 38, 89, 0.12);
+            border-left-color: #f5b014;
+        }
+
+        .notice-item.important {
+            border-left-color: #dc2626;
+        }
+
+        .notice-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .notice-date {
+            background: #eff6ff;
+            color: #0d3880;
+            font-size: 12.5px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .important-badge {
+            background: #fee2e2;
+            color: #dc2626;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .notice-item h3 {
+            color: #092659;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .notice-item p {
+            color: #475569;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .notice-footer-action {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13.5px;
+            color: #64748b;
+        }
+
+        .notice-footer-action a {
+            color: #0d3880;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .notice-footer-action a:hover {
+            color: #ff8c1a;
+            text-decoration: underline;
+        }
+
+        /* ===== सेम टू सेम फुटर ===== */
+        footer {
+            background: linear-gradient(90deg, #092659 0%, #0d3880 100%);
+            color: #e2e8f0;
+            padding: 40px 4% 20px;
+            margin-top: 50px;
+        }
+
+        .footer-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .footer-col h4 {
+            color: #ff8c1a;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #cbd5e1;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .footer-col a:hover {
+            color: #f5b014;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 18px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #092659;
+                padding: 12px 4%;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
+                gap: 6px;
+            }
+
+            nav.show-menu {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: left;
+                padding: 11px 15px;
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .notice-hero h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- सेम टू सेम हेडर, लोगो और मोबाइल 3-लाइन बटन -->
+    <header>
+        <a href="https://flairfoundation.org.in/" class="brand-box">
+            <img src="https://flairfoundation.org.in/logo.png" onerror="this.onerror=null;this.src='/logo.png';" alt="Flair Foundation Logo" class="brand-logo">
+            <div class="brand-title">
+                <h1>FLAIR FOUNDATION</h1>
+                <p>निःशुल्क शिक्षा प्रसार अभियान</p>
+            </div>
+        </a>
+
+        <!-- मोबाइल के लिए 3-लाइन वाला बटन -->
+        <button class="menu-toggle" id="menuBtn" aria-label="Menu" onclick="toggleMobileMenu()">
+            ☰
+        </button>
+
+        <!-- नेविगेशन मेनू -->
+        <nav id="mainNav">
+            <a href="/">HOME</a>
+            <a href="/buddha-library/">BUDDHA LIBRARY</a>
+            <a href="/pakka-traders/">PAKKA TRADERS</a>
+            <a href="/buddha-parking/">BUDDHA PARKING</a>
+            <a href="/hostel/">HOSTEL</a>
+            <a href="/admission/">ADMISSION</a>
+            <a href="/notice/" class="active">NOTICE</a>
+            <a href="/#about">ABOUT US</a>
+            <a href="/contact/">CONTACT</a>
+        </nav>
+    </header>
+
+    <!-- सूचना पट्टी -->
+    <div class="notice-bar">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+            📢 नवीनतम सूचना: शैक्षणिक सत्र 2027-28 के लिए प्रवेश एवं नामांकन प्रक्रिया शुरू हो चुकी है। छात्रावास योजना और बुद्धा लाइब्रेरी के लिए अधिक जानकारी हेतु संपर्क करें।
+        </marquee>
+    </div>
+
+    <!-- नोटिस हीरो बैनर -->
+    <section class="notice-hero">
+        <div class="notice-badge">📢 ऑफिशियल नोटिस बोर्ड</div>
+        <h2>महत्वपूर्ण <span>सूचनाएँ एवं घोषणाएँ</span></h2>
+        <p>फ्लेयर फाउंडेशन, बुद्धा लाइब्रेरी, छात्रावास योजना और अन्य सभी इकाइयों से जुड़ी नवीनतम अपडेट और आधिकारिक सूचनाएं यहाँ जारी की जाती हैं।</p>
+    </section>
+
+    <!-- नोटिस की सूची (Notice Board Items) -->
+    <div class="container">
+        <div class="notice-list">
+            
+            <!-- Notice 1: Admission & Hostel 2027-28 -->
+            <div class="notice-item important">
+                <div class="notice-header-row">
+                    <span class="notice-date">📅 1 नवंबर 2026</span>
+                    <span class="important-badge">अति महत्वपूर्ण (Important)</span>
+                </div>
+                <h3>शैक्षणिक सत्र 2027-28 हेतु नामांकन एवं छात्रावास (Hostel) प्रवेश सूचना</h3>
+                <p>फ्लेयर फाउंडेशन (स्थापित - 2017) के अंतर्गत बंका घाट (कच्ची दरगाह, पटना) परिसर में संचालित निःशुल्क शिक्षा अभियान, 250 सीटर बुद्धा लाइब्रेरी और मात्र ₹999/- प्रति माह वाले छात्रावास योजना के लिए सत्र 2027-28 हेतु नामांकन प्रारंभ हो गया है। इच्छुक छात्र प्रवेश परीक्षा हेतु शीघ्र संपर्क करें।</p>
+                <div class="notice-footer-action">
+                    <span>जारीकर्ता: प्रबंधक समिति, फ्लेयर फाउंडेशन</span>
+                    <a href="/contact/">📲 संपर्क करें / WhatsApp करें</a>
+                </div>
+            </div>
+
+            <!-- Notice 2: Entrance Exam Guidelines -->
+            <div class="notice-item">
+                <div class="notice-header-row">
+                    <span class="notice-date">📅 15 अक्टूबर 2026</span>
+                    <span class="notice-badge">परीक्षा सूचना</span>
+                </div>
+                <h3>छात्रावास एवं लाइब्रेरी सुविधा हेतु प्रवेश परीक्षा नियम</h3>
+                <p>संस्था द्वारा संचालित ₹999/- मासिक छात्रावास योजना का लाभ प्राप्त करने के लिए विद्यार्थियों को सामान्य योग्यता परीक्षा (Entrance Exam) उत्तीर्ण करनी होगी। परीक्षा की तिथि और पाठ्यक्रम की जानकारी के लिए छात्र हमारे कार्यालय में विजिट कर सकते हैं या हेल्पलाइन नंबर पर बात कर सकते हैं।</p>
+                <div class="notice-footer-action">
+                    <span>जारीकर्ता: शैक्षणिक प्रकोष्ठ</span>
+                    <a href="/hostel/">🏢 हॉस्टल योजना विवरण देखें</a>
+                </div>
+            </div>
+
+            <!-- Notice 3: General Social Welfare & Education -->
+            <div class="notice-item">
+                <div class="notice-header-row">
+                    <span class="notice-date">📅 1 अक्टूबर 2026</span>
+                    <span class="notice-badge">सामान्य सूचना</span>
+                </div>
+                ### निःशुल्क बेसिक कंप्यूटर प्रशिक्षण एवं 'कुसुम' छात्रवृत्ति योजना
+                <p>संस्था के माध्यम से जरूरतमंद और प्रतिभावान बच्चों के लिए निःशुल्क बेसिक कंप्यूटर कोर्स तथा प्रतिभा प्रोत्साहन के अंतर्गत 'कुसुम' छात्रवृत्ति का वितरण किया जा रहा है। अधिक जानकारी के लिए बंका घाट कार्यालय में संपर्क करें।</p>
+                <div class="notice-footer-action">
+                    <span>जारीकर्ता: ट्रस्ट ऑफिस</span>
+                    <a href="/contact/">📍 पता और मैप देखें</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- सेम टू सेम फुटर -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>FLAIR FOUNDATION</h4>
+                <p>निःशुल्क शिक्षा प्रसार अभियान (स्थापित - 2017)</p>
+                <p>शिक्षा, स्वाध्याय और आत्मनिर्भर समाज के निर्माण में समर्पित जन-कल्याणकारी संस्था।</p>
+            </div>
+            <div class="footer-col">
+                <h4>हमारी इकाइयाँ (Our Units)</h4>
+                <a href="/">🎓 निःशुल्क शिक्षा अभियान</a>
+                <a href="/buddha-library/">🏛️ बुद्धा लाइब्रेरी (250 Seats)</a>
+                <a href="/pakka-traders/">🌾 पक्का ट्रेडर्स (फूलबासो मंडी)</a>
+                <a href="/buddha-parking/">⚡ बुद्धा पार्किंग एवं EV चार्जिंग</a>
+                <a href="/hostel/">🏢 छात्रावास योजना (Hostel Facility)</a>
+            </div>
+            <div class="footer-col">
+                <h4>संपर्क सूत्र (Contact Us)</h4>
+                <p>📍 पता: बंका घाट रेलवे स्टेशन रोड, कच्ची दरगाह, पटना, बिहार</p>
+                <p>📱 मोबाइल: +91 7050668855</p>
+                <p>☎️ लैंडलाइन: 0612-2641161</p>
+                <p>✉️ ईमेल: info@flairfoundation.org.in</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2017–2026 Flair Foundation. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle + Security Script -->
+    <script>
+        function toggleMobileMenu() {
+            var nav = document.getElementById('mainNav');
+            var btn = document.getElementById('menuBtn');
+            nav.classList.toggle('show-menu');
+            btn.innerHTML = nav.classList.contains('show-menu') ? '✕' : '☰';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'c' || e.key === 'C')) {
+                e.preventDefault();
+            }
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
