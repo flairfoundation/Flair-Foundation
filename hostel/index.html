@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>छात्रावास (Hostel Facility) - Flair Foundation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fb;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Header Matching Your Website */
+        header {
+            background-color: #0d3878;
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand h1 {
+            color: #ff9933;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .brand p {
+            font-size: 13px;
+            color: #e0e6ed;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        nav a.active {
+            background-color: #eab308;
+            color: #0d3878;
+            font-weight: 700;
+        }
+
+        /* Hero Banner with Floating Effect */
+        .hero-container {
+            max-width: 1150px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, #0d3878 0%, #1e5297 100%);
+            border-radius: 18px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            box-shadow: 0 15px 35px rgba(13, 56, 120, 0.2);
+            color: white;
+            position: relative;
+        }
+
+        .hero-text {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .floating-badge {
+            display: inline-block;
+            background: #eab308;
+            color: #0d3878;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            width: fit-content;
+            margin-bottom: 15px;
+            animation: floatBadge 3s ease-in-out infinite;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .hero-text h2 {
+            font-size: 28px;
+            line-height: 1.35;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .hero-text h2 span {
+            color: #ffd700;
+        }
+
+        .hero-text p {
+            font-size: 15px;
+            color: #dce6f7;
+            margin-bottom: 20px;
+        }
+
+        .price-tag {
+            background: rgba(255, 255, 255, 0.12);
+            border-left: 4px solid #eab308;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .price-tag strong {
+            font-size: 22px;
+            color: #ffd700;
+        }
+
+        .hero-image-box {
+            position: relative;
+            min-height: 320px;
+        }
+
+        .hero-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .img-overlay-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #0d3878;
+            color: #fff;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Features Section - Floating Cards */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 25px;
+            font-size: 24px;
+            color: #0d3878;
+            font-weight: 700;
+        }
+
+        .cards-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            border-top: 4px solid #0d3878;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 14px 28px rgba(13, 56, 120, 0.14);
+            border-top-color: #eab308;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            color: #0d3878;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Selection & Rules Two-Column Box */
+        .info-split {
+            max-width: 1150px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+
+        .info-box h3 {
+            color: #0d3878;
+            font-size: 20px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #f0f4f8;
+            padding-bottom: 10px;
+        }
+
+        .step-list {
+            list-style: none;
+        }
+
+        .step-list li {
+            margin-bottom: 12px;
+            font-size: 14.5px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        /* Contact Footer Banner */
+        .contact-banner {
+            max-width: 1150px;
+            margin: 30px auto 50px;
+            padding: 0 20px;
+        }
+
+        .contact-inner {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .contact-details h4 {
+            color: #0d3878;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .contact-details p {
+            font-size: 14.5px;
+            color: #444;
+            margin-bottom: 4px;
+        }
+
+        .cta-btn {
+            background: #0d3878;
+            color: white;
+            text-decoration: none;
+            padding: 12px 26px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(13, 56, 120, 0.25);
+        }
+
+        .cta-btn:hover {
+            background: #eab308;
+            color: #0d3878;
+            transform: scale(1.04);
+        }
+
+        @media (max-width: 768px) {
+            .hero-card, .info-split {
+                grid-template-columns: 1fr;
+            }
+            .hero-text {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Matching Flair Foundation -->
+    <header>
+        <div class="brand">
+            <h1>FLAIR FOUNDATION</h1>
+            <p>निःशुल्क शिक्षा प्रसार अभियान</p>
+        </div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="buddha-library.html">BUDDHA LIBRARY</a>
+            <a href="pakka-traders.html">PAKKA TRADERS</a>
+            <a href="buddha-parking.html">BUDDHA PARKING</a>
+            <a href="hostel.html" class="active">HOSTEL</a>
+            <a href="admission.html">ADMISSION</a>
+            <a href="notice.html">NOTICE</a>
+            <a href="about.html">ABOUT US</a>
+        </nav>
+    </header>
+
+    <!-- Main Hero Section with Picture & Floating Badge -->
+    <div class="hero-container">
+        <div class="hero-card">
+            <div class="hero-text">
+                <div class="floating-badge">✨ विश्वास 2017 से • ESTD 2017</div>
+                <h2>फ्लेयर फाउंडेशन – प्रवेश परीक्षा सह <span>छात्रावास (Hostel Facility)</span> योजना</h2>
+                <p>पटना में रहकर अपनी पढ़ाई और प्रतियोगी परीक्षाओं की तैयारी करने वाले प्रतिभावान और जरूरतमंद छात्रों के लिए विशेष चयन परीक्षा (Entrance Exam) के माध्यम से आवासीय सुविधा।</p>
+                <div class="price-tag">
+                    🎯 चयनित छात्रों के लिए शुल्क: <strong>मात्र ₹999/- प्रति माह</strong><br>
+                    <small>(रहना + शुद्ध भोजन + बुद्धा लाइब्रेरी सुविधा सहित)</small>
+                </div>
+            </div>
+            <div class="hero-image-box">
+                <span class="img-overlay-badge">🏢 सुरक्षित परिसर</span>
+                <!-- Clean Student Hostel/Study Room Image -->
+                <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=900&q=80" alt="Flair Foundation Hostel Facility">
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Feature Cards (Short & Crisp) -->
+    <h2 class="section-title">🌟 मात्र ₹999/- प्रतिमाह में मिलने वाली सुविधाएं</h2>
+    <div class="cards-grid">
+        <div class="feature-card">
+            <span class="feature-icon">🛏️</span>
+            <h3>छात्रावास (Hostel Facility)</h3>
+            <p>विद्यार्थियों के रहने के लिए शांत, स्वच्छ, हवादार और पूर्णतः सुरक्षित व अनुशासित कमरे।</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">🍲</span>
+            <h3>शुद्ध भोजन (Mess Facility)</h3>
+            <p>छात्रों के स्वास्थ्य और पोषण को ध्यान में रखते हुए घर जैसा शुद्ध और पौष्टिक भोजन।</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">📚</span>
+            <h3>बुद्धा लाइब्रेरी एक्सेस</h3>
+            <p>250 सीटों वाली अत्याधुनिक बुद्धा लाइब्रेरी में हाई-स्पीड वाई-फाई और शांत माहौल में सेल्फ-स्टडी।</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">🛡️</span>
+            <h3>अनुशासन व मार्गदर्शन</h3>
+            <p>24x7 सीसीटीवी निगरानी, पावर बैकअप और अनुभवी संरक्षकों की देखरेख में शैक्षणिक माहौल।</p>
+        </div>
+    </div>
+
+    <!-- Selection Process & Rules -->
+    <div class="info-split">
+        <div class="info-box">
+            <h3>📝 चयन प्रक्रिया (Selection Process)</h3>
+            <ul class="step-list">
+                <li><span>1️⃣</span> <div><strong>ऑनलाइन/ऑफलाइन आवेदन:</strong> इच्छुक छात्र निर्धारित तिथि से पूर्व अपना आवेदन फॉर्म जमा करें।</div></li>
+                <li><span>2️⃣</span> <div><strong>प्रवेश परीक्षा (Entrance Exam):</strong> संस्था द्वारा एक निष्पक्ष योग्यता परीक्षा आयोजित की जाएगी।</div></li>
+                <li><span>3️⃣</span> <div><strong>अंतिम मेरिट चयन:</strong> परीक्षा में प्राप्त अंकों और छात्र की पात्रता के आधार पर छात्रावास व लाइब्रेरी आवंटित की जाएगी। <em>(सीटें सीमित हैं)</em></div></li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>📌 जरूरी नियम एवं शर्तें</h3>
+            <ul class="step-list">
+                <li><span>✅</span> <div>यह योजना केवल मेहनती, आर्थिक रूप से जरूरतमंद और पढ़ाई के प्रति समर्पित छात्रों के लिए है।</div></li>
+                <li><span>✅</span> <div>परिसर में पूर्ण अनुशासन और निर्धारित सेल्फ-स्टडी समय सारणी का पालन करना अनिवार्य होगा।</div></li>
+                <li><span>🚫</span> <div>छात्रावास परिसर में किसी भी प्रकार के नशीले पदार्थ या अनुशासनहीनता पर पूर्ण प्रतिबंध है।</div></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-banner">
+        <div class="contact-inner">
+            <div class="contact-details">
+                <h4>📞 प्रवेश एवं जानकारी के लिए संपर्क करें</h4>
+                <p>📍 <strong>पता:</strong> बंका घाट रेलवे स्टेशन रोड, कच्ची दरगाह, पटना, बिहार</p>
+                <p>📱 <strong>मोबाइल:</strong> +91 7050668855 &nbsp;|&nbsp; ☎️ <strong>लैंडलाइन:</strong> 0612-2641161</p>
+                <p>✉️ <strong>ईमेल:</strong> info@flairfoundation.org.in</p>
+            </div>
+            <a href="tel:+917050668855" class="cta-btn">📲 अभी कॉल करें</a>
+        </div>
+    </div>
+
+</body>
+</html>
