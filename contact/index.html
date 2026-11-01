@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="hi" oncontextmenu="return false">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>संपर्क करें (Contact Us) | Flair Foundation</title>
+    
+    <!-- 100% Working Favicon -->
+    <link rel="icon" type="image/png" href="https://flairfoundation.org.in/logo.png">
+    <link rel="shortcut icon" type="image/png" href="/logo.png">
+    <link rel="apple-touch-icon" href="https://flairfoundation.org.in/logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            background-color: #f4f7fb;
+            color: #1e293b;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        /* ===== सेम टू सेम हेडर, लोगो और मोबाइल 3-लाइन (Hamburger) मेनू ===== */
+        header {
+            background: linear-gradient(90deg, #092659 0%, #0d3880 100%);
+            color: white;
+            padding: 12px 3%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .brand-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 2px;
+            object-fit: contain;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+
+        .brand-title h1 {
+            color: #ff8c1a;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            line-height: 1.15;
+        }
+
+        .brand-title p {
+            font-size: 13px;
+            color: #e2e8f0;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            color: #ffffff;
+            font-size: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            background: #f5b014;
+            color: #092659;
+        }
+
+        nav {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 8px 13px;
+            border-radius: 6px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        nav a.active {
+            background-color: #f5b014;
+            color: #092659;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(245, 176, 20, 0.35);
+        }
+
+        /* ===== सूचना पट्टी (Ticker Bar) ===== */
+        .notice-bar {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 7px 2%;
+            font-size: 13.5px;
+            color: #0d3880;
+            font-weight: 600;
+        }
+
+        /* ===== कॉन्टैक्ट हीरो बैनर ===== */
+        .page-hero {
+            background: linear-gradient(135deg, #092659 0%, #174ea6 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .floating-badge {
+            display: inline-block;
+            background: #f5b014;
+            color: #092659;
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 14px;
+            animation: floatBadge 3s ease-in-out infinite;
+        }
+
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .page-hero h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .page-hero h2 span {
+            color: #ffd700;
+        }
+
+        .page-hero p {
+            max-width: 720px;
+            margin: 0 auto;
+            color: #e0f2fe;
+            font-size: 15.5px;
+        }
+
+        /* ===== मुख्य संपर्क सेक्शन (जानकारी + WhatsApp फॉर्म) ===== */
+        .contact-wrapper {
+            max-width: 1150px;
+            margin: 35px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 30px;
+        }
+
+        .direct-contact-card, .form-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.07);
+            border: 1px solid #e2e8f0;
+        }
+
+        .direct-contact-card h3, .form-card h3 {
+            color: #092659;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px;
+            border-radius: 12px;
+            background: #f8fafc;
+            margin-bottom: 14px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border-left: 4px solid #0d3880;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border-left-color: #f5b014;
+        }
+
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: #e0e7ff;
+            color: #092659;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .whatsapp-bg {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .contact-text h4 {
+            font-size: 15px;
+            color: #475569;
+            margin-bottom: 2px;
+        }
+
+        .contact-text a, .contact-text p {
+            font-size: 16.5px;
+            font-weight: 700;
+            color: #092659;
+            text-decoration: none;
+        }
+
+        .contact-text a:hover {
+            color: #ff8c1a;
+        }
+
+        .whatsapp-btn-big {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: #25D366;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px;
+            border-radius: 12px;
+            margin-top: 18px;
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .whatsapp-btn-big:hover {
+            background: #1ebe57;
+            transform: translateY(-3px);
+        }
+
+        /* ===== फॉर्म डिजाइन ===== */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 14.5px;
+            color: #1e293b;
+            outline: none;
+            transition: border-color 0.2s ease;
+            user-select: text;
+            -webkit-user-select: text;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #0d3880;
+            box-shadow: 0 0 0 3px rgba(13, 56, 128, 0.1);
+        }
+
+        .submit-whatsapp-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #092659 0%, #0d3880 100%);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 16px rgba(9, 38, 89, 0.25);
+        }
+
+        .submit-whatsapp-btn:hover {
+            background: #f5b014;
+            color: #092659;
+            transform: translateY(-2px);
+        }
+
+        /* ===== हमारी शाखाएं और कार्यालय (Branches Grid) ===== */
+        .section-title {
+            text-align: center;
+            margin: 45px 0 25px;
+            font-size: 25px;
+            color: #092659;
+            font-weight: 800;
+            padding: 0 15px;
+        }
+
+        .branches-grid {
+            max-width: 1150px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .branch-card {
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            border-top: 4px solid #0d3880;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .branch-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 14px 28px rgba(13, 56, 128, 0.14);
+            border-top-color: #f5b014;
+        }
+
+        .branch-badge {
+            display: inline-block;
+            background: #eff6ff;
+            color: #0d3880;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .branch-card h4 {
+            font-size: 18px;
+            color: #092659;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .branch-card p {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        /* ===== फ्लोटिंग WhatsApp आइकन (कोने में) ===== */
+        .floating-wa {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            background: #25D366;
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+            z-index: 999;
+            text-decoration: none;
+            transition: transform 0.25s ease;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+
+        /* ===== सेम टू सेम फुटर ===== */
+        footer {
+            background: linear-gradient(90deg, #092659 0%, #0d3880 100%);
+            color: #e2e8f0;
+            padding: 40px 4% 20px;
+            margin-top: 40px;
+        }
+
+        .footer-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .footer-col h4 {
+            color: #ff8c1a;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #cbd5e1;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .footer-col a:hover {
+            color: #f5b014;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 18px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        /* ===== MOBILE RESPONSIVE (3-LINE DROPDOWN MENU) ===== */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #092659;
+                padding: 12px 4%;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
+                gap: 6px;
+            }
+
+            nav.show-menu {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: left;
+                padding: 11px 15px;
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- सेम टू सेम हेडर, लोगो और मोबाइल 3-लाइन बटन -->
+    <header>
+        <a href="https://flairfoundation.org.in/" class="brand-box">
+            <img src="https://flairfoundation.org.in/logo.png" onerror="this.onerror=null;this.src='/logo.png';" alt="Flair Foundation Logo" class="brand-logo">
+            <div class="brand-title">
+                <h1>FLAIR FOUNDATION</h1>
+                <p>निःशुल्क शिक्षा प्रसार अभियान</p>
+            </div>
+        </a>
+
+        <!-- मोबाइल के लिए 3-लाइन वाला बटन -->
+        <button class="menu-toggle" id="menuBtn" aria-label="Menu" onclick="toggleMobileMenu()">
+            ☰
+        </button>
+
+        <!-- नेविगेशन मेनू -->
+        <nav id="mainNav">
+            <a href="/">HOME</a>
+            <a href="/buddha-library/">BUDDHA LIBRARY</a>
+            <a href="/pakka-traders/">PAKKA TRADERS</a>
+            <a href="/buddha-parking/">BUDDHA PARKING</a>
+            <a href="/hostel/">HOSTEL</a>
+            <a href="/#admission">ADMISSION</a>
+            <a href="/#notice">NOTICE</a>
+            <a href="/#about">ABOUT US</a>
+            <a href="/contact/" class="active">CONTACT</a>
+        </nav>
+    </header>
+
+    <!-- सूचना पट्टी -->
+    <div class="notice-bar">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+            📢 महत्वपूर्ण सूचना: फ्लेयर फाउंडेशन एवं हमारी सभी सहयोगी इकाइयों (बुद्धा लाइब्रेरी, पक्का ट्रेडर्स - फूलबासो मंडी, बुद्धा पार्किंग एवं छात्रावास योजना) से जुड़ने या जानकारी प्राप्त करने के लिए नीचे दिए गए माध्यमों से संपर्क करें।
+        </marquee>
+    </div>
+
+    <!-- हीरो सेक्शन -->
+    <section class="page-hero">
+        <div class="floating-badge">✨ विश्वास 2017 से</div>
+        <h2>हमसे जुड़ें एवं <span>संपर्क करें (Contact Us)</span></h2>
+        <p>निःशुल्क शिक्षा अभियान, बुद्धा लाइब्रेरी, छात्रावास, बुद्धा पार्किंग या पक्का ट्रेडर्स से संबंधित किसी भी जानकारी के लिए हमें कॉल, ईमेल या सीधे WhatsApp संदेश भेजें।</p>
+    </section>
+
+    <!-- संपर्क विवरण + WhatsApp फॉर्म -->
+    <div class="contact-wrapper">
+        
+        <!-- बायां बॉक्स: डायरेक्ट नंबर, WhatsApp और ईमेल -->
+        <div class="direct-contact-card">
+            <h3>📞 आधिकारिक संपर्क सूत्र</h3>
+
+            <!-- WhatsApp & Mobile -->
+            <div class="contact-item">
+                <div class="icon-box whatsapp-bg">
+                    <!-- Official WhatsApp SVG Icon -->
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.625.846 5.059 2.284 7.033l-1.494 4.455 4.614-1.454c1.911 1.242 4.185 1.966 6.596 1.966 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/>
+                    </svg>
+                </div>
+                <div class="contact-text">
+                    <h4>मोबाइल एवं WhatsApp नंबर</h4>
+                    <a href="https://wa.me/917050668855" target="_blank">+91 7050668855 (WhatsApp चैट करें)</a><br>
+                    <a href="tel:+917050668855" style="font-size:14px; color:#16a34a;">📲 सीधे कॉल करने के लिए क्लिक करें</a>
+                </div>
+            </div>
+
+            <!-- Landline -->
+            <div class="contact-item">
+                <div class="icon-box">☎️</div>
+                <div class="contact-text">
+                    <h4>कार्यालय लैंडलाइन नंबर</h4>
+                    <a href="tel:06122641161">0612-2641161</a>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-item">
+                <div class="icon-box">✉️</div>
+                <div class="contact-text">
+                    <h4>आधिकारिक ईमेल आईडी</h4>
+                    <a href="mailto:info@flairfoundation.org.in">info@flairfoundation.org.in</a>
+                </div>
+            </div>
+
+            <!-- Office Timings -->
+            <div class="contact-item">
+                <div class="icon-box">⏰</div>
+                <div class="contact-text">
+                    <h4>संपर्क समय (Office Hours)</h4>
+                    <p>सोमवार से रविवार: सुबह 7:00 से रात 9:00 तक</p>
+                </div>
+            </div>
+
+            <!-- Direct Big WhatsApp Button -->
+            <a href="https://wa.me/917050668855?text=नमस्ते%20फ्लेयर%20फाउंडेशन,%20मुझे%20आपकी%20संस्था/इकाइयों%20के%20बारे%20में%20जानकारी%20चाहिए।" target="_blank" class="whatsapp-btn-big">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.625.846 5.059 2.284 7.033l-1.494 4.455 4.614-1.454c1.911 1.242 4.185 1.966 6.596 1.966 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/>
+                </svg>
+                सीधे WhatsApp पर चैट शुरू करें
+            </a>
+        </div>
+
+        <!-- दायां बॉक्स: हमारे साथ जुड़ें (WhatsApp Form) -->
+        <div class="form-card">
+            <h3>📝 हमसे जुड़ने के लिए फॉर्म भरें</h3>
+            <form onsubmit="sendToWhatsApp(event)">
+                <div class="form-group">
+                    <label>आपका पूरा नाम (Full Name) *</label>
+                    <input type="text" id="wa_name" placeholder="अपना नाम लिखें..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>मोबाइल / WhatsApp नंबर *</label>
+                    <input type="tel" id="wa_phone" placeholder="10 अंकों का मोबाइल नंबर डालें..." pattern="[0-9]{10}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>ईमेल आईडी (Email ID)</label>
+                    <input type="email" id="wa_email" placeholder="example@gmail.com (वैकल्पिक)">
+                </div>
+
+                <div class="form-group">
+                    <label>आप किस इकाई/सेवा से जुड़ना चाहते हैं? *</label>
+                    <select id="wa_unit" required>
+                        <option value="निःशुल्क शिक्षा अभियान (Flair Foundation)">🎓 निःशुल्क शिक्षा अभियान (Flair Foundation)</option>
+                        <option value="छात्रावास योजना (Hostel Facility - ₹999)">🏢 छात्रावास योजना (Hostel Facility - ₹999)</option>
+                        <option value="बुद्धा लाइब्रेरी (Buddha Library)">🏛️ बुद्धा लाइब्रेरी (Buddha Library)</option>
+                        <option value="पक्का ट्रेडर्स (फूलबासो मंडी)">🌾 पक्का ट्रेडर्स (फूलबासो मंडी)</option>
+                        <option value="बुद्धा पार्किंग एवं EV चार्जिंग">⚡ बुद्धा पार्किंग एवं EV चार्जिंग</option>
+                        <option value="अन्य जानकारी / सहयोग">🤝 अन्य जानकारी / सहयोग</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>आपका संदेश या प्रश्न (Message) *</label>
+                    <textarea id="wa_msg" rows="3" placeholder="अपना संदेश या पता यहाँ लिखें..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-whatsapp-btn">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.625.846 5.059 2.284 7.033l-1.494 4.455 4.614-1.454c1.911 1.242 4.185 1.966 6.596 1.966 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/>
+                    </svg>
+                    WhatsApp पर विवरण भेजें
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- हमारी शाखाएं एवं कार्यालय (आप इन्हें कभी भी एडिट कर सकते हैं) -->
+    <h2 class="section-title">🏢 हमारे कार्यालय एवं संचालित शाखाएं (Our Branches)</h2>
+    <div class="branches-grid">
+        
+        <!-- 1. Registered Office (Patna City) -->
+        <div class="branch-card">
+            <span class="branch-badge">पंजीकृत कार्यालय (Regd. Office)</span>
+            <h4>🏛️ फ्लेयर फाउंडेशन (मुख्य कार्यालय)</h4>
+            <p>📍 <strong>पता:</strong> पटना सिटी, पटना, बिहार (यहाँ अपना पूरा पता लिख सकते हैं)</p>
+            <p>📞 <strong>संपर्क:</strong> +91 7050668855 | 0612-2641161</p>
+            <p>✉️ <strong>ईमेल:</strong> info@flairfoundation.org.in</p>
+        </div>
+
+        <!-- 2. Education, Library & Hostel Campus -->
+        <div class="branch-card">
+            <span class="branch-badge">शैक्षणिक एवं आवासीय परिसर</span>
+            <h4>📚 बुद्धा लाइब्रेरी एवं छात्रावास</h4>
+            <p>📍 <strong>पता:</strong> बंका घाट रेलवे स्टेशन रोड, कच्ची दरगाह, पटना, बिहार</p>
+            <p>✨ <strong>सुविधा:</strong> 250 सीट लाइब्रेरी एवं ₹999 मासिक छात्रावास</p>
+            <p>📞 <strong>संपर्क:</strong> +91 7050668855</p>
+        </div>
+
+        <!-- 3. Buddha Parking & EV Charging -->
+        <div class="branch-card">
+            <span class="branch-badge">पार्किंग एवं हरित ऊर्जा इकाई</span>
+            <h4>⚡ बुद्धा पार्किंग एवं चार्जिंग पॉइंट</h4>
+            <p>📍 <strong>पता:</strong> बंका घाट रेलवे स्टेशन रोड, कच्ची दरगाह, पटना, बिहार</p>
+            <p>✨ <strong>सुविधा:</strong> सुरक्षित वाहन पार्किंग एवं EV चार्जिंग स्टेशन</p>
+            <p>📞 <strong>संपर्क:</strong> +91 7050668855</p>
+        </div>
+
+        <!-- 4. Pakka Traders (Phulbaso Mandi) -->
+        <div class="branch-card">
+            <span class="branch-badge">व्यापारिक एवं कृषि मंडी इकाई</span>
+            <h4>🌾 पक्का ट्रेडर्स (फूलबासो मंडी)</h4>
+            <p>📍 <strong>पता:</strong> बंका घाट रेलवे स्टेशन रोड, कच्ची दरगाह, पटना, बिहार (30,000 वर्ग फीट परिसर)</p>
+            <p>✨ <strong>सुविधा:</strong> थोक एवं खुदरा फल, सब्जी व अनाज मंडी</p>
+            <p>📞 <strong>संपर्क:</strong> +91 7050668855</p>
+        </div>
+
+    </div>
+
+    <!-- कोने में तैरता हुआ WhatsApp बटन -->
+    <a href="https://wa.me/917050668855" target="_blank" class="floating-wa" title="WhatsApp पर संपर्क करें">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.625.846 5.059 2.284 7.033l-1.494 4.455 4.614-1.454c1.911 1.242 4.185 1.966 6.596 1.966 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/>
+        </svg>
+    </a>
+
+    <!-- सेम टू सेम फुटर -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>FLAIR FOUNDATION</h4>
+                <p>निःशुल्क शिक्षा प्रसार अभियान (स्थापित - 2017)</p>
+                <p>शिक्षा, स्वाध्याय और आत्मनिर्भर समाज के निर्माण में समर्पित जन-कल्याणकारी संस्था।</p>
+            </div>
+            <div class="footer-col">
+                <h4>हमारी इकाइयाँ (Our Units)</h4>
+                <a href="/">🎓 निःशुल्क शिक्षा अभियान</a>
+                <a href="/buddha-library/">🏛️ बुद्धा लाइब्रेरी (250 Seats)</a>
+                <a href="/pakka-traders/">🌾 पक्का ट्रेडर्स (फूलबासो मंडी)</a>
+                <a href="/buddha-parking/">⚡ बुद्धा पार्किंग एवं EV चार्जिंग</a>
+                <a href="/hostel/">🏢 छात्रावास योजना (Hostel Facility)</a>
+            </div>
+            <div class="footer-col">
+                <h4>संपर्क सूत्र (Contact Us)</h4>
+                <p>📍 पता: बंका घाट रेलवे स्टेशन रोड, कच्ची दरगाह, पटना, बिहार</p>
+                <p>📱 मोबाइल: +91 7050668855</p>
+                <p>☎️ लैंडलाइन: 0612-2641161</p>
+                <p>✉️ ईमेल: info@flairfoundation.org.in</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2017–2026 Flair Foundation. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Mobile Menu + WhatsApp Form Script + Security -->
+    <script>
+        function toggleMobileMenu() {
+            var nav = document.getElementById('mainNav');
+            var btn = document.getElementById('menuBtn');
+            nav.classList.toggle('show-menu');
+            btn.innerHTML = nav.classList.contains('show-menu') ? '✕' : '☰';
+        }
+
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            var name = document.getElementById('wa_name').value.trim();
+            var phone = document.getElementById('wa_phone').value.trim();
+            var email = document.getElementById('wa_email').value.trim() || 'उपलब्ध नहीं';
+            var unit = document.getElementById('wa_unit').value;
+            var msg = document.getElementById('wa_msg').value.trim();
+
+            var text = "🙏 *नमस्ते फ्लेयर फाउंडेशन!*%0A" +
+                       "वेबसाइट से नया संपर्क विवरण प्राप्त हुआ है:%0A%0A" +
+                       "👤 *नाम:* " + encodeURIComponent(name) + "%0A" +
+                       "📱 *मोबाइल:* " + encodeURIComponent(phone) + "%0A" +
+                       "✉️ *ईमेल:* " + encodeURIComponent(email) + "%0A" +
+                       "🏢 *संबंधित इकाई:* " + encodeURIComponent(unit) + "%0A" +
+                       "💬 *संदेश:* " + encodeURIComponent(msg);
+
+            var whatsappUrl = "https://wa.me/917050668855?text=" + text;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'c' || e.key === 'C')) {
+                e.preventDefault();
+            }
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
