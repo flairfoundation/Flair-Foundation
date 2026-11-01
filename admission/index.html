@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="hi" oncontextmenu="return false">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>नामांकन प्रारंभ (Admission 2027-28) | Flair Foundation</title>
+    
+    <!-- 100% Working Favicon -->
+    <link rel="icon" type="image/png" href="https://flairfoundation.org.in/logo.png">
+    <link rel="shortcut icon" type="image/png" href="/logo.png">
+    <link rel="apple-touch-icon" href="https://flairfoundation.org.in/logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            background-color: #f4f7fb;
+            color: #1e293b;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        /* ===== सेम टू सेम हेडर, लोगो और मोबाइल 3-लाइन (Hamburger) मेनू ===== */
+        header {
+            background: linear-gradient(90deg, #092659 0%, #0d3880 100%);
+            color: white;
+            padding: 12px 3%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .brand-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 2px;
+            object-fit: contain;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+
+        .brand-title h1 {
+            color: #ff8c1a;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            line-height: 1.15;
+        }
+
+        .brand-title p {
+            font-size: 13px;
+            color: #e2e8f0;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            color: #ffffff;
+            font-size: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            background: #f5b014;
+            color: #092659;
+        }
+
+        nav {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 8px 13px;
+            border-radius: 6px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        nav a.active {
+            background-color: #f5b014;
+            color: #092659;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(245, 176, 20, 0.35);
+        }
+
+        /* ===== सूचना पट्टी (Ticker Bar) ===== */
+        .notice-bar {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 7px 2%;
+            font-size: 13.5px;
+            color: #0d3880;
+            font-weight: 600;
+        }
+
+        /* ===== एडमिशन हीरो बैनर ===== */
+        .admission-hero {
+            background: linear-gradient(135deg, #092659 0%, #174ea6 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .admission-badge {
+            display: inline-block;
+            background: #f5b014;
+            color: #092659;
+            font-weight: 800;
+            font-size: 14.5px;
+            padding: 7px 20px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            animation: pulseBadge 2s infinite;
+            box-shadow: 0 4px 15px rgba(245, 176, 20, 0.4);
+        }
+
+        @keyframes pulseBadge {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .admission-hero h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .admission-hero h2 span {
+            color: #ffd700;
+        }
+
+        .admission-hero p {
+            max-width: 780px;
+            margin: 0 auto;
+            color: #e0f2fe;
+            font-size: 16px;
+        }
+
+        /* ===== कोर्सेस और योजना ग्रिड (Cards) =====  */
+        .container {
+            max-width: 1150px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 26px;
+            color: #092659;
+            font-weight: 800;
+        }
+
+        .admission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .admission-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            border-top: 5px solid #092659;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .admission-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 16px 32px rgba(9, 38, 89, 0.14);
+            border-top-color: #f5b014;
+        }
+
+        .card-top-tag {
+            background: #eff6ff;
+            color: #0d3880;
+            font-size: 12.5px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 6px;
+            width: fit-content;
+            margin-bottom: 12px;
+        }
+
+        .admission-card h3 {
+            color: #092659;
+            font-size: 21px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .admission-card p {
+            color: #475569;
+            font-size: 14.5px;
+            margin-bottom: 18px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 22px;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 14px;
+        }
+
+        .features-list li {
+            font-size: 14px;
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .apply-btn {
+            display: block;
+            text-align: center;
+            background: #092659;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: background 0.25s ease, transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(9, 38, 89, 0.2);
+        }
+
+        .apply-btn:hover {
+            background: #f5b014;
+            color: #092659;
+            transform: translateY(-2px);
+        }
+
+        /* ===== एडमिशन प्रक्रिया (Step by Step) ===== */
+        .process-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 45px;
+        }
+
+        .process-box h3 {
+            color: #092659;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .step-item {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #f5b014;
+        }
+
+        .step-item h4 {
+            color: #092659;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .step-item p {
+            font-size: 13.5px;
+            color: #475569;
+        }
+
+        /* ===== सेम टू सेम फुटर ===== */
+        footer {
+            background: linear-gradient(90deg, #092659 0%, #0d3880 100%);
+            color: #e2e8f0;
+            padding: 40px 4% 20px;
+            margin-top: 40px;
+        }
+
+        .footer-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .footer-col h4 {
+            color: #ff8c1a;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #cbd5e1;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .footer-col a:hover {
+            color: #f5b014;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 18px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #092659;
+                padding: 12px 4%;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
+                gap: 6px;
+            }
+
+            nav.show-menu {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: left;
+                padding: 11px 15px;
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .admission-hero h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- सेम टू सेम हेडर, लोगो और मोबाइल 3-लाइन बटन -->
+    <header>
+        <a href="https://flairfoundation.org.in/" class="brand-box">
+            <img src="https://flairfoundation.org.in/logo.png" onerror="this.onerror=null;this.src='/logo.png';" alt="Flair Foundation Logo" class="brand-logo">
+            <div class="brand-title">
+                <h1>FLAIR FOUNDATION</h1>
+                <p>निःशुल्क शिक्षा प्रसार अभियान</p>
+            </div>
+        </a>
+
+        <!-- मोबाइल के लिए 3-लाइन वाला बटन -->
+        <button class="menu-toggle" id="menuBtn" aria-label="Menu" onclick="toggleMobileMenu()">
+            ☰
+        </button>
+
+        <!-- नेविगेशन मेनू -->
+        <nav id="mainNav">
+            <a href="/">HOME</a>
+            <a href="/buddha-library/">BUDDHA LIBRARY</a>
+            <a href="/pakka-traders/">PAKKA TRADERS</a>
+            <a href="/buddha-parking/">BUDDHA PARKING</a>
+            <a href="/hostel/">HOSTEL</a>
+            <a href="/admission/" class="active">ADMISSION</a>
+            <a href="/notice/">NOTICE</a>
+            <a href="/#about">ABOUT US</a>
+            <a href="/contact/">CONTACT</a>
+        </nav>
+    </header>
+
+    <!-- सूचना पट्टी -->
+    <div class="notice-bar">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+            📢 शैक्षणिक सत्र 2027-28 के लिए नामांकन प्रक्रिया प्रारंभ! निःशुल्क शिक्षा अभियान, बुद्धा लाइब्रेरी एवं मात्र ₹999/- प्रति माह वाले छात्रावास योजना हेतु आवेदन करें।
+        </marquee>
+    </div>
+
+    <!-- एडमिशन हीरो बैनर -->
+    <section class="admission-hero">
+        <div class="admission-badge">🎓 शैक्षणिक सत्र 2027-28 • नामांकन प्रारंभ (Admission Open)</div>
+        <h2>फ्लेयर फाउंडेशन में <span>प्रवेश एवं नामांकन</span></h2>
+        <p>प्रतिभावान और जरूरतमंद विद्यार्थियों के लिए शिक्षा, स्वाध्याय और आवासीय सुविधाओं के द्वार खुल चुके हैं। आज ही आवेदन करें और अपने भविष्य को सुदृढ़ बनाएं!</p>
+    </section>
+
+    <!-- कोर्सेस और योजनाओं के कार्ड्स -->
+    <div class="container">
+        <h2 class="section-title">✨ सत्र 2027-28 हेतु उपलब्ध योजनाएं एवं कक्षाएं</h2>
+        
+        <div class="admission-grid">
+            
+            <!-- 1. Free Education (Nursery to 12th) -->
+            <div class="admission-card">
+                <div>
+                    <span class="card-top-tag">निःशुल्क शिक्षा अभियान</span>
+                    <h3>स्कूल शिक्षा (नर्सरी से 12वीं तक)</h3>
+                    <p>वर्ष 2017 से निरंतर संचालित इस अभियान के तहत स्कूली बच्चों को उच्च गुणवत्तापूर्ण शिक्षा और नैतिक मार्गदर्शन दिया जाता है।</p>
+                    <ul class="features-list">
+                        <li><span>✅</span> नर्सरी से 12वीं तक निःशुल्क पठन-पाठन</li>
+                        <li><span>✅</span> अनुभवी शिक्षकों द्वारा विशेष मार्गदर्शन</li>
+                        <li><span>✅</span> निःशुल्क बेसिक कंप्यूटर प्रशिक्षण कोर्स</li>
+                        <li><span>✅</span> 'कुसुम' छात्रवृत्ति एवं प्रतिभा प्रोत्साहन</li>
+                    </ul>
+                </div>
+                <a href="/contact/" class="apply-btn">📝 प्रवेश हेतु संपर्क करें</a>
+            </div>
+
+            <!-- 2. Hostel Facility (₹999/month) -->
+            <div class="admission-card" style="border-top-color: #f5b014;">
+                <div>
+                    <span class="card-top-tag" style="background: #fef3c7; color: #d97706;">प्रवेश परीक्षा आधारित</span>
+                    <h3>छात्रावास (Hostel Facility) - ₹999/माह</h3>
+                    <p>प्रतियोगी परीक्षाओं (UPSC, BPSC, SSC, Railway) या बोर्ड की तैयारी करने वाले छात्रों के लिए प्रवेश परीक्षा सह आवास योजना।</p>
+                    <ul class="features-list">
+                        <li><span>🛏️</span> स्वच्छ और अनुशासित आवासीय कमरे</li>
+                        <li><span>🍲</span> घर जैसा शुद्ध और पौष्टिक भोजन</li>
+                        <li><span>🏛️</span> बुद्धा लाइब्रेरी की पूर्ण सुविधा</li>
+                        <li><span>🛡️</span> 24x7 सीसीटीवी सुरक्षा एवं पावर बैकअप</li>
+                    </ul>
+                </div>
+                <a href="/hostel/" class="apply-btn">🏢 हॉस्टल योजना विवरण देखें</a>
+            </div>
+
+            <!-- 3. Buddha Library Membership -->
+            <div class="admission-card">
+                <div>
+                    <span class="card-top-tag">अत्याधुनिक स्वाध्याय केंद्र</span>
+                    <h3>बुद्धा लाइब्रेरी (250 सीट्स)</h3>
+                    <p>शांत वातावरण और आधुनिक सुविधाओं से सुसज्जित 250 सीटों वाली लाइब्रेरी में सेल्फ-स्टडी के लिए सीट बुकिंग।</p>
+                    <ul class="features-list">
+                        <li><span>📚</span> 250 सीटों का विशाल और शांत स्टडी हॉल</li>
+                        <li><span>🛜</span> हाई-स्पीड डुअल फाइबर वाई-फाई इंटरनेट</li>
+                        <li><span>❄️</span> आरामदायक केबिन, शीतल पेयजल एवं प्रकाश व्यवस्था</li>
+                        <li><span>⏰</span> सुविधानुसार अध्ययन के लिए उचित समय</li>
+                    </ul>
+                </div>
+                <a href="/buddha-library/" class="apply-btn">🏛️ लाइब्रेरी की पूरी जानकारी</a>
+            </div>
+
+        </div>
+
+        <!-- एडमिशन प्रक्रिया बॉक्स -->
+        <div class="process-box">
+            <h3>📋 सत्र 2027-28 के लिए प्रवेश/नामांकन प्रक्रिया</h3>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <h4>स्टेप 1: संपर्क या रजिस्ट्रेशन</h4>
+                    <p>इच्छुक छात्र हमारे बंका घाट (कच्ची दरगाह, पटना) कार्यालय आएं या नीचे दिए गए नंबर पर संपर्क करें।</p>
+                </div>
+                <div class="step-item">
+                    <h4>स्टेप 2: पात्रता जाँच / परीक्षा</h4>
+                    <p>छात्रावास एवं विशेष योजनाओं के लिए संस्था के नियमानुसार साधारण प्रवेश परीक्षा या साक्षात्कार लिया जाएगा।</p>
+                </div>
+                <div class="step-item">
+                    <h4>स्टेप 3: दस्तावेज सत्यापन</h4>
+                    <p>छात्र का आधार कार्ड, पासपोर्ट साइज फोटो और पिछले शैक्षणिक प्रमाण-पत्र की छायाप्रति जमा होगी।</p>
+                </div>
+                <div class="step-item">
+                    <h4>स्टेप 4: अंतिम प्रवेश</h4>
+                    <p>सफल एवं योग्य विद्यार्थियों को संस्था की ओर से कक्षा, लाइब्रेरी या छात्रावास का आवंटन कर दिया जाएगा।</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- सेम टू सेम फुटर -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>FLAIR FOUNDATION</h4>
+                <p>निःशुल्क शिक्षा प्रसार अभियान (स्थापित - 2017)</p>
+                <p>शिक्षा, स्वाध्याय और आत्मनिर्भर समाज के निर्माण में समर्पित जन-कल्याणकारी संस्था।</p>
+            </div>
+            <div class="footer-col">
+                <h4>हमारी इकाइयाँ (Our Units)</h4>
+                <a href="/">🎓 निःशुल्क शिक्षा अभियान</a>
+                <a href="/buddha-library/">🏛️ बुद्धा लाइब्रेरी (250 Seats)</a>
+                <a href="/pakka-traders/">🌾 पक्का ट्रेडर्स (फूलबासो मंडी)</a>
+                <a href="/buddha-parking/">⚡ बुद्धा पार्किंग एवं EV चार्जिंग</a>
+                <a href="/hostel/">🏢 छात्रावास योजना (Hostel Facility)</a>
+            </div>
+            <div class="footer-col">
+                <h4>संपर्क सूत्र (Contact Us)</h4>
+                <p>📍 पता: बंका घाट रेलवे स्टेशन रोड, कच्ची दरगाह, पटना, बिहार</p>
+                <p>📱 मोबाइल: +91 7050668855</p>
+                <p>☎️ लैंडलाइन: 0612-2641161</p>
+                <p>✉️ ईमेल: info@flairfoundation.org.in</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2017–2026 Flair Foundation. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle + Security Script -->
+    <script>
+        function toggleMobileMenu() {
+            var nav = document.getElementById('mainNav');
+            var btn = document.getElementById('menuBtn');
+            nav.classList.toggle('show-menu');
+            btn.innerHTML = nav.classList.contains('show-menu') ? '✕' : '☰';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'c' || e.key === 'C')) {
+                e.preventDefault();
+            }
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
