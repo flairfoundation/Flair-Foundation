@@ -1,66 +1,95 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="hi" oncontextmenu="return false">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>छात्रावास (Hostel Facility) - Flair Foundation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <title>छात्रावास (Hostel Facility) | Flair Foundation</title>
+    <!-- सेम टू सेम फेविकॉन (Favicon) -->
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="shortcut icon" type="image/png" href="../logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         body {
             background-color: #f4f7fb;
-            color: #2c3e50;
-            line-height: 1.6;
+            color: #1e293b;
+            line-height: 1.65;
+            overflow-x: hidden;
         }
 
-        /* Header Matching Your Website */
+        /* ===== सेम टू सेम हेडर और लोगो ===== */
         header {
-            background-color: #0d3878;
+            background: linear-gradient(90deg, #092659 0%, #0d3880 100%);
             color: white;
-            padding: 15px 5%;
+            padding: 12px 3%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
+            gap: 15px;
         }
 
-        .brand h1 {
-            color: #ff9933;
-            font-size: 24px;
-            font-weight: 700;
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .brand-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 2px;
+            object-fit: contain;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+
+        .brand-title h1 {
+            color: #ff8c1a;
+            font-size: 22px;
+            font-weight: 800;
             letter-spacing: 0.5px;
+            line-height: 1.15;
         }
 
-        .brand p {
+        .brand-title p {
             font-size: 13px;
-            color: #e0e6ed;
+            color: #e2e8f0;
+            font-weight: 500;
+            margin-top: 2px;
         }
 
         nav {
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+            gap: 6px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: #ffffff;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 600;
-            padding: 8px 14px;
+            padding: 7px 13px;
             border-radius: 6px;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
+            white-space: nowrap;
         }
 
         nav a:hover {
@@ -68,12 +97,23 @@
         }
 
         nav a.active {
-            background-color: #eab308;
-            color: #0d3878;
+            background-color: #f5b014;
+            color: #092659;
             font-weight: 700;
+            box-shadow: 0 2px 8px rgba(245, 176, 20, 0.35);
         }
 
-        /* Hero Banner with Floating Effect */
+        /* ===== सूचना पट्टी (Ticker Bar) ===== */
+        .notice-bar {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 7px 2%;
+            font-size: 13.5px;
+            color: #0d3880;
+            font-weight: 600;
+        }
+
+        /* ===== मुख्य बैनर (Hero Card with Floating Effect) ===== */
         .hero-container {
             max-width: 1150px;
             margin: 30px auto;
@@ -81,18 +121,17 @@
         }
 
         .hero-card {
-            background: linear-gradient(135deg, #0d3878 0%, #1e5297 100%);
+            background: linear-gradient(135deg, #0b3476 0%, #174ea6 100%);
             border-radius: 18px;
             overflow: hidden;
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            box-shadow: 0 15px 35px rgba(13, 56, 120, 0.2);
-            color: white;
-            position: relative;
+            grid-template-columns: 1.25fr 1fr;
+            box-shadow: 0 15px 35px rgba(11, 52, 118, 0.22);
+            color: #ffffff;
         }
 
         .hero-text {
-            padding: 40px;
+            padding: 38px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -100,28 +139,29 @@
 
         .floating-badge {
             display: inline-block;
-            background: #eab308;
-            color: #0d3878;
+            background: #f5b014;
+            color: #092659;
             font-weight: 700;
-            font-size: 13px;
-            padding: 6px 14px;
+            font-size: 13.5px;
+            padding: 6px 16px;
             border-radius: 50px;
             width: fit-content;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             animation: floatBadge 3s ease-in-out infinite;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         @keyframes floatBadge {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-6px); }
+            50% { transform: translateY(-5px); }
         }
 
         .hero-text h2 {
-            font-size: 28px;
+            font-size: 29px;
             line-height: 1.35;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             color: #ffffff;
+            font-weight: 800;
         }
 
         .hero-text h2 span {
@@ -129,17 +169,18 @@
         }
 
         .hero-text p {
-            font-size: 15px;
-            color: #dce6f7;
-            margin-bottom: 20px;
+            font-size: 15.5px;
+            color: #e0f2fe;
+            margin-bottom: 22px;
         }
 
         .price-tag {
-            background: rgba(255, 255, 255, 0.12);
-            border-left: 4px solid #eab308;
-            padding: 12px 18px;
+            background: rgba(255, 255, 255, 0.14);
+            border-left: 4px solid #f5b014;
+            padding: 13px 18px;
             border-radius: 8px;
             font-size: 16px;
+            color: #ffffff;
         }
 
         .price-tag strong {
@@ -156,14 +197,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .img-overlay-badge {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #0d3878;
-            color: #fff;
+            top: 18px;
+            right: 18px;
+            background: #092659;
+            color: #ffffff;
             padding: 6px 15px;
             border-radius: 20px;
             font-size: 13px;
@@ -171,13 +213,14 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        /* Features Section - Floating Cards */
+        /* ===== फ्लोटिंग सुविधा कार्ड्स ===== */
         .section-title {
             text-align: center;
             margin: 40px 0 25px;
             font-size: 24px;
-            color: #0d3878;
-            font-weight: 700;
+            color: #092659;
+            font-weight: 800;
+            padding: 0 15px;
         }
 
         .cards-grid {
@@ -194,34 +237,35 @@
             padding: 25px;
             border-radius: 14px;
             box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-            border-top: 4px solid #0d3878;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            border-top: 4px solid #0d3880;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 14px 28px rgba(13, 56, 120, 0.14);
-            border-top-color: #eab308;
+            transform: translateY(-7px);
+            box-shadow: 0 14px 28px rgba(13, 56, 128, 0.14);
+            border-top-color: #f5b014;
         }
 
         .feature-icon {
             font-size: 32px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: inline-block;
         }
 
         .feature-card h3 {
             font-size: 18px;
-            color: #0d3878;
+            color: #092659;
             margin-bottom: 8px;
+            font-weight: 700;
         }
 
         .feature-card p {
-            font-size: 14px;
-            color: #555;
+            font-size: 14.5px;
+            color: #334155;
         }
 
-        /* Selection & Rules Two-Column Box */
+        /* ===== चयन प्रक्रिया और नियम ===== */
         .info-split {
             max-width: 1150px;
             margin: 40px auto;
@@ -232,18 +276,20 @@
         }
 
         .info-box {
-            background: white;
+            background: #ffffff;
             padding: 28px;
             border-radius: 14px;
             box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
         }
 
         .info-box h3 {
-            color: #0d3878;
+            color: #092659;
             font-size: 20px;
             margin-bottom: 16px;
-            border-bottom: 2px solid #f0f4f8;
+            border-bottom: 2px solid #f1f5f9;
             padding-bottom: 10px;
+            font-weight: 700;
         }
 
         .step-list {
@@ -253,96 +299,116 @@
         .step-list li {
             margin-bottom: 12px;
             font-size: 14.5px;
+            color: #1e293b;
             display: flex;
             align-items: flex-start;
             gap: 10px;
         }
 
-        /* Contact Footer Banner */
-        .contact-banner {
+        /* ===== सेम टू सेम फुटर ===== */
+        footer {
+            background: linear-gradient(90deg, #092659 0%, #0d3880 100%);
+            color: #e2e8f0;
+            padding: 40px 4% 20px;
+            margin-top: 40px;
+        }
+
+        .footer-grid {
             max-width: 1150px;
-            margin: 30px auto 50px;
-            padding: 0 20px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
         }
 
-        .contact-inner {
-            background: #ffffff;
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 25px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        .footer-col h4 {
+            color: #ff8c1a;
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
-        .contact-details h4 {
-            color: #0d3878;
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-
-        .contact-details p {
-            font-size: 14.5px;
-            color: #444;
-            margin-bottom: 4px;
-        }
-
-        .cta-btn {
-            background: #0d3878;
-            color: white;
+        .footer-col p, .footer-col a {
+            color: #cbd5e1;
+            font-size: 14px;
             text-decoration: none;
-            padding: 12px 26px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: background 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 12px rgba(13, 56, 120, 0.25);
+            display: block;
+            margin-bottom: 6px;
         }
 
-        .cta-btn:hover {
-            background: #eab308;
-            color: #0d3878;
-            transform: scale(1.04);
+        .footer-col a:hover {
+            color: #f5b014;
         }
 
-        @media (max-width: 768px) {
+        .footer-bottom {
+            text-align: center;
+            padding-top: 18px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 850px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 12px 3%;
+            }
+            nav {
+                justify-content: center;
+                width: 100%;
+                padding-top: 8px;
+                border-top: 1px solid rgba(255,255,255,0.12);
+            }
             .hero-card, .info-split {
                 grid-template-columns: 1fr;
             }
             .hero-text {
                 padding: 25px;
             }
+            .hero-text h2 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation Matching Flair Foundation -->
+    <!-- सेम टू सेम हेडर और लोगो -->
     <header>
-        <div class="brand">
-            <h1>FLAIR FOUNDATION</h1>
-            <p>निःशुल्क शिक्षा प्रसार अभियान</p>
-        </div>
+        <a href="../" class="brand-box">
+            <img src="../logo.png" onerror="this.src='/logo.png'" alt="Flair Foundation Logo" class="brand-logo">
+            <div class="brand-title">
+                <h1>FLAIR FOUNDATION</h1>
+                <p>निःशुल्क शिक्षा प्रसार अभियान</p>
+            </div>
+        </a>
         <nav>
-            <a href="index.html">HOME</a>
-            <a href="buddha-library.html">BUDDHA LIBRARY</a>
-            <a href="pakka-traders.html">PAKKA TRADERS</a>
-            <a href="buddha-parking.html">BUDDHA PARKING</a>
-            <a href="hostel.html" class="active">HOSTEL</a>
-            <a href="admission.html">ADMISSION</a>
-            <a href="notice.html">NOTICE</a>
-            <a href="about.html">ABOUT US</a>
+            <a href="../">HOME</a>
+            <a href="../buddha-library/">BUDDHA LIBRARY</a>
+            <a href="../pakka-traders/">PAKKA TRADERS</a>
+            <a href="../buddha-parking/">BUDDHA PARKING</a>
+            <a href="../hostel/" class="active">HOSTEL</a>
+            <a href="../#admission">ADMISSION</a>
+            <a href="../#notice">NOTICE</a>
+            <a href="../#about">ABOUT US</a>
+            <a href="../#contact">CONTACT</a>
         </nav>
     </header>
 
-    <!-- Main Hero Section with Picture & Floating Badge -->
+    <!-- सूचना पट्टी -->
+    <div class="notice-bar">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+            📢 महत्वपूर्ण सूचना: फ्लेयर फाउंडेशन के अंतर्गत नर्सरी से 12वीं कक्षा तक निःशुल्क शिक्षा अभियान एवं प्रवेश परीक्षा में सफल छात्रों के लिए मात्र ₹999/- प्रति माह में छात्रावास (Hostel Facility), शुद्ध भोजन एवं बुद्धा लाइब्रेरी की सुविधा उपलब्ध है!
+        </marquee>
+    </div>
+
+    <!-- मुख्य हॉस्टल कार्ड (फोटो व फ्लोटिंग बैज के साथ) -->
     <div class="hero-container">
         <div class="hero-card">
             <div class="hero-text">
-                <div class="floating-badge">✨ विश्वास 2017 से • ESTD 2017</div>
+                <div class="floating-badge">✨ विश्वास 2017 से</div>
                 <h2>फ्लेयर फाउंडेशन – प्रवेश परीक्षा सह <span>छात्रावास (Hostel Facility)</span> योजना</h2>
                 <p>पटना में रहकर अपनी पढ़ाई और प्रतियोगी परीक्षाओं की तैयारी करने वाले प्रतिभावान और जरूरतमंद छात्रों के लिए विशेष चयन परीक्षा (Entrance Exam) के माध्यम से आवासीय सुविधा।</p>
                 <div class="price-tag">
@@ -352,13 +418,12 @@
             </div>
             <div class="hero-image-box">
                 <span class="img-overlay-badge">🏢 सुरक्षित परिसर</span>
-                <!-- Clean Student Hostel/Study Room Image -->
                 <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=900&q=80" alt="Flair Foundation Hostel Facility">
             </div>
         </div>
     </div>
 
-    <!-- Floating Feature Cards (Short & Crisp) -->
+    <!-- 4 फ्लोटिंग सुविधा कार्ड्स -->
     <h2 class="section-title">🌟 मात्र ₹999/- प्रतिमाह में मिलने वाली सुविधाएं</h2>
     <div class="cards-grid">
         <div class="feature-card">
@@ -383,14 +448,14 @@
         </div>
     </div>
 
-    <!-- Selection Process & Rules -->
+    <!-- चयन प्रक्रिया और नियम -->
     <div class="info-split">
         <div class="info-box">
             <h3>📝 चयन प्रक्रिया (Selection Process)</h3>
             <ul class="step-list">
                 <li><span>1️⃣</span> <div><strong>ऑनलाइन/ऑफलाइन आवेदन:</strong> इच्छुक छात्र निर्धारित तिथि से पूर्व अपना आवेदन फॉर्म जमा करें।</div></li>
                 <li><span>2️⃣</span> <div><strong>प्रवेश परीक्षा (Entrance Exam):</strong> संस्था द्वारा एक निष्पक्ष योग्यता परीक्षा आयोजित की जाएगी।</div></li>
-                <li><span>3️⃣</span> <div><strong>अंतिम मेरिट चयन:</strong> परीक्षा में प्राप्त अंकों और छात्र की पात्रता के आधार पर छात्रावास व लाइब्रेरी आवंटित की जाएगी। <em>(सीटें सीमित हैं)</em></div></li>
+                <li><span>3️⃣</span> <div><strong>अंतिम मेरिट चयन:</strong> परीक्षा में प्राप्त अंकों और छात्र की पात्रता के आधार पर छात्रावास (Hostel Facility) व लाइब्रेरी आवंटित की जाएगी। <em>(सीटें सीमित हैं)</em></div></li>
             </ul>
         </div>
 
@@ -404,18 +469,45 @@
         </div>
     </div>
 
-    <!-- Contact Section -->
-    <div class="contact-banner">
-        <div class="contact-inner">
-            <div class="contact-details">
-                <h4>📞 प्रवेश एवं जानकारी के लिए संपर्क करें</h4>
-                <p>📍 <strong>पता:</strong> बंका घाट रेलवे स्टेशन रोड, कच्ची दरगाह, पटना, बिहार</p>
-                <p>📱 <strong>मोबाइल:</strong> +91 7050668855 &nbsp;|&nbsp; ☎️ <strong>लैंडलाइन:</strong> 0612-2641161</p>
-                <p>✉️ <strong>ईमेल:</strong> info@flairfoundation.org.in</p>
+    <!-- फुटर -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>FLAIR FOUNDATION</h4>
+                <p>निःशुल्क शिक्षा प्रसार अभियान (स्थापित - 2017)</p>
+                <p>शिक्षा, स्वाध्याय और आत्मनिर्भर समाज के निर्माण में समर्पित जन-कल्याणकारी संस्था।</p>
             </div>
-            <a href="tel:+917050668855" class="cta-btn">📲 अभी कॉल करें</a>
+            <div class="footer-col">
+                <h4>हमारी इकाइयाँ (Our Units)</h4>
+                <a href="../">🎓 निःशुल्क शिक्षा अभियान</a>
+                <a href="../buddha-library/">🏛️ बुद्धा लाइब्रेरी (250 Seats)</a>
+                <a href="../pakka-traders/">🌾 पक्का ट्रेडर्स (फूलबासो मंडी)</a>
+                <a href="../buddha-parking/">⚡ बुद्धा पार्किंग एवं EV चार्जिंग</a>
+                <a href="../hostel/">🏢 छात्रावास योजना (Hostel Facility)</a>
+            </div>
+            <div class="footer-col">
+                <h4>संपर्क सूत्र (Contact Us)</h4>
+                <p>📍 पता: बंका घाट रेलवे स्टेशन रोड, कच्ची दरगाह, पटना, बिहार</p>
+                <p>📱 मोबाइल: +91 7050668855</p>
+                <p>☎️ लैंडलाइन: 0612-2641161</p>
+                <p>✉️ ईमेल: info@flairfoundation.org.in</p>
+            </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            © 2017–2026 Flair Foundation. All Rights Reserved.
+        </div>
+    </footer>
 
+    <!-- Security Protection -->
+    <script>
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'c' || e.key === 'C')) {
+                e.preventDefault();
+            }
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
